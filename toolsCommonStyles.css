@@ -107,6 +107,7 @@
   padding: 1rem;
   overflow-x: auto;
   height: 580px;
+  padding-bottom: 80px;
 }
 
 /* Modal Footer */
@@ -229,3 +230,38 @@
   right: 0;
   border-radius: 20rem 0 20rem 20rem;
 }
+
+
+/* Speaker card css */
+
+
+
+.speaker-card{     
+  width: 145px; 
+  margin-bottom: 15px;
+  height: 200px;
+  padding-top: 10rem;
+  overflow: hidden;
+} 
+ 
+.speaker-card .speaker-img{ 
+  position: absolute;
+  right: -1.8rem;
+  top: -1.8rem;
+  z-index: 1; 
+  overflow: hidden;
+  border-radius: 20rem 0 20rem 20rem; 
+}
+
+.speaker-card .speaker-img:before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 11;
+  border: 1.2rem solid #ED7767;
+  top: 0;
+  right: 0;
+  border-radius: 20rem 0 20rem 20rem;
+}
+
