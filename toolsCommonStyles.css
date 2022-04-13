@@ -166,7 +166,7 @@
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid #d3d3d3;
-  border-radius: .25rem;
+  border-radius: .75rem;
 }
 
 .button {
@@ -239,7 +239,7 @@
 .speaker-card{     
   width: 145px; 
   margin-bottom: 15px;
-  height: 200px;
+  height: 210px;
   padding-top: 10rem;
   overflow: hidden;
 } 

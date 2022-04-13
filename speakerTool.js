@@ -3,7 +3,7 @@ const searchButton =  `<button id="search-btn" class="button">Search</button>`;
 const productItemsTemplate = _.template(`
 <% _.forEach(speakers, function(item) { %>
   <div class="product-item card" id="product-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
-  <div class="product-media"> <img src="<%= item.profile_img %>" style="height:11rem; width: 11rem;" /> </div>
+  <div class="product-media"> <img src="<%= item.profile_img %>" style="height:11rem; width: 11rem;object-fit:cover" /> </div>
     <h4 style="margin:5px 10px 0; text-align: left; color: ${theme.primary};"><%= item.name %> </h4>
     <h5 style="margin:5px 10px 0; text-align: left;color: ${theme.secondary};"><%= item.designation %>,<%= item.company %> </h5>
   </div>
@@ -40,7 +40,7 @@ const toolTemplate = function (values, isViewer = false) {
   return `
   <div class="speaker-card card"> 
   <div class="speaker-img">
-  <img src="${values?.speakerImage?.url ? values?.speakerImage?.url : 'https://cms-assets.tutsplus.com/cdn-cgi/image/width=630/uploads/users/988/posts/31255/image/What-is-public-speaking%20(1).jpg'}" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
+  <img src="${values?.speakerImage?.url ? values?.speakerImage?.url : 'https://cms-assets.tutsplus.com/cdn-cgi/image/width=630/uploads/users/988/posts/31255/image/What-is-public-speaking%20(1).jpg'}" style="height:11rem; width: 11rem; object-fit:cover" />
   </div>
   <h3 style="margin:5px 10px 0; font-size:15px; color: ${values.speakerTitleColor};">${values.speakerTitle ? values.speakerTitle : 'Speaker Name'}</h3>
   <h4 style="margin:5px 10px 0;font-size:13px; color: ${values.speakerDesignationCompanyColor};">
