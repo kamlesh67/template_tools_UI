@@ -187,3 +187,28 @@
 .bootstrap button {
   border-radius: 0.25rem;
 }
+
+
+
+/* Modal List card css */
+
+.products-list{
+  display: flex;
+}
+.product-item{ 
+    width: 150px; 
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+.product-item .product-media{ 
+  position: absolute;
+  right: -1.8rem;
+  top: -1.8rem;
+  z-index: 1;
+  height: 16rem;
+  width: 16rem;
+  overflow: hidden;
+  border-radius: 20rem 0 20rem 20rem;
+  transition: all .25s;
+}
+

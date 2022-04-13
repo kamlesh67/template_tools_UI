@@ -2,8 +2,8 @@ const editorTemplate = `<button id="addProduct" class="button">Add Speaker</butt
 const searchButton =  `<button id="search-btn" class="button">Search</button>`;
 const productItemsTemplate = _.template(`
 <% _.forEach(speakers, function(item) { %>
-  <div class="product-item" id="product-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
-  <img src="<%= item.profile_img %>" style="max-height: 150px;min-height: 100px;width: 100%;" />
+  <div class="product-item card" id="product-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
+  <div class="product-media"> <img src="<%= item.profile_img %>" style="height:100px; width: 100px;" /> </div>
     <h4 style="margin: 8px 0; text-align: left; color: ${theme.primary};"><%= item.name %> </h4>
     <h5 style="margin: 8px 0; text-align: left;color: ${theme.secondary};"><%= item.designation %>,<%= item.company %> </h5>
   </div>
