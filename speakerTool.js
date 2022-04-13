@@ -1,5 +1,5 @@
-const editorTemplate = `<button id="addProduct" class="button" style="color: ${theme.secondary};background-color:${theme.primary};">Add Speaker</button>`;
-const searchButton =  `<button id="search-btn" class="button" style="width: 20%;color: ${theme.secondary};background-color:${theme.primary};">Search</button>`;
+const editorTemplate = `<button id="addProduct" class="button">Add Speaker</button>`;
+const searchButton =  `<button id="search-btn" class="button">Search</button>`;
 const productItemsTemplate = _.template(`
 <% _.forEach(speakers, function(item) { %>
   <div class="product-item" id="product-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
@@ -15,7 +15,8 @@ const modalTemplate = function (data) {
   <div class="modal" id="product_library_modal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-headSpeaker Name Color
+        er">
           <h3 class="modal-title">Speaker List</h3>
           <button class="close" id="modalCloseBtn">&times;</button>
         </div>
@@ -38,7 +39,7 @@ const modalTemplate = function (data) {
 
 const toolTemplate = function (values, isViewer = false) {
   return `
-  <div class="speaker-card"> 
+  <div class="speaker-card card"> 
   <div class="speaker-img">
   <img src="${values?.speakerImage?.url ? values?.speakerImage?.url : 'https://cms-assets.tutsplus.com/cdn-cgi/image/width=630/uploads/users/988/posts/31255/image/What-is-public-speaking%20(1).jpg'}" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
   </div>
