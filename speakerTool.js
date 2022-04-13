@@ -15,14 +15,13 @@ const modalTemplate = function (data) {
   <div class="modal" id="product_library_modal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-headSpeaker Name Color
-        er">
+        <div class="modal-header">
           <h3 class="modal-title">Speaker List</h3>
           <button class="close" id="modalCloseBtn">&times;</button>
         </div>
         <div class="modal-body">
           <div class="search-box">
-            <input type="text" class="form-control" placeholder="Search by speaker name" id="search-bar" style="width: 78%" />
+            <input type="text" class="form-control" placeholder="Search by speaker name" id="search-bar" style="width:100%" />
             ${searchButton}
           </div>
           <div class="products-list">

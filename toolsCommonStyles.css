@@ -5,8 +5,8 @@
   margin-bottom: 0.75rem;
 }
 
-.search-box .button {
-  padding: 0.375rem 0.75rem;
+.search-box .button { 
+  margin-left: 15px;
 }
 
 .form-control {
@@ -76,8 +76,7 @@
 
 /* Modal Header */
 .modal-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  display: -webkit-box; 
   display: flex;
   -webkit-box-align: start;
   -ms-flex-align: start;
@@ -90,6 +89,7 @@
   border-bottom: 1px solid #e9ecef;
   border-top-left-radius: .3rem;
   border-top-right-radius: .3rem;
+  background-color: #f1f1f1;
 }
 
 /* Modal Header Title */
@@ -184,3 +184,6 @@
   cursor: pointer;
 }
 
+.bootstrap button {
+  border-radius: 0.25rem;
+}
