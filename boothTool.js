@@ -3,7 +3,7 @@ const searchButton = `<button id="search-btn" class="button" style="width: 20%;c
 const boothItemsTemplate = _.template(`<% _.forEach(booths, function(item) { %>
   <div class="booth-item" id="booth-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" >
   <img src="<%= item.profile_img %>" style="max-height: 150px;min-height: 100px;width: 100%;" />
-    <h4 style="margin: 8px 0; text-align: left; color: ${theme.primary};"><%= item.name %> </h4>
+    <h4 style="margin: 8px 0; text-align: center; color: ${theme.primary};"><%= item.name %> </h4>
   </div>
 <% }); %>`);
 
@@ -41,8 +41,8 @@ const toolTemplate = function (values, isViewer = false) {
         : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwaVn2Q6Hm6X6nA8nL9WlyVXGfCvUta1kQeA&usqp=CAU'
     }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
     </div>
-    <div class="booth-card-body" style="padding: 0 16px 16px;text-align: left;">
-    <h3 style="margin:5px 10px 0; font-size:15px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.boothName ? values.boothName : 'Booth Name'}</h3>
+    <div class="booth-card-body" style="text-align: center;">
+    <h3 style="margin:10px 10px 0; font-size:15px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.boothName ? values.boothName : 'Booth Name'}</h3>
     </div>
   </div>
   ${isViewer ? modalTemplate({ booths: values.data.booths }) : ''}`;
@@ -191,7 +191,7 @@ unlayer.registerTool({
   renderer: {
     Viewer: unlayer.createViewer({
       render(values) {
-        return toolTemplate(values, true);
+        return `<div class="booths-list"> ${toolTemplate(values, true)} </div>`
       },
     }),
     exporters: {

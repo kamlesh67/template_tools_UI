@@ -307,7 +307,7 @@
 
 /* Booth card css */
 .booth-card{     
-  width: 145px; 
+  width: 100%; 
   margin-bottom: 15px;
   height: 160px;
   padding: 1rem; 
@@ -320,5 +320,10 @@
 .booth-img{  
   border-radius: .8rem; 
   border: 1px solid #f1f1f1;
+  height: 85px;
+  width: 85px;
+  margin: auto;
+  display: flex;
+
 }
  
