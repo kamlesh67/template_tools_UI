@@ -2,8 +2,8 @@ const editorTemplate = `<button id="booth" class="button" style="color: ${theme.
 const searchButton = `<button id="search-btn" class="button" style="width: 20%;color: ${theme.secondary};background-color:${theme.primary};">Search</button>`;
 const boothItemsTemplate = _.template(`<% _.forEach(booths, function(item) { %>
   <div class="booths-item" id="booths-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" >
-  <div class="booth-media"> <img src="<%= item.profile_img %>" style="max-height: 150px;min-height: 100px;width: 100%;" /> </div>
-  <h4 style="margin: 8px 0; text-align: center; color: ${theme.primary};"><%= item.name %> </h4>
+  <div class="booth-media"> <img src="<%= item.profile_img %>" style="max-height: 90px;width: 100%; object-fit: contain;" /> </div>
+  <h4 style="margin: 8px 0; text-align: center; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.name %> </h4>
   </div>
 <% }); %>`);
 
@@ -42,7 +42,7 @@ const toolTemplate = function (values, isViewer = false) {
     }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
     </div>
     <div class="booth-card-body" style="text-align: center;">
-    <h3 style="margin:10px 10px 0; font-size:15px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.boothName ? values.boothName : 'Booth Name'}</h3>
+    <h3 style="margin:10px 10px 0; font-size:13px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.boothName ? values.boothName : 'Booth Name'}</h3>
     </div>
   </div>
   ${isViewer ? modalTemplate({ booths: values.data.booths }) : ''}`;
