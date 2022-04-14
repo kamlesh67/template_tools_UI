@@ -36,8 +36,8 @@ const modalTemplate = function (data) {
 
 const toolTemplate = function (values, isViewer = false) {
   return `
-  <div class="booth-card card"> 
-  <div class="booth-img">
+  <div class="speaker-card card"> 
+  <div class="speaker-img">
   <img src="${values?.speakerImage?.url ? values?.speakerImage?.url : 'https://cms-assets.tutsplus.com/cdn-cgi/image/width=630/uploads/users/988/posts/31255/image/What-is-public-speaking%20(1).jpg'}" style="height:11rem; width: 11rem; object-fit:cover" />
   </div>
   <h3 style="margin:5px 10px 0; font-size:15px; color: ${values.speakerTitleColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.speakerTitle ? values.speakerTitle : 'Speaker Name'}</h3>

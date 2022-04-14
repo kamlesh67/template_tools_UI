@@ -1,13 +1,11 @@
 const editorTemplate = `<button id="booth" class="button" style="color: ${theme.secondary};background-color:${theme.primary};">Add Booth</button>`;
 const searchButton = `<button id="search-btn" class="button" style="width: 20%;color: ${theme.secondary};background-color:${theme.primary};">Search</button>`;
-const boothItemsTemplate = _.template(`
-<% _.forEach(booths, function(item) { %>
+const boothItemsTemplate = _.template(`<% _.forEach(booths, function(item) { %>
   <div class="booth-item" id="booth-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" >
   <img src="<%= item.profile_img %>" style="max-height: 150px;min-height: 100px;width: 100%;" />
     <h4 style="margin: 8px 0; text-align: left; color: ${theme.primary};"><%= item.name %> </h4>
   </div>
-<% }); %>
-`);
+<% }); %>`);
 
 const modalTemplate = function (data) {
   return `
@@ -23,7 +21,7 @@ const modalTemplate = function (data) {
             <input type="text" class="form-control" placeholder="Search by booth name" id="search-bar" style="width: 78%" />
             ${searchButton}
           </div>
-          <div class="products-list">
+          <div class="booths-list">
             ${boothItemsTemplate(data)}
           </div>
         </div>
@@ -96,7 +94,7 @@ unlayer.registerPropertyEditor({
         showModal();
         setTimeout(() => {
           // We are using event bubling to capture clicked item instead of registering click event on all product items.
-          const selectButton = document.querySelector('.products-list');
+          const selectButton = document.querySelector('.booths-list');
           if (!selectButton) return;
           selectButton.onclick = function (e) {
             if (e.target.id === 'booth-item') {
@@ -125,7 +123,7 @@ unlayer.registerPropertyEditor({
           const searchButton = document.querySelector('#search-btn');
           const closeBtn = document.querySelector('#modalCloseBtn');
           searchButton.onclick = function (e) {
-            const list = document.querySelector('#booth_library_modal .products-list');
+            const list = document.querySelector('#booth_library_modal .booths-list');
             let filteredItem;
             let boothListHtml;
             if (list && data && data.booths) {
