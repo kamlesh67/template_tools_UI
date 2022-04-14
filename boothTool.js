@@ -35,15 +35,14 @@ const modalTemplate = function (data) {
 
 const toolTemplate = function (values, isViewer = false) {
   return `<div class="booth-card" style="position:relative;display:table;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
-    <img src="${
+    <div class="booth-img"> <img src="${
       values?.boothImage?.url
         ? values?.boothImage?.url
         : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwaVn2Q6Hm6X6nA8nL9WlyVXGfCvUta1kQeA&usqp=CAU'
     }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
+    </div>
     <div class="booth-card-body" style="padding: 0 16px 16px;text-align: left;">
-      <h3 style="margin: 12px 0; color: ${values.boothNameColor};">${
-    values.boothName ? values.boothName : 'Booth Name'
-  }</h3>
+    <h3 style="margin:5px 10px 0; font-size:15px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.boothName ? values.boothName : 'Booth Name'}</h3>
     </div>
   </div>
   ${isViewer ? modalTemplate({ booths: values.data.booths }) : ''}`;
