@@ -1,9 +1,9 @@
 const editorTemplate = `<button id="booth" class="button" style="color: ${theme.secondary};background-color:${theme.primary};">Add Booth</button>`;
 const searchButton = `<button id="search-btn" class="button" style="width: 20%;color: ${theme.secondary};background-color:${theme.primary};">Search</button>`;
 const boothItemsTemplate = _.template(`<% _.forEach(booths, function(item) { %>
-  <div class="booth-item" id="booth-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" >
-  <img src="<%= item.profile_img %>" style="max-height: 150px;min-height: 100px;width: 100%;" />
-    <h4 style="margin: 8px 0; text-align: center; color: ${theme.primary};"><%= item.name %> </h4>
+  <div class="booths-item" id="booths-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" >
+  <div class="booth-media"> <img src="<%= item.profile_img %>" style="max-height: 150px;min-height: 100px;width: 100%;" /> </div>
+  <h4 style="margin: 8px 0; text-align: center; color: ${theme.primary};"><%= item.name %> </h4>
   </div>
 <% }); %>`);
 
