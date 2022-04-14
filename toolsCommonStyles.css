@@ -279,6 +279,7 @@
   height: 150px; 
   border: 1px solid #d3d3d3;
   border-radius: .75rem;
+  padding: 1rem;
 }
 
 .booths-item:nth-child(4n){
