@@ -1,9 +1,9 @@
-const editorTemplate = `<button id="addProduct" class="button">Add Speaker</button>`;
+const editorTemplate = `<button id="addSpeaker" class="button">Add Speaker</button>`;
 const searchButton =  `<button id="search-btn" class="button">Search</button>`;
 const productItemsTemplate = _.template(`
 <% _.forEach(speakers, function(item) { %>
-  <div class="product-item card" id="product-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
-  <div class="product-media"> <img src="<%= item.profile_img %>" style="height:11rem; width: 11rem;object-fit:cover" /> </div>
+  <div class="speakers-item card" id="speakers-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
+  <div class="speakers-media"> <img src="<%= item.profile_img %>" style="height:11rem; width: 11rem;object-fit:cover" /> </div>
     <h4 style="margin:5px 10px 0; text-align: left; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.name %> </h4>
     <h5 style="margin:5px 10px 0; text-align: left;color: ${theme.secondary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.designation %>,<%= item.company %> </h5>
   </div>
@@ -12,7 +12,7 @@ const productItemsTemplate = _.template(`
 
 const modalTemplate = function (data) {
   return `
-  <div class="modal" id="product_library_modal">
+  <div class="modal" id="speaker_library_modal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -24,12 +24,10 @@ const modalTemplate = function (data) {
             <input type="text" class="form-control" placeholder="Search by speaker name" id="search-bar" style="width:100%" />
             ${searchButton}
           </div>
-          <div class="products-list">
+          <div class="speakers-list">
             ${productItemsTemplate(data)}
           </div>
-        </div>
-        <div class="modal-footer">
-        </div>
+        </div> 
       </div>
     </div>
   </div>
@@ -38,8 +36,8 @@ const modalTemplate = function (data) {
 
 const toolTemplate = function (values, isViewer = false) {
   return `
-  <div class="speaker-card card"> 
-  <div class="speaker-img">
+  <div class="booth-card card"> 
+  <div class="booth-img">
   <img src="${values?.speakerImage?.url ? values?.speakerImage?.url : 'https://cms-assets.tutsplus.com/cdn-cgi/image/width=630/uploads/users/988/posts/31255/image/What-is-public-speaking%20(1).jpg'}" style="height:11rem; width: 11rem; object-fit:cover" />
   </div>
   <h3 style="margin:5px 10px 0; font-size:15px; color: ${values.speakerTitleColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.speakerTitle ? values.speakerTitle : 'Speaker Name'}</h3>
@@ -72,12 +70,12 @@ const toolEmailTemplate = function (values, isViewer = false) {
 };
 
 const showModal = function () {
-  const modal = document.getElementById('product_library_modal');
+  const modal = document.getElementById('speaker_library_modal');
   modal.classList.add('show');
 };
 
 const hideModal = function () {
-  const modal = document.getElementById('product_library_modal');
+  const modal = document.getElementById('speaker_library_modal');
   modal.classList.remove('show');
 };
 
@@ -89,7 +87,7 @@ unlayer.registerPropertyEditor({
       return editorTemplate;
     },
     mount(node, value, updateValue, data) {
-      const addButton = node.querySelector('#addProduct');
+      const addButton = node.querySelector('#addSpeaker');
       addButton.onclick = function () {
         showModal();
         setTimeout(() => {
@@ -123,7 +121,7 @@ unlayer.registerPropertyEditor({
           const searchButton = document.querySelector('#search-btn');
           const closeBtn = document.querySelector('#modalCloseBtn');
           searchButton.onclick = function (e) {
-            const list = document.querySelector('#product_library_modal .products-list');
+            const list = document.querySelector('#speaker_library_modal .speakers-list');
             let filteredItem;
             let speakersListHtml;
             if (list && data && data.speakers) {
