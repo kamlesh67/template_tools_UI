@@ -34,7 +34,7 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
-  return `<div class="booth-card" style="position:relative;display:table;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
+  return `<div class="booth-card card" style="position:relative;">
     <div class="booth-img"> <img src="${
       values?.boothImage?.url
         ? values?.boothImage?.url
