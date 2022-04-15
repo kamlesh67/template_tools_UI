@@ -265,8 +265,7 @@
 
 
 
-/* Modal List card css */
-
+/* Modal Booth List card css */
 .booths-list{
   display: flex;
   flex-wrap:wrap;
@@ -315,5 +314,58 @@
   margin: auto;
   display: flex;
 
+}
+ 
+
+
+/* Modal Session List card css */
+
+.session-list{
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.session-item{     
+  width: 150px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  height: 150px; 
+  border: 1px solid #d3d3d3;
+  border-radius: .75rem;
+  padding: 1rem;
+}
+
+.session-item:nth-child(4n){
+  margin-right: 0;
+}
+
+.session-item .session-media{ 
+  border-radius: .8rem; 
+  border: 1px solid #f1f1f1;
+  height: 85px;
+  width: 85px;
+  margin: auto;
+  display: flex;
+}
+
+/* Booth card css */
+.session-card{     
+  width: 100%; 
+  margin-bottom: 15px;
+  height: 160px;
+  padding: 1rem; 
+  background-color: #fff;
+} 
+ 
+.session-card-body{
+  text-align: center;
+}
+.session-img{  
+  border-radius: .8rem; 
+  border: 1px solid #f1f1f1;
+  height: 85px;
+  width: 85px;
+  margin: auto;
+  display: flex;
 }
  

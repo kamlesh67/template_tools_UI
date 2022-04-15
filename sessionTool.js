@@ -1,8 +1,8 @@
 const editorTemplate = `<button id="booth" class="button">Add Booth</button>`;
 const searchButton = `<button id="search-btn" class="button">Search</button>`;
 const boothItemsTemplate = _.template(`<% _.forEach(booths, function(item) { %>
-  <div class="booths-item" id="booths-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" >
-  <div class="booth-media"> <img src="<%= item.profile_img %>" style="max-height: 90px;width: 100%; object-fit: contain;" /> </div>
+  <div class="session-item" id="session-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" >
+  <div class="session-media"> <img src="<%= item.profile_img %>" style="max-height: 90px;width: 100%; object-fit: contain;" /> </div>
   <h4 style="margin: 8px 0; text-align: center; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.name %> </h4>
   </div>
 <% }); %>`);
@@ -21,7 +21,7 @@ const modalTemplate = function (data) {
             <input type="text" class="form-control" placeholder="Search by booth name" id="search-bar" style="width: 100%" />
             ${searchButton}
           </div>
-          <div class="booths-list">
+          <div class="session-list">
             ${boothItemsTemplate(data)}
           </div>
         </div>
@@ -34,14 +34,14 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
-  return `<div class="booth-card card" style="position:relative;">
-    <div class="booth-img"> <img src="${
+  return `<div class="session-card card" style="position:relative;">
+    <div class="session-img"> <img src="${
       values?.boothImage?.url
         ? values?.boothImage?.url
         : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwaVn2Q6Hm6X6nA8nL9WlyVXGfCvUta1kQeA&usqp=CAU'
     }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
     </div>
-    <div class="booth-card-body" style="text-align: center;">
+    <div class="session-card-body" style="text-align: center;">
     <h3 style="margin:10px 10px 0; font-size:13px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.boothName ? values.boothName : 'Booth Name'}</h3>
     </div>
   </div>
@@ -93,10 +93,10 @@ unlayer.registerPropertyEditor({
         showModal();
         setTimeout(() => {
           // We are using event bubling to capture clicked item instead of registering click event on all product items.
-          const selectButton = document.querySelector('.booths-list');
+          const selectButton = document.querySelector('.session-list');
           if (!selectButton) return;
           selectButton.onclick = function (e) {
-            if (e.target.id === 'booth-item') {
+            if (e.target.id === 'session-item') {
               // If user clicks on product item
               // Find selected item from booths list
               const selectedProduct = data.booths.find(
@@ -106,7 +106,7 @@ unlayer.registerPropertyEditor({
             } else {
               // If user click on child of product item (e.g. title, price, image or desctiption)
               const parent = e.target.parentElement;
-              if (parent && parent.id !== 'booth-item') return;
+              if (parent && parent.id !== 'session-item') return;
               const selectedProduct = data.booths.find(
                 (item) => item.id === parseInt(parent.dataset.uuid)
               );
@@ -122,7 +122,7 @@ unlayer.registerPropertyEditor({
           const searchButton = document.querySelector('#search-btn');
           const closeBtn = document.querySelector('#modalCloseBtn');
           searchButton.onclick = function (e) {
-            const list = document.querySelector('#booth_library_modal .booths-list');
+            const list = document.querySelector('#booth_library_modal .session-list');
             let filteredItem;
             let boothListHtml;
             if (list && data && data.booths) {
@@ -191,7 +191,7 @@ unlayer.registerTool({
   renderer: {
     Viewer: unlayer.createViewer({
       render(values) {
-        return `<div class="booths-list"> ${toolTemplate(values, true)} </div>`
+        return `<div class="session-list"> ${toolTemplate(values, true)} </div>`
       },
     }),
     exporters: {
