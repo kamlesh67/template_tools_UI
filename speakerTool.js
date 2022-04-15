@@ -1,13 +1,13 @@
 const editorTemplate = `<button id="addSpeaker" class="button">Add Speaker</button>`;
 const searchButton =  `<button id="search-btn" class="button">Search</button>`;
 const productItemsTemplate = _.template(`
-<% _.forEach(speakers, function(item) { %>
-  <div class="speakers-item card" id="speakers-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
-  <div class="speakers-media"> <img src="<%= item.profile_img %>" style="height:11rem; width: 11rem;object-fit:cover" /> </div>
-    <h4 style="margin:5px 10px 0; text-align: left; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.name %> </h4>
-    <h5 style="margin:5px 10px 0; text-align: left;color: ${theme.secondary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.designation %>,<%= item.company %> </h5>
-  </div>
-<% }); %>
+  <% _.forEach(speakers, function(item) { %>
+    <div class="speakers-item card" id="speakers-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
+    <div class="speakers-media"> <img src="<%= item.profile_img %>" style="height:11rem; width: 11rem;object-fit:cover" /> </div>
+      <h4 style="margin:5px 10px 0; text-align: left; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.name %> </h4>
+      <h5 style="margin:5px 10px 0; text-align: left;color: ${theme.secondary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.designation %>,<%= item.company %> </h5>
+    </div>
+  <% }); %>
 `);
 
 const modalTemplate = function (data) {

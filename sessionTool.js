@@ -3,33 +3,44 @@ const searchButton = `<button id="search-btn" class="button">Search</button>`;
 const speakerAndBoothList = function (values, isPreview) {
   if (values?.speakers?.length || values?.booths?.length || !values?.sessionLibrary?.selected?.id) {
     if (isPreview) {
-      return `
-      <>
-    <div class="session-speakers" id="${values?.sessionLibrary?.selected?.id}-sessionSpeaker">${
-        !values?.sessionLibrary?.selected?.id
-          ? ['a', 's', 'd'].toString()
-          : values?.speakers?.toString()
-      }</div>
+      return ` 
+      <div class="session-speakers" id="${values?.sessionLibrary?.selected?.id}-sessionSpeaker">      
+        <div class="speaker"> 
+          <img src="https://picsum.photos/100" alt="pic" />
+        </div>
+        <div class="speaker"> 
+          <img src="https://picsum.photos/100" alt="pic" />
+        </div> 
+        <div class="speaker"> 
+          <img src="https://picsum.photos/100" alt="pic" />
+        </div> 
+        <div class="speaker"> 
+          <img src="https://picsum.photos/100" alt="pic" />
+        </div> 
+        <div class="speaker-more" style="background-color:${theme.accent};color:${theme.secondary};"> 
+          +2
+        </div> 
+      </div>
       <div class="session-booths" id="${values?.sessionLibrary?.selected?.id}-sessionBooth">${
-        !values?.sessionLibrary?.selected?.id
+ !values?.sessionLibrary?.selected?.id
           ? ['q', 'w', 'e'].toString()
           : values?.booths?.toString()
       }</div> 
-    </>`;
+   `;
     } else {
-      return `
-      <>
+      return ` 
       <div class="session-speakers" id="${values?.sessionLibrary?.selected?.id}-sessionSpeaker">${
         !values?.sessionLibrary?.selected?.id
           ? ['a', 's', 'd'].toString()
           : values?.speakers?.toString()
       }</div>
-      <div class="session-booths" id="${values?.sessionLibrary?.selected?.id}-sessionBooth">${
+      <div class="session-booths" id="${values?.sessionLibrary?.selected?.id}-sessionBooth">
+
+      ${
         !values?.sessionLibrary?.selected?.id
           ? ['q', 'w', 'e'].toString()
           : values?.booths?.toString()
-      }</div> 
-      </>
+      }</div>  
 `;
     }
   } else {
@@ -82,7 +93,7 @@ const toolTemplate = function (values, isViewer = false) {
       <p class="session-description" style="color:${values.sessionDescriptionColor};">
         ${values.description ? values.description : 'session description'}
       </p>
-      <div class="booth-speaker-data"> 
+      <div class="booth-speaker-data">
         ${values.isShowSpeakerAndBooth ? speakerAndBoothList(values) : ''}  
       </div>
     </div>
