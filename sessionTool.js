@@ -4,35 +4,32 @@ const speakerAndBoothList = function (values, isPreview) {
   if (values?.speakers?.length || values?.booths?.length || !values?.sessionLibrary?.selected?.id) {
     if (isPreview) {
       return `
-  <tr>
-    <td>
-      <p id="${values?.sessionLibrary?.selected?.id}-sessionSpeaker">${
+      <>
+    <div class="session-speakers" id="${values?.sessionLibrary?.selected?.id}-sessionSpeaker">${
         !values?.sessionLibrary?.selected?.id
           ? ['a', 's', 'd'].toString()
           : values?.speakers?.toString()
-      }</p>
-      <p id="${values?.sessionLibrary?.selected?.id}-sessionBooth">${
+      }</div>
+      <div class="session-booths" id="${values?.sessionLibrary?.selected?.id}-sessionBooth">${
         !values?.sessionLibrary?.selected?.id
           ? ['q', 'w', 'e'].toString()
           : values?.booths?.toString()
-      }</p>
-    </td>
-  </tr>
-`;
+      }</div> 
+    </>`;
     } else {
       return `
- <div>
-  <p id="${values?.sessionLibrary?.selected?.id}-sessionSpeaker">${
+      <>
+      <div class="session-speakers" id="${values?.sessionLibrary?.selected?.id}-sessionSpeaker">${
         !values?.sessionLibrary?.selected?.id
           ? ['a', 's', 'd'].toString()
           : values?.speakers?.toString()
-      }</p>
-  <p id="${values?.sessionLibrary?.selected?.id}-sessionBooth">${
+      }</div>
+      <div class="session-booths" id="${values?.sessionLibrary?.selected?.id}-sessionBooth">${
         !values?.sessionLibrary?.selected?.id
           ? ['q', 'w', 'e'].toString()
           : values?.booths?.toString()
-      }</p>
- </div>
+      }</div> 
+      </>
 `;
     }
   } else {
@@ -43,7 +40,7 @@ const speakerAndBoothList = function (values, isPreview) {
 const sessionItemsTemplate = _.template(`
 <% _.forEach(sessions, function(item) { %>
   <div class="session-item" id="session-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-date-time="<%= item.dateAndTime %>" >
-    <p style="color: ${theme.secondary};"><%= item.dateAndTime %></p>
+    <p style="color: ${theme.secondary};"> <%= item.dateAndTime %> </p>
     <h4 style="margin: 8px 0; text-align: left; color: ${theme.primary};"><%= item.name %></h4>
   </div>
 <% }); %>
@@ -76,18 +73,18 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
-  return `<div class="session-card" style="position:relative;display:table;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
-    <div class="session-card-body" style="padding: 0 16px 16px;text-align: left;">
-      <p style="color:${values.sessionDateAndTimeColor};">
+  return `<div class="session-card" style="position:relative;">
+    <div class="session-card-body">
+      <p class="session-date" style="color:${values.sessionDateAndTimeColor};">
         ${values.dateAndTime ? values.dateAndTime : 'session date and time'}
       </p>
-      <h3 style="margin: 12px 0; color: ${values.sessionNameColor};">${
-    values.sessionName ? values.sessionName : 'Session Name'
-  }</h3>
-  <p style="color:${values.sessionDescriptionColor};">
+      <h3 class="session-title" style="margin: 12px 0; color: ${values.sessionNameColor};">${values.sessionName ? values.sessionName : 'Session Name'}</h3>
+      <p class="session-description" style="color:${values.sessionDescriptionColor};">
         ${values.description ? values.description : 'session description'}
       </p>
-      ${values.isShowSpeakerAndBooth ? speakerAndBoothList(values) : ''}
+      <div class="booth-speaker-data"> 
+        ${values.isShowSpeakerAndBooth ? speakerAndBoothList(values) : ''}  
+      </div>
     </div>
   </div>
   ${isViewer ? modalTemplate({ sessions: values.data.sessions }) : ''}`;
@@ -216,7 +213,7 @@ unlayer.registerTool({
         },
         sessionDateAndTimeColor: {
           label: 'Session Date And Time Color',
-          defaultValue: theme?.secondary,
+          defaultValue: theme?.theme,
           widget: 'color_picker',
         },
         sessionDescriptionColor: {
