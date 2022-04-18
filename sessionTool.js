@@ -47,13 +47,7 @@ const speakerAndBoothList = function (values, isPreview) {
       </div>
       <div class="booth"> 
         <img src="https://picsum.photos/100" alt="pic" />
-      </div> 
-      <div class="booth"> 
-        <img src="https://picsum.photos/100" alt="pic" />
-      </div> 
-      <div class="booth"> 
-        <img src="https://picsum.photos/100" alt="pic" />
-      </div> 
+      </div>  
       <div class="booth-more" style="background-color:${theme.accent};color:${theme.secondary};"> 
         +2
       </div> 

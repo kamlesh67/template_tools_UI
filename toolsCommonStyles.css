@@ -389,7 +389,7 @@
   overflow: hidden;
   border-radius: 30px; 
   display: flex;
-  margin-right:5px;
+  margin-right:6px;
 }
 .session-speakers .speaker-more{
   height: 30px;
@@ -398,6 +398,8 @@
   border-radius: 30px; 
   display: flex;
   color: #fff;
+  justify-content: center;
+  align-items: center;
 }
 .session-booths{
   display: flex;
@@ -407,11 +409,11 @@
 
 .session-booths .booth{
   height: 30px;
-  width: 45px;
+  width: 50px;
   overflow: hidden;
   border-radius: 4px;
   display: flex;
-  margin-right: 5px;
+  margin-right: 6px;
   justify-content: center;
   padding: 2px;
   border: 1px solid #E0E0E0;
@@ -424,4 +426,6 @@
   border-radius: 4px; 
   display: flex;
   color: #fff;
+  justify-content: center;
+  align-items: center;
 } 
