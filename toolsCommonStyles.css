@@ -347,16 +347,36 @@
 .session-card{     
   width: 100%; 
   margin-bottom: 15px;
-  height: 160px;
+  height: auto;
   padding: 14px; 
   background-color: #fff;
 }  
 .session-card-body{
   
 }
+.session-date{
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.session-title{ 
+  font-size: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+.session-description{
+  font-size: 12px;
+  font-weight: 400;
+}
 .booth-speaker-data{
   display: flex;
   justify-content: space-between;
+  margin-top:5px;
 }
 .session-speakers{
   display: flex;
@@ -369,7 +389,7 @@
   overflow: hidden;
   border-radius: 30px; 
   display: flex;
-  margin-right:10px;
+  margin-right:5px;
 }
 .session-speakers .speaker-more{
   height: 30px;
@@ -379,6 +399,30 @@
   display: flex;
   color: #fff;
 }
+.session-booths{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.session-booths .booth{
+  height: 30px;
+  width: 45px;
+  overflow: hidden;
+  border-radius: 8px; 
+  display: flex;
+  margin-right:5px;
+}
+
+.session-booths .speaker-more{
+  height: 30px;
+  width: 30px;
+  overflow: hidden;
+  border-radius: 8px; 
+  display: flex;
+  color: #fff;
+}
+
 .session-img{  
   border-radius: .8rem; 
   border: 1px solid #f1f1f1;
