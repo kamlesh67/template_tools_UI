@@ -431,6 +431,10 @@
 } 
 
 
+
+
+/* Logo card css */
+
 .logos-list{
 
 }
@@ -447,15 +451,10 @@
   border-radius: .75rem;
   padding: 1rem;
 }
-
 .logo-item:nth-child(4n){
   margin-right: 0;
 }
- 
 
-
-
-/* session card css */
 .logo-card{     
   width: 100%; 
   margin-bottom: 15px;
@@ -465,6 +464,41 @@
 }      
 
 .logo-card img{     
+  width: 100%; 
+  height: auto;
+  max-height: 150px;
+}      
+
+
+
+
+
+/* Logo card css */
+
+.banners-list{
+  display: flex;
+  flex-wrap:wrap;
+}
+.banner-item{     
+  width: 150px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  height: 150px; 
+  border: 1px solid #d3d3d3;
+  border-radius: .75rem;
+  padding: 1rem;
+}
+.banner-item:nth-child(4n){
+  margin-right: 0;
+}
+.banner-card{     
+  width: 100%; 
+  margin-bottom: 15px;
+  height: auto;
+  padding: 14px; 
+  background-color: #fff;
+}      
+.banner-card img{     
   width: 100%; 
   height: auto;
   max-height: 150px;

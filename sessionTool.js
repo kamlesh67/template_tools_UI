@@ -165,7 +165,7 @@ unlayer.registerPropertyEditor({
         showModal();
         setTimeout(() => {
           // We are using event bubling to capture clicked item instead of registering click event on all product items.
-          const selectButton = document.querySelector('.products-list');
+          const selectButton = document.querySelector('.sessions-list');
           if (!selectButton) return;
           selectButton.onclick = function (e) {
             if (e.target.id === 'session-item') {
@@ -194,7 +194,7 @@ unlayer.registerPropertyEditor({
           const searchButton = document.querySelector('#search-btn');
           const closeBtn = document.querySelector('#modalCloseBtn');
           searchButton.onclick = function (e) {
-            const list = document.querySelector('#session_library_modal .products-list');
+            const list = document.querySelector('#session_library_modal .sessions-list');
             let filteredItem;
             let sessionListHtml;
             if (list && data && data.sessions) {
