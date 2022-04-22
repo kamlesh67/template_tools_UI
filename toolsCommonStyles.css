@@ -293,6 +293,7 @@
   width: 85px;
   margin: auto;
   display: flex;
+  background-color: #fff;
 }
 
 /* Booth card css */

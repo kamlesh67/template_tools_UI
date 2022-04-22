@@ -50,23 +50,19 @@ const toolTemplate = function (values, isViewer = false) {
 
 const toolEmailTemplate = function (values, isViewer = false) {
   return `
-    <table boothId="${
-      values?.boothLibrary?.selected?.id ? values?.boothLibrary?.selected?.id : ''
-    }" cellspacing="0" cellpadding="0" style="position:relative;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
-      <tbody>
-        <tr><td width="100%"><img id="${values?.boothLibrary?.selected?.id}-boothImage" src="${
-    values?.boothImage?.url
-      ? values?.boothImage?.url
-      : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwaVn2Q6Hm6X6nA8nL9WlyVXGfCvUta1kQeA&usqp=CAU'
-  }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" /></td></tr>
-        <tr><td width="100%"><h3 id="${
-          values?.boothLibrary?.selected?.id
-        }-boothName" style="text-align: left;margin: 8px 0 12px 0; padding: 0 16px; color: ${
-    values.boothNameColor
-  };">${values.boothName ? values.boothName : 'Booth Name'}</h3></td></tr>
-        
-      </tbody>
-    </table>
+
+  <div class="booth-card card" style="position:relative;background-color:${values.boothBGColor}">
+    <div class="booth-img"> <img src="${
+      values?.boothImage?.url
+        ? values?.boothImage?.url
+        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwaVn2Q6Hm6X6nA8nL9WlyVXGfCvUta1kQeA&usqp=CAU'
+    }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
+    </div>
+    <div class="booth-card-body" style="text-align: center;">
+    <h3 style="margin:10px 10px 0; font-size:13px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.boothName ? values.boothName : 'Booth Name'}</h3>
+    </div>
+  </div>
+ 
   `;
 };
 
