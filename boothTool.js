@@ -1,9 +1,9 @@
 const editorTemplate = `<button id="booth" class="button">Add Booth</button>`;
 const searchButton = `<button id="search-btn" class="button">Search</button>`;
 const boothItemsTemplate = _.template(`<% _.forEach(booths, function(item) { %>
-  <div class="booths-item" id="booths-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" >
+  <div class="booths-item" id="booths-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" style="background-color: ${theme.primaryColor};">
   <div class="booth-media"> <img src="<%= item.profile_img %>" style="max-height: 90px;width: 100%; object-fit: contain;" /> </div>
-  <h4 style="margin: 8px 0; text-align: center; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.name %> </h4>
+  <h4 style="margin: 8px 0; text-align: center; color: ${theme.primaryFontColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.name %> </h4>
   </div>
 <% }); %>`);
 
@@ -34,7 +34,7 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
-  return `<div class="booth-card card" style="position:relative;">
+  return `<div class="booth-card card" style="position:relative;background-color:${values.boothBGColor}">
     <div class="booth-img"> <img src="${
       values?.boothImage?.url
         ? values?.boothImage?.url
@@ -159,9 +159,14 @@ unlayer.registerTool({
           defaultValue: '',
           widget: 'booth_library',
         },
+        boothBGColor: {
+          label: 'Booth BG Color',
+          defaultValue: theme?.primaryColor,
+          widget: 'color_picker',
+        },
         boothNameColor: {
-          label: 'Speaker Name Color',
-          defaultValue: theme?.primary,
+          label: 'Booth Name Color',
+          defaultValue: theme?.primaryFontColor,
           widget: 'color_picker',
         },
       },
