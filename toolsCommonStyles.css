@@ -316,6 +316,7 @@
   width: 85px;
   margin: auto;
   display: flex;
+  background-color: #fff;
 }
 
 /* Modal Session List card css */
@@ -344,6 +345,7 @@
   width: 85px;
   margin: auto;
   display: flex;
+  background-color: #fff;
 }
 
 /* session card css */

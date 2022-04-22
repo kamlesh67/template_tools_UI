@@ -38,7 +38,7 @@ const toolTemplate = function (values, isViewer = false) {
     <div class="booth-img"> <img src="${
       values?.boothImage?.url
         ? values?.boothImage?.url
-        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwaVn2Q6Hm6X6nA8nL9WlyVXGfCvUta1kQeA&usqp=CAU'
+        : 'https://cdn.v2dev.demohubilo.com/comm_v2/images/profile/exhibitor_default.png'
     }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
     </div>
     <div class="booth-card-body" style="text-align: center;">
@@ -50,19 +50,17 @@ const toolTemplate = function (values, isViewer = false) {
 
 const toolEmailTemplate = function (values, isViewer = false) {
   return `
-
-  <div class="booth-card card" style="position:relative;background-color:${values.boothBGColor}">
-    <div class="booth-img"> <img src="${
+  <div style="position:relative;background-color:${values.boothBGColor};width: 100%; margin-bottom: 15px;height: 160px; padding: 1rem; border-radius: 8px;">
+    <div style="border-radius: .8rem; border: 1px solid #f1f1f1;height: 85px;width: 85px;margin: auto; display: flex;background-color: #fff;"> <img src="${
       values?.boothImage?.url
         ? values?.boothImage?.url
-        : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwaVn2Q6Hm6X6nA8nL9WlyVXGfCvUta1kQeA&usqp=CAU'
+        : 'https://cdn.v2dev.demohubilo.com/comm_v2/images/profile/exhibitor_default.png'
     }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
     </div>
-    <div class="booth-card-body" style="text-align: center;">
+    <div style="text-align: center;">
     <h3 style="margin:10px 10px 0; font-size:13px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.boothName ? values.boothName : 'Booth Name'}</h3>
     </div>
   </div>
- 
   `;
 };
 
