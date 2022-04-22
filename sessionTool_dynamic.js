@@ -49,9 +49,7 @@ const boothList = function (booths) {
     }
   });
   if (booths.length > 2) {
-    bts += `<div class="booth-more" style="background-color:${theme.accentColor};color:${
-      theme.secondaryFontColor
-    };"> 
+    bts += `<div class="booth-more" style="background-color:${theme.accentColor};color:${theme.secondaryFontColor};"> 
                +${booths.length - 2}
             </div>`;
   }
@@ -131,7 +129,7 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
-  return `<div class="session-card" style="position:relative;">
+  return `<div class="session-card" style="position:relative;background-color:'${values.sessionCardBGColor}'" >
     <div class="session-card-body">
       <p class="session-date" style="color:${values.sessionDateAndTimeColor};">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -140,9 +138,7 @@ const toolTemplate = function (values, isViewer = false) {
         values.dateAndTime ? values.dateAndTime : 'session date and time | session timezone'
       } </span>
       </p>
-      <h3 class="session-title" style="margin: 10px 0 5px 0; color: ${values.sessionNameColor};">${
-    values.sessionName ? values.sessionName : 'Session Name'
-  }</h3>
+      <h3 class="session-title" style="margin: 10px 0 5px 0; color: ${values.sessionNameColor};">${values.sessionName ? values.sessionName : 'Session Name'}</h3>
       <p class="session-description" style="color:${values.sessionDescriptionColor};">
         ${values.description ? values.description : 'session description'}
       </p>
@@ -156,7 +152,7 @@ const toolTemplate = function (values, isViewer = false) {
 
 const toolEmailTemplate = function (values, isViewer = false) {
   return `
-  <div class="session-card" style="position:relative;">
+  <div class="session-card" style="position:relative;background-color:'${values.sessionCardBGColor}'" >
   <div class="session-card-body">
     <p class="session-date" style="color:${values.sessionDateAndTimeColor};">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -165,9 +161,7 @@ const toolEmailTemplate = function (values, isViewer = false) {
       values.dateAndTime ? values.dateAndTime : 'session date and time | session timezone'
     } </span>
     </p>
-    <h3 class="session-title" style="margin: 10px 0 5px 0; color: ${values.sessionNameColor};">${
-  values.sessionName ? values.sessionName : 'Session Name'
-}</h3>
+    <h3 class="session-title" style="margin: 10px 0 5px 0; color: ${values.sessionNameColor};">${values.sessionName ? values.sessionName : 'Session Name'}</h3>
     <p class="session-description" style="color:${values.sessionDescriptionColor};">
       ${values.description ? values.description : 'session description'}
     </p>
@@ -270,17 +264,22 @@ unlayer.registerTool({
         },
         sessionNameColor: {
           label: 'Session Name Color',
+          defaultValue: theme?.primaryFontColor,
+          widget: 'color_picker',
+        },
+        sessionCardBGColor: {
+          label: 'Session Card BG color',
           defaultValue: theme?.primaryColor,
           widget: 'color_picker',
         },
         sessionDateAndTimeColor: {
           label: 'Session Date And Time Color',
-          defaultValue: theme?.primaryFontColor,
+          defaultValue: theme?.accentColor,
           widget: 'color_picker',
         },
         sessionDescriptionColor: {
           label: 'Session Description Color',
-          defaultValue: theme?.secondaryFontColor,
+          defaultValue: theme?.primaryColor,
           widget: 'color_picker',
         },
         isShowSpeakerAndBooth: {
