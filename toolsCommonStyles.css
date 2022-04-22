@@ -239,6 +239,7 @@
   height: 210px;
   padding-top: 10rem;
   overflow: hidden;
+  border-radius: 8px;
 } 
  
 .speaker-card .speaker-img{ 
@@ -301,6 +302,7 @@
   height: 160px;
   padding: 1rem; 
   background-color: #fff;
+  border-radius: 8px;
 } 
  
 .booth-card-body{
@@ -350,6 +352,7 @@
   height: auto;
   padding: 14px; 
   background-color: #fff;
+  border-radius: 8px;
 }  
 .session-card-body{
   
@@ -462,6 +465,7 @@
   height: auto;
   padding: 14px; 
   background-color: #fff;
+  border-radius: 8px;
 }      
 
 .logo-card img{     
@@ -496,6 +500,7 @@
   margin-bottom: 15px;
   height: auto; 
   background-color: #fff;
+  border-radius: 8px;
 }      
 .banner-card img{     
   width: 100%; 
