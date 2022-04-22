@@ -1,7 +1,7 @@
 const editorTemplate = `<button id="booth" class="button">Add Booth</button>`;
 const searchButton = `<button id="search-btn" class="button">Search</button>`;
 const boothItemsTemplate = _.template(`<% _.forEach(booths, function(item) { %>
-  <div class="booths-item" id="booths-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" style="background-color: ${theme.primaryColor};">
+  <div class="booth-item" id="booth-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" style="background-color: ${theme.primaryColor};">
   <div class="booth-media"> <img src="<%= item.profile_img %>" style="max-height: 90px;width: 100%; object-fit: contain;" /> </div>
   <h4 style="margin: 8px 0; text-align: center; color: ${theme.primaryFontColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.name %> </h4>
   </div>
@@ -50,7 +50,7 @@ const toolTemplate = function (values, isViewer = false) {
 
 const toolEmailTemplate = function (values, isViewer = false) {
   return `
-  <div style="position:relative;background-color:${values.boothBGColor};width: 100%; margin-bottom: 15px;height: 160px; padding: 1rem; border-radius: 8px;">
+  <div style="position:relative;background-color:${values.boothBGColor};margin-bottom: 15px;height: 160px; padding: 1rem; border-radius: 8px;">
     <div style="border-radius: .8rem; border: 1px solid #f1f1f1;height: 85px;width: 85px;margin: auto; display: flex;background-color: #fff;"> <img src="${
       values?.boothImage?.url
         ? values?.boothImage?.url
