@@ -2,16 +2,16 @@ const editorTemplate = `<button id="session" class="button">Add Session</button>
 const searchButton = `<button id="search-btn" class="button">Search</button>`;
 const defaultSpeaker = `
             <div class="speaker">
-              <img src="https://picsum.photos/100" alt="pic" />
+              <img src="https://cdn.hubilo.com/comm_v2/images/profile/default_hash.png" alt="pic" />
             </div>
             <div class="speaker">
-              <img src="https://picsum.photos/100" alt="pic" />
+              <img src="https://cdn.hubilo.com/comm_v2/images/profile/default_hash.png" alt="pic" />
             </div>
             <div class="speaker">
-              <img src="https://picsum.photos/100" alt="pic" />
+              <img src="https://cdn.hubilo.com/comm_v2/images/profile/default_hash.png" alt="pic" />
             </div>
             <div class="speaker">
-              <img src="https://picsum.photos/100" alt="pic" />
+              <img src="https://cdn.hubilo.com/comm_v2/images/profile/default_hash.png" alt="pic" />
             </div>
             <div
               class="speaker-more"
@@ -58,10 +58,10 @@ const boothList = function (booths) {
 
 const defaultBooth = `
             <div class="booth"> 
-            <img src="https://picsum.photos/100" alt="pic" />
+            <img src="https://cdn.v2dev.demohubilo.com/comm_v2/images/profile/exhibitor_default.png" alt="pic" />
             </div>
             <div class="booth"> 
-              <img src="https://picsum.photos/100" alt="pic" />
+              <img src="https://cdn.v2dev.demohubilo.com/comm_v2/images/profile/exhibitor_default.png" alt="pic" />
             </div>  
             <div class="booth-more" style="background-color:${theme.accentColor};color:${theme.secondaryFontColor};"> 
               +2
@@ -129,7 +129,7 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
-  return `<div class="session-card" style="position:relative;background-color:'${values.sessionCardBGColor}'" >
+  return `<div class="session-card" style="position:relative;background-color:${values.sessionCardBGColor}" >
     <div class="session-card-body">
       <p class="session-date" style="color:${values.sessionDateAndTimeColor};">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -262,14 +262,14 @@ unlayer.registerTool({
           defaultValue: '',
           widget: 'session_library',
         },
-        sessionNameColor: {
-          label: 'Session Name Color',
-          defaultValue: theme?.primaryFontColor,
-          widget: 'color_picker',
-        },
         sessionCardBGColor: {
           label: 'Session Card BG color',
           defaultValue: theme?.primaryColor,
+          widget: 'color_picker',
+        },
+        sessionNameColor: {
+          label: 'Session Name Color',
+          defaultValue: theme?.primaryFontColor,
           widget: 'color_picker',
         },
         sessionDateAndTimeColor: {
@@ -279,7 +279,7 @@ unlayer.registerTool({
         },
         sessionDescriptionColor: {
           label: 'Session Description Color',
-          defaultValue: theme?.primaryColor,
+          defaultValue: theme?.primaryFontColor,
           widget: 'color_picker',
         },
         isShowSpeakerAndBooth: {
