@@ -38,24 +38,18 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
-    return `<div class="banner-card" style="position:relative;display:table;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
-    <img src="${values?.logo_image?.url ? values?.logo_image?.url : 'https://s3.amazonaws.com/unroll-images-production/projects%2F167%2F1643875820464-188690'
+    return `<div class="banner-card" style="position:relative;display:block;background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
+    <img src="${values?.logo_image?.url ? values?.logo_image?.url : 'https://www.zillifurniture.com/images/product/1601284019-pro-placeholder.png'
         }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
   </div>
   ${isViewer ? modalTemplate({ banners: values.data.banners }) : ''}`;
 };
 
 const toolEmailTemplate = function (values, isViewer = false) {
-    return `
-    <table logoId="${values?.bannerLibrary?.selected?.id ? values?.bannerLibrary?.selected?.id : ''
-        }" cellspacing="0" cellpadding="0" style="position:relative;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
-      <tbody>
-        <tr><td width="100%"><img id="${values?.bannerLibrary?.selected?.id}-logo" src="${values?.logo_image?.url
-            ? values?.logo_image?.url
-            : 'https://s3.amazonaws.com/unroll-images-production/projects%2F167%2F1643875820464-188690'
-        }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" /></td></tr>
-      </tbody>
-    </table>
+    return `<div style="position:relative;display:block; background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
+    <img src="${values?.logo_image?.url ? values?.logo_image?.url : 'https://www.zillifurniture.com/images/product/1601284019-pro-placeholder.png'
+        }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
+  </div>
   `;
 };
 
@@ -118,7 +112,7 @@ unlayer.registerPropertyEditor({
 unlayer.registerTool({
     name: 'community_banner_tool',
     label: 'Banners',
-    icon: 'fa-images',
+    icon: 'fa-light fa-image', 
     supportedDisplayModes: ['web', 'email'],
     options: {
         bannerContent: {

@@ -36,7 +36,7 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
-  return `<div class="logo-card" style="position:relative;display:table;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
+  return `<div class="logo-card" style="position:relative;background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
     <img src="${
       values?.logo_image?.url ? values?.logo_image?.url : 'https://cdn.hubilo.com/comm_v2/images/profile/exhibitor_default.png'}" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
   </div>
@@ -44,10 +44,10 @@ const toolTemplate = function (values, isViewer = false) {
 };
 
 const toolEmailTemplate = function (values, isViewer = false) {
-  return `<div style="position:relative;display:table;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;width: 100%;margin-bottom: 15px;height: auto;padding: 14px;">
+  return `<div style="position:relative;display:block; background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;width:100%;margin-bottom: 15px;height: auto;padding: 14px;">
       <img src="${values?.logo_image?.url ? values?.logo_image?.url : 'https://cdn.hubilo.com/comm_v2/images/profile/exhibitor_default.png'}" style="width: 100%; object-fit: contain; height: auto;max-height: 80px;" />
     </div>
-  ${isViewer ? modalTemplate({ logos: values.data.logos }) : ''}`;  
+    `;
 };
 
 const showModal = function () {
@@ -109,7 +109,7 @@ unlayer.registerPropertyEditor({
 unlayer.registerTool({
   name: 'logo_tool',
   label: 'Logos',
-  icon: 'fa-calendar',
+  icon: 'fa-light fa-hexagon-image', 
   supportedDisplayModes: ['web', 'email'],
   options: {
     logoContent: {

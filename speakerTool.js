@@ -146,7 +146,7 @@ unlayer.registerPropertyEditor({
 unlayer.registerTool({
   name: 'speaker_tool',
   label: 'Speaker',
-  icon: 'fa-microphone',
+  icon: 'fa-light fa-microphone', 
   supportedDisplayModes: ['web', 'email'],
   options: {
     speakerContent: {

@@ -141,7 +141,7 @@ unlayer.registerPropertyEditor({
 unlayer.registerTool({
   name: 'booth_tool',
   label: 'Booth',
-  icon: 'fa-suitcase',
+  icon: 'fa-light fa-suitcase', 
   supportedDisplayModes: ['web', 'email'],
   options: {
     boothContent: {

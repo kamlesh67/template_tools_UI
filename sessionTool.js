@@ -219,7 +219,7 @@ unlayer.registerPropertyEditor({
 unlayer.registerTool({
   name: 'session_tool',
   label: 'Session',
-  icon: 'fa-suitcase',
+  icon: 'fa-light fa-calendar', 
   supportedDisplayModes: ['web', 'email'],
   options: {
     boothContent: {
