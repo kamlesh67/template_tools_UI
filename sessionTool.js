@@ -13,7 +13,7 @@ const defaultSpeaker = `
             <div style="height: 30px;width: 30px;overflow: hidden;border-radius: 30px; display: flex;margin-right:6px;">
               <img src="https://cdn.hubilo.com/comm_v2/images/profile/default_hash.png" alt="pic" />
             </div>
-            <div style="background-color:${theme.accentColor}; color:${theme.secondaryFontColor};height: 30px;width: 30px;overflow: hidden;border-radius: 30px; display: flex; justify-content: center;align-items: center;">
+            <div style="background-color:${theme.accentColor}; color:${theme.secondaryFontColor};height: 30px;width: 30px;overflow: hidden;border-radius: 30px; display: flex; justify-content: center;align-items: center;font-size: 13px;">
               +2
             </div>
          `;
@@ -28,7 +28,7 @@ const speakerList = function (speakers) {
     }
   });
   if (speakers.length > 4) {
-    sps += `<div style="background-color:${theme.accentColor}; color:${theme.secondaryFontColor};height: 30px;width: 30px;overflow: hidden;border-radius: 30px; display: flex; justify-content: center;align-items: center;">
+    sps += `<div style="background-color:${theme.accentColor}; color:${theme.secondaryFontColor};height: 30px;width: 30px;overflow: hidden;border-radius: 30px; display: flex; justify-content: center;align-items: center;font-size: 13px;">
               +${speakers.length - 4}
             </div>`;
   }
@@ -39,13 +39,13 @@ const boothList = function (booths) {
   let bts = ``;
   booths.map((booth, i) => {
     if (i <= 1) {
-      bts += ` <div style="height: 25px; width: 50px;overflow: hidden;border-radius: 4px;display: flex;margin-right: 6px;justify-content: center;padding: 2px;border: 1px solid #E0E0E0;background-color: #ffffff;">
+      bts += ` <div style="height: 30px; width: 50px;overflow: hidden;border-radius: 4px;display: flex;margin-right: 6px;justify-content: center;padding: 2px;border: 1px solid #E0E0E0;background-color: #ffffff;box-sizing:border-box">
                   <img src="${booth}" alt="pic" />
                 </div>`;
     }
   });
   if (booths.length > 2) {
-    bts += `<div style="background-color:${theme.accentColor};color:${theme.secondaryFontColor};height: 30px;width: 30px;overflow: hidden;border-radius: 4px; display: flex; justify-content: center;align-items: center;"> 
+    bts += `<div style="background-color:${theme.accentColor};color:${theme.secondaryFontColor};height: 30px;width: 30px;overflow: hidden;border-radius: 4px; display: flex; justify-content: center;align-items: center;font-size: 13px;"> 
                +${booths.length - 2}
             </div>`;
   }
@@ -53,13 +53,13 @@ const boothList = function (booths) {
 };
 
 const defaultBooth = `
-            <div style="height: 25px; width: 50px;overflow: hidden;border-radius: 4px;display: flex;margin-right: 6px;justify-content: center;padding: 2px;border: 1px solid #E0E0E0;background-color: #ffffff;"> 
+            <div style="height: 30px; width: 50px;overflow: hidden;border-radius: 4px;display: flex;margin-right: 6px;justify-content: center;padding: 2px;border: 1px solid #E0E0E0;background-color: #ffffff;box-sizing:border-box"> 
             <img src="https://cdn.v2dev.demohubilo.com/comm_v2/images/profile/exhibitor_default.png" alt="pic" />
             </div>
-            <div style="height: 25px; width: 50px;overflow: hidden;border-radius: 4px;display: flex;margin-right: 6px;justify-content: center;padding: 2px;border: 1px solid #E0E0E0;background-color: #ffffff;"> 
+            <div style="height: 30px; width: 50px;overflow: hidden;border-radius: 4px;display: flex;margin-right: 6px;justify-content: center;padding: 2px;border: 1px solid #E0E0E0;background-color: #ffffff;box-sizing:border-box"> 
               <img src="https://cdn.v2dev.demohubilo.com/comm_v2/images/profile/exhibitor_default.png" alt="pic" />
             </div>  
-            <div  style="background-color:${theme.accentColor};color:${theme.secondaryFontColor};height: 30px;width: 30px;overflow: hidden;border-radius: 4px; display: flex; justify-content: center;align-items: center;"> 
+            <div  style="background-color:${theme.accentColor};color:${theme.secondaryFontColor};height: 30px;width: 30px;overflow: hidden;border-radius: 4px; display: flex; justify-content: center;align-items: center;font-size: 13px;"> 
               +2
             </div>`;
 
@@ -159,7 +159,7 @@ const toolEmailTemplate = function (values, isViewer = false) {
     <p style="color:${values.sessionDescriptionColor};font-size: 12px;font-weight: 400;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;">
       ${values.description ? values.description : 'session description'}
     </p>
-    <div style="display: flex;justify-content: space-between;margin-top:10px;">
+    <div style="display:flex;justify-content: space-between;margin-top:10px;">
       ${values.isShowSpeakerAndBooth ? speakerAndBoothList(values) : ''}  
     </div>
   </div>
