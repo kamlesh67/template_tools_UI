@@ -45,19 +45,10 @@ const toolTemplate = function (values, isViewer = false) {
 };
 
 const toolEmailTemplate = function (values, isViewer = false) {
-  return `
-    <table logoId="${
-      values?.logoLibrary?.selected?.id ? values?.logoLibrary?.selected?.id : ''
-    }" cellspacing="0" cellpadding="0" style="position:relative;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
-      <tbody>
-        <tr><td width="100%"><img id="${values?.logoLibrary?.selected?.id}-logo" src="${
-     values?.logo_image?.url
-       ? values?.logo_image?.url
-       : 'https://s3.amazonaws.com/unroll-images-production/projects%2F167%2F1643875820464-188690'
-   }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" /></td></tr>
-      </tbody>
-    </table>
-  `;  
+  return `<div style="position:relative;display:table;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
+      <img src="${values?.logo_image?.url ? values?.logo_image?.url : 'https://cdn.tools.unlayer.com/image/placeholder.png'}" style="width: 100%; object-fit: contain; height: auto;max-height: 80px;" />
+    </div>
+  ${isViewer ? modalTemplate({ logos: values.data.logos }) : ''}`;  
 };
 
 const showModal = function () {
