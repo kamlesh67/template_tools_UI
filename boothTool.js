@@ -38,7 +38,7 @@ const toolTemplate = function (values, isViewer = false) {
     <div class="booth-img"> <img src="${
       values?.boothImage?.url
         ? values?.boothImage?.url
-        : 'https://cdn.v2dev.demohubilo.com/comm_v2/images/profile/exhibitor_default.png'
+        : 'https://cdn.hubilo.com/comm_v2/images/profile/exhibitor_default.png'
     }" style="width: 100%; object-fit: contain; border-radius:8px" />
     </div>
     <div class="booth-card-body" style="text-align: center;">
@@ -54,7 +54,7 @@ const toolEmailTemplate = function (values, isViewer = false) {
     <div style="border-radius: .8rem; border: 1px solid #f1f1f1;height: 85px;width: 85px;margin: auto; display: flex;background-color: #fff;"> <img src="${
       values?.boothImage?.url
         ? values?.boothImage?.url
-        : 'https://cdn.v2dev.demohubilo.com/comm_v2/images/profile/exhibitor_default.png'
+        : 'https://cdn.hubilo.com/comm_v2/images/profile/exhibitor_default.png'
     }" style="width: 100%; object-fit: contain;border-radius:8px" />
     </div>
     <div style="text-align: center;">
