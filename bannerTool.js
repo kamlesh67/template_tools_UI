@@ -112,7 +112,7 @@ unlayer.registerPropertyEditor({
 unlayer.registerTool({
     name: 'community_banner_tool',
     label: 'Banners',
-    icon: 'fa-light fa-image', 
+    icon: 'fa-image', 
     supportedDisplayModes: ['web', 'email'],
     options: {
         bannerContent: {

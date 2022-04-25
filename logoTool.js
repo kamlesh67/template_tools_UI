@@ -109,7 +109,7 @@ unlayer.registerPropertyEditor({
 unlayer.registerTool({
   name: 'logo_tool',
   label: 'Logos',
-  icon: 'fa-light fa-hexagon-image', 
+  icon: 'fa-hexagon-image', 
   supportedDisplayModes: ['web', 'email'],
   options: {
     logoContent: {

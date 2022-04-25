@@ -356,10 +356,7 @@
   padding: 14px; 
   background-color: #fff;
   border-radius: 8px;
-}  
-.session-card-body{
-  
-}
+}   
 .session-date{
   display: flex;
   align-items: center;
@@ -383,68 +380,12 @@
   display: flex;
   justify-content: space-between;
   margin-top:10px;
-}
-.session-speakers{
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
-.session-speakers .speaker{
-  height: 30px;
-  width: 30px;
-  overflow: hidden;
-  border-radius: 30px; 
-  display: flex;
-  margin-right:6px;
-}
-.session-speakers .speaker-more{
-  height: 30px;
-  width: 30px;
-  overflow: hidden;
-  border-radius: 30px; 
-  display: flex;
-  color: #fff;
-  justify-content: center;
-  align-items: center;
-}
-.session-booths{
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-
-.session-booths .booth{
-  height: 30px;
-  width: 50px;
-  overflow: hidden;
-  border-radius: 4px;
-  display: flex;
-  margin-right: 6px;
-  justify-content: center;
-  padding: 2px;
-  border: 1px solid #E0E0E0;
-  background-color: #ffffff;
-}
-
-.session-booths .booth-more{
-  height: 30px;
-  width: 30px;
-  overflow: hidden;
-  border-radius: 4px; 
-  display: flex;
-  color: #fff;
-  justify-content: center;
-  align-items: center;
-} 
-
+}  
 
 
 
 /* Logo card css */
-
-.logos-list{
-
-}
+ 
 .logos-list{
   display: flex;
   flex-wrap:wrap;
