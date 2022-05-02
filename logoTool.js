@@ -39,14 +39,18 @@ const toolTemplate = function (values, isViewer = false) {
   if(values.logoLibrary)
   {
   return `<div class="logo-card" style="position:relative;background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
-    <img src="${
-      values?.logo_image?.url ? values?.logo_image?.url : 'https://cdn.hubilo.com/comm_v2/images/profile/exhibitor_default.png'}" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
+    <img src="${values?.logo_image?.url}" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
   </div>
   ${isViewer ? modalTemplate({ logos: values.data.logos }) : ''}`;
 }
 else{
   return `
-  <div>Default</div>
+  <div style="position:relative;background-color:#F6F8F8;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+  <path d="M7.64698 28.8059L7.5 28.9524V29.16V34C7.5 34.663 7.76339 35.2989 8.23223 35.7678C8.70108 36.2366 9.33696 36.5 10 36.5H30.82H32.0271L31.1736 35.6464L17.7536 22.2264L17.7536 22.2264L17.75 22.2229C17.2827 21.7649 16.6544 21.5083 16 21.5083C15.3456 21.5083 14.7173 21.7649 14.25 22.2229L14.25 22.2229L14.247 22.2259L7.64698 28.8059ZM36.1055 36.3526L36.2521 36.5H36.46H38C38.663 36.5 39.2989 36.2366 39.7678 35.7678C40.2366 35.2989 40.5 34.663 40.5 34V33.16V32.9524L40.353 32.8059L33.753 26.2259L33.753 26.2259L33.75 26.2229C33.2827 25.7649 32.6544 25.5083 32 25.5083C31.3456 25.5083 30.7173 25.7649 30.25 26.2229L30.25 26.2229L30.2464 26.2264L28.4864 27.9864L28.1338 28.3391L28.4855 28.6926L36.1055 36.3526ZM39.6474 27.8745L40.5 28.7226V27.52V14C40.5 13.337 40.2366 12.7011 39.7678 12.2322C39.2989 11.7634 38.663 11.5 38 11.5H10C9.33696 11.5 8.70107 11.7634 8.23223 12.2322C7.76339 12.7011 7.5 13.337 7.5 14V23.52V24.7226L8.35261 23.8745L12.1095 20.1376C13.1559 19.1338 14.5499 18.5733 16 18.5733C17.4499 18.5733 18.8437 19.1336 19.89 20.1371L25.6464 25.8936L26 26.2471L26.3536 25.8936L28.11 24.1371C29.1563 23.1336 30.5501 22.5733 32 22.5733C33.4502 22.5733 34.8441 23.1338 35.8905 24.1376L39.6474 27.8745ZM10 8.5H38C39.4587 8.5 40.8576 9.07946 41.8891 10.1109C42.9205 11.1424 43.5 12.5413 43.5 14V34C43.5 35.4587 42.9205 36.8576 41.8891 37.8891C40.8576 38.9205 39.4587 39.5 38 39.5H10C8.54131 39.5 7.14236 38.9205 6.11091 37.8891C5.07946 36.8576 4.5 35.4587 4.5 34V14C4.5 12.5413 5.07946 11.1424 6.11091 10.1109C7.14236 9.07946 8.54131 8.5 10 8.5Z" fill="#C0C0C0" stroke="#C0C0C0"/>
+  </svg>
+  <p style="font-size:12px;color:#808080;margin-top:10px;">Click here to select a logo from the list.</p>
+  </div>
   ${isViewer ? modalTemplate({ logos: values.data.logos }) : ''}
   `;
 }
@@ -60,7 +64,7 @@ const toolEmailTemplate = function (values, isViewer = false) {
     `;
 }
 else{
-  return `''`;
+  return ``;
 }
 };
 
