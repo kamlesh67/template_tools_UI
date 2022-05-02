@@ -36,11 +36,20 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
+  if(values.logoLibrary)
+  {
   return `<div class="logo-card" style="position:relative;background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
     <img src="${
       values?.logo_image?.url ? values?.logo_image?.url : 'https://cdn.hubilo.com/comm_v2/images/profile/exhibitor_default.png'}" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
   </div>
   ${isViewer ? modalTemplate({ logos: values.data.logos }) : ''}`;
+}
+else{
+  return `
+  <div>Default</div>
+  ${isViewer ? modalTemplate({ logos: values.data.logos }) : ''}
+  `;
+}
 };
 
 const toolEmailTemplate = function (values, isViewer = false) {
