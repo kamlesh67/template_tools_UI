@@ -34,34 +34,46 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
+  if(values.boothLibrary)
+  {
   return `<div class="booth-card card" style="position:relative;background-color:${values.boothBGColor}">
-    <div class="booth-img"> <img src="${
-      values?.boothImage?.url
-        ? values?.boothImage?.url
-        : 'https://cdn.hubilo.com/comm_v2/images/profile/exhibitor_default.png'
-    }" style="width: 100%; object-fit: contain; border-radius:8px" />
+    <div class="booth-img"> <img src="${values?.boothImage?.url}" style="width: 100%; object-fit: contain; border-radius:8px" />
     </div>
     <div class="booth-card-body" style="text-align: center;">
     <h3 style="margin:10px 10px 0; font-size:13px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.boothName ? values.boothName : 'Booth Name'}</h3>
     </div>
   </div>
   ${isViewer ? modalTemplate({ booths: values.data.booths }) : ''}`;
+  }
+  else
+  {
+    return `<div style="position:relative;background-color:#F6F8F8;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center; padding:18px 10px;">
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M40 14H8C5.79086 14 4 15.7909 4 18V38C4 40.2091 5.79086 42 8 42H40C42.2091 42 44 40.2091 44 38V18C44 15.7909 42.2091 14 40 14Z" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M32 42V10C32 8.93913 31.5786 7.92172 30.8284 7.17157C30.0783 6.42143 29.0609 6 28 6H20C18.9391 6 17.9217 6.42143 17.1716 7.17157C16.4214 7.92172 16 8.93913 16 10V42" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <p style="font-size:13px;color:#808080;">Click here to select a booth from the list</p>
+  </div>
+    ${isViewer ? modalTemplate({ booths: values.data.booths }) : ''}`;
+  }
 };
 
 const toolEmailTemplate = function (values, isViewer = false) {
+  if(values.boothLibrary)
+  {
   return `
-  <div style="position:relative;background-color:${values.boothBGColor};margin-bottom: 15px;min-height: 140px; padding: 1rem; border-radius: 8px;">
-    <div style="border-radius: .8rem; border: 1px solid #f1f1f1;height: 85px;width: 85px;margin: auto; display: flex;background-color: #fff;"> <img src="${
-      values?.boothImage?.url
-        ? values?.boothImage?.url
-        : 'https://cdn.hubilo.com/comm_v2/images/profile/exhibitor_default.png'
-    }" style="width: 100%; object-fit: contain;border-radius:8px" />
+  <div style="position:relative;background-color:${values.boothBGColor};margin-bottom: 15px;min-height: 140px; padding:18px 10px;border-radius: 8px;">
+    <div style="border-radius: .8rem; border: 1px solid #f1f1f1;height: 85px;width: 85px;margin: auto; display: flex;background-color: #fff;"> <img src="${values?.boothImage?.url}" style="width: 100%; object-fit: contain;border-radius:8px" />
     </div>
     <div style="text-align: center;">
     <h3 style="margin:10px 10px 0; font-size:13px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.boothName ? values.boothName : 'Booth Name'}</h3>
     </div>
-  </div>
-  `;
+  </div>`;
+  }
+  else
+  {
+    return ``;
+  }
 };
 
 const showModal = function () {

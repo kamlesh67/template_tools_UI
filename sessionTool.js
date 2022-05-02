@@ -54,10 +54,10 @@ const boothList = function (booths) {
 
 const defaultBooth = `
             <div style="height: 30px; width: 50px;overflow: hidden;border-radius: 4px;display: flex;margin-right: 6px;justify-content: center;padding: 2px;border: 1px solid #E0E0E0;background-color: #ffffff;box-sizing:border-box"> 
-            <img src="https://cdn.v2dev.demohubilo.com/comm_v2/images/profile/exhibitor_default.png" alt="pic" />
+            <img src="https://cdn.hubilo.com/comm_v2/images/profile/exhibitor_default.png" alt="pic" />
             </div>
             <div style="height: 30px; width: 50px;overflow: hidden;border-radius: 4px;display: flex;margin-right: 6px;justify-content: center;padding: 2px;border: 1px solid #E0E0E0;background-color: #ffffff;box-sizing:border-box"> 
-              <img src="https://cdn.v2dev.demohubilo.com/comm_v2/images/profile/exhibitor_default.png" alt="pic" />
+              <img src="https://cdn.hubilo.com/comm_v2/images/profile/exhibitor_default.png" alt="pic" />
             </div>  
             <div  style="background-color:${theme.accentColor};color:${theme.secondaryFontColor};height: 30px;width: 30px;overflow: hidden;border-radius: 4px; display: flex; justify-content: center;align-items: center;font-size: 13px;"> 
               +2
@@ -123,6 +123,8 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
+  if(values.sessionLibrary)
+  {
   return `<div class="session-card" style="position:relative;background-color:${values.sessionCardBGColor}" >
     <div class="session-card-body">
       <p class="session-date" style="color:${values.sessionDateAndTimeColor};">
@@ -142,9 +144,26 @@ const toolTemplate = function (values, isViewer = false) {
     </div>
   </div>
   ${isViewer ? modalTemplate({ sessions: values.data.sessions }) : ''}`;
+    }
+    else{
+      return `
+      <div style="position:relative;background-color:#F6F8F8;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center; padding:20px 10px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <path d="M38 8H10C7.79086 8 6 9.79086 6 12V40C6 42.2091 7.79086 44 10 44H38C40.2091 44 42 42.2091 42 40V12C42 9.79086 40.2091 8 38 8Z" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M6 20H42" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M32 4V12" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16 4V12" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p style="font-size:13px;color:#808080;">Click here to select a community banner from the list.</p>
+      </div>
+      ${isViewer ? modalTemplate({ sessions: values.data.sessions }) : ''}`;
+      
+    }
 };
 
 const toolEmailTemplate = function (values, isViewer = false) {
+  if(values.sessionLibrary)
+  {
   return `
   <div style="position:relative;background-color:${values.sessionCardBGColor};margin-bottom: 15px;height: auto;padding: 14px;border-radius: 8px; max-width:540px;" >
   <div class="session-card-body">
@@ -165,6 +184,11 @@ const toolEmailTemplate = function (values, isViewer = false) {
   </div>
 </div>
   `;
+  }
+  else
+  {
+    return ``;
+  }
 };
 
 const showModal = function () {

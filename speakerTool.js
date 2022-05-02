@@ -35,38 +35,66 @@ const modalTemplate = function (data) {
 };
 
 const toolTemplate = function (values, isViewer = false) {
+  if(values.speakerLibrary)
+  {
+    return `
+    <div class="speaker-card card"> 
+    <div class="speaker-img">
+    <img src="${values?.speakerImage?.url ? values?.speakerImage?.url : 'https://cms-assets.tutsplus.com/cdn-cgi/image/width=630/uploads/users/988/posts/31255/image/What-is-public-speaking%20(1).jpg'}" style="height:11rem; width: 11rem; object-fit:cover" />
+    </div>
+    <h3 style="margin:5px 10px 0; font-size:15px; color: ${values.speakerTitleColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.speakerTitle ? values.speakerTitle : 'Speaker Name'}</h3>
+    <h4 style="margin:5px 10px 0;font-size:13px; color: ${values.speakerDesignationCompanyColor}; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
+    ${values.speakerEmail ? values.speakerEmail: 'Designation'}, ${values.speakerAbout ? values.speakerAbout : 'Company'}</h4>
+    </div>
+    ${isViewer ? modalTemplate({ speakers: values.data.speakers }) : ''}`;
+  }
+  else
+  {
   return `
-  <div class="speaker-card card"> 
-  <div class="speaker-img">
-  <img src="${values?.speakerImage?.url ? values?.speakerImage?.url : 'https://cms-assets.tutsplus.com/cdn-cgi/image/width=630/uploads/users/988/posts/31255/image/What-is-public-speaking%20(1).jpg'}" style="height:11rem; width: 11rem; object-fit:cover" />
-  </div>
-  <h3 style="margin:5px 10px 0; font-size:15px; color: ${values.speakerTitleColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.speakerTitle ? values.speakerTitle : 'Speaker Name'}</h3>
-  <h4 style="margin:5px 10px 0;font-size:13px; color: ${values.speakerDesignationCompanyColor}; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
-  ${values.speakerEmail ? values.speakerEmail: 'Designation'}, ${values.speakerAbout ? values.speakerAbout : 'Company'}</h4>
+  <div style="position:relative;background-color:#F6F8F8;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center; padding:18px 10px;">
+  <svg xmlns="http://www.w3.org/2000/svg" width="49" height="48" viewBox="0 0 49 48" fill="none">
+  <path d="M16.75 46H32.75" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24.75 38V46" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24.75 2C23.1587 2 21.6326 2.63214 20.5074 3.75736C19.3821 4.88258 18.75 6.4087 18.75 8V24C18.75 25.5913 19.3821 27.1174 20.5074 28.2426C21.6326 29.3679 23.1587 30 24.75 30C26.3413 30 27.8674 29.3679 28.9926 28.2426C30.1179 27.1174 30.75 25.5913 30.75 24V8C30.75 6.4087 30.1179 4.88258 28.9926 3.75736C27.8674 2.63214 26.3413 2 24.75 2V2Z" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M38.75 20V24C38.75 27.713 37.275 31.274 34.6495 33.8995C32.024 36.525 28.463 38 24.75 38C21.037 38 17.476 36.525 14.8505 33.8995C12.225 31.274 10.75 27.713 10.75 24V20" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <p style="font-size:13px;color:#808080;">Click here to select a speaker from the list</p>
   </div>
   ${isViewer ? modalTemplate({ speakers: values.data.speakers }) : ''}`;
+  }
+  
 };
 
 const toolEmailTemplate = function (values, isViewer = false) {
-  return `
-    <table speakerId="${
-      values?.speakerLibrary?.selected?.id ? values?.speakerLibrary?.selected?.id : ''
-    }" cellspacing="0" cellpadding="0" style="position:relative;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
-      <tbody>
-        <tr><td width="100%"><img id="${values?.speakerLibrary?.selected?.id}-speakerImage" src="${
-    values?.speakerImage?.url ? values?.speakerImage?.url : 'https://cms-assets.tutsplus.com/cdn-cgi/image/width=630/uploads/users/988/posts/31255/image/What-is-public-speaking%20(1).jpg'
-  }" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" /></td></tr>
-        <tr><td width="100%"><h3 id="${
-          values?.speakerLibrary?.selected?.id
-        }-speakerTitle" style="text-align: left;margin: 8px 0 12px 0; padding: 0 16px; color: ${values.speakerTitleColor};">${values.speakerTitle ? values.speakerTitle : 'Speaker Name'}</h3></td></tr>
-        <tr><td width="100%"><h4 id="${
-          values?.speakerLibrary?.selected?.id
-        }-speakerAbout" class="description" style="text-align: left;padding: 0 16px; margin: 0 0 12px 0; color: ${
-    values.speakerDesignationCompanyColor
-  };">${values.speakerEmail ? values.speakerEmail: 'Designation'}, ${values.speakerAbout ? values.speakerAbout : 'Company'}</h4></td></tr>
-      </tbody>
-    </table>
-  `;
+  if(values.speakerLibrary)
+  { 
+    return `
+    <style type="text/css">
+    .speaker-img:before {
+      content: "";
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      z-index: 11;
+      border: 1.2rem solid #ED7767;
+      top: 0;
+      right: 0;
+      border-radius: 20rem 0 20rem 20rem;
+    }
+    </style>
+    <div style="max-width: 145px; position:relative; margin-bottom: 15px;height: 210px;padding-top: 100px;overflow: hidden;border-radius: 8px;"> 
+    <div class="speaker-img" style=" position: absolute;right: -1.8rem;top: -1.8rem;z-index: 1; overflow: hidden;border-radius: 20rem 0 20rem 20rem;">
+    <img src="${values?.speakerImage?.url}" style="height:11rem; width: 11rem; object-fit:cover" />
+    </div>
+    <h3 style="margin:5px 10px 0; font-size:15px; color: ${values.speakerTitleColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values.speakerTitle ? values.speakerTitle : 'Speaker Name'}</h3>
+    <h4 style="margin:5px 10px 0;font-size:13px; color: ${values.speakerDesignationCompanyColor}; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
+    ${values.speakerEmail ? values.speakerEmail: 'Designation'}, ${values.speakerAbout ? values.speakerAbout : 'Company'}</h4>
+    </div>
+    ${isViewer ? modalTemplate({ speakers: values.data.speakers }) : ''}`;
+  }
+  else{
+    return ``;
+  }
 };
 
 const showModal = function () {
