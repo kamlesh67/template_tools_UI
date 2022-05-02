@@ -53,10 +53,15 @@ else{
 };
 
 const toolEmailTemplate = function (values, isViewer = false) {
-  return `<div style="position:relative;display:block; background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;width:100%;margin-bottom: 15px;height: auto;padding: 14px;">
+  if(values.logoLibrary)
+  {  return `<div style="position:relative;display:block; background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;width:100%;margin-bottom: 15px;height: auto;padding: 14px;">
       <img src="${values?.logo_image?.url ? values?.logo_image?.url : 'https://cdn.hubilo.com/comm_v2/images/profile/exhibitor_default.png'}" style="width: 100%; object-fit: contain; height: auto;max-height: 80px;" />
     </div>
     `;
+}
+else{
+  return `''`;
+}
 };
 
 const showModal = function () {
