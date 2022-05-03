@@ -85,15 +85,15 @@ const toolEmailTemplate = function (values, isViewer = false) {
     </style>
     <div  speakerId="${
       values?.speakerLibrary?.selected?.id
-    }" style="max-width: 145px; position:relative; margin-bottom: 15px;height: 210px;padding-top: 100px;overflow: hidden;border-radius: 8px;"> 
-    <div class="speaker-img" style=" position: absolute;right: -1.8rem;top: -1.8rem;z-index: 1; overflow: hidden;border-radius: 20rem 0 20rem 20rem;">
+    }" style="max-width: 145px; position:relative; margin-bottom: 15px;height: 210px;padding-top: 100px;overflow: hidden;border-radius: 8px;background-color:#ffffff;box-sizing: border-box;"> 
+    <div class="speaker-img" style=" position: absolute;right: -19px;top: -19px;z-index: 1; overflow: hidden;border-radius: 20rem 0 20rem 20rem;border: 1.2rem solid #ED7767;">
     <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${
       values?.speakerImage?.url
     }" style="height:11rem; width: 11rem; object-fit:cover" />
     </div>
     <h3 id="${
       values?.speakerLibrary?.selected?.id
-    }-speakerName" style="margin:5px 10px 0; font-size:15px; color: ${
+    }-speakerName" style="padding: 32px 10px 0;margin-bottom:10px; font-size:15px; color: ${
       values.speakerTitleColor
     };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
       values?.speakerTitle
