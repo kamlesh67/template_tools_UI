@@ -39,18 +39,17 @@ const toolTemplate = function (values, isViewer = false) {
     return `
     <div class="speaker-card card"> 
     <div class="speaker-img">
-    <img src="${
-      values?.speakerImage?.url}" style="height:11rem; width: 11rem; object-fit:cover" />
+    <img src="${values?.speakerImage?.url}" style="height:11rem; width: 11rem; object-fit:cover" />
     </div>
     <h3 style="margin:5px 10px 0; font-size:15px; color: ${
       values.speakerTitleColor
     };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
-      values?.speakerTitle}</h3>
+      values?.speakerTitle
+    }</h3>
     <h4 style="margin:5px 10px 0;font-size:13px; color: ${
       values.speakerDesignationCompanyColor
     }; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
-    ${values.speakerEmail}, ${
-      values.speakerAbout }</h4>
+    ${values.speakerEmail}, ${values.speakerAbout}</h4>
     </div>
     ${isViewer ? modalTemplate({ speakers: values.data.speakers }) : ''}`;
   } else {
@@ -99,7 +98,9 @@ const toolEmailTemplate = function (values, isViewer = false) {
     };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
       values?.speakerTitle
     }</h3>
-    <h4 id="${values?.speakerLibrary?.selected?.id}-speakerDesAndCom" style="margin:5px 10px 0;font-size:13px; color: ${
+    <h4 id="${
+      values?.speakerLibrary?.selected?.id
+    }-speakerDesAndCom" style="margin:5px 10px 0;font-size:13px; color: ${
       values.speakerDesignationCompanyColor
     }; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
     ${values?.speakerEmail}, ${values?.speakerAbout}</h4>
@@ -133,7 +134,7 @@ unlayer.registerPropertyEditor({
         showModal();
         setTimeout(() => {
           // We are using event bubling to capture clicked item instead of registering click event on all product items.
-          const selectButton = document.querySelector('.products-list');
+          const selectButton = document.querySelector('.speakers-list');
           if (!selectButton) return;
           selectButton.onclick = function (e) {
             if (e.target.id === 'speakers-item') {
@@ -216,7 +217,6 @@ unlayer.registerTool({
     const { name, value, data } = source;
     // Transform the values here
     // We will update selected values in property editor here
-    console.log('newValues TRANSForm', value?.selected?.name);
     const newValues =
       name === 'speakerLibrary'
         ? {
