@@ -1,11 +1,12 @@
+(function(){
 const editorTemplate = `<button id="addSpeaker" class="button">Add Speaker</button>`;
 const searchButton = `<button id="search-btn" class="button">Search</button>`;
 const productItemsTemplate = _.template(`
   <% _.forEach(speakers, function(item) { %>
     <div class="speakers-item card" id="speakers-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
-    <div class="speakers-media"> <img src="<%= item.profile_img %>" style="height:11rem; width: 11rem;object-fit:cover" /> </div>
-      <h4 style="margin:5px 10px 0; text-align: left; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.name %> </h4>
-      <h5 style="margin:5px 10px 0; text-align: left;color: ${theme.secondary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.designation %>,<%= item.company %> </h5>
+    <div class="speakers-media"> <img src="<%= item.profile_img %>" alt="image" style="height:11rem; width: 11rem;object-fit:cover" /> </div>
+      <h4 style="margin:5px 10px 0; text-align: left; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item?.name %> </h4>
+      <h5 style="margin:5px 10px 0; text-align: left;color: ${theme.secondary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item?.designation %> <%= item?.designation && item?.company ? ',' : '' %> <%= item?.company %> </h5>
     </div>
   <% }); %>
 `);
@@ -39,17 +40,17 @@ const toolTemplate = function (values, isViewer = false) {
     return `
     <div class="speaker-card card"> 
     <div class="speaker-img">
-    <img src="${values?.speakerImage?.url}" style="height:11rem; width: 11rem; object-fit:cover" />
+    <img src="${values?.speakerImage?.url}" alt="image" style="height:11rem; width: 11rem; object-fit:cover" />
     </div>
     <h3 style="margin:5px 10px 0; font-size:15px; color: ${
       values.speakerTitleColor
     };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
-      values?.speakerTitle
+      values?.speakerTitle ? values?.speakerTitle : ''
     }</h3>
     <h4 style="margin:5px 10px 0;font-size:13px; color: ${
       values.speakerDesignationCompanyColor
     }; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
-    ${values.speakerEmail}, ${values.speakerAbout}</h4>
+    ${values.speakerEmail? values.speakerEmail : ''} ${values.speakerEmail && values.speakerAbout ? ',' : ''} ${values.speakerAbout? values.speakerAbout : ''}</h4>
     </div>
     ${isViewer ? modalTemplate({ speakers: values.data.speakers }) : ''}`;
   } else {
@@ -89,21 +90,21 @@ const toolEmailTemplate = function (values, isViewer = false) {
     <div class="speaker-img" style=" position: absolute;right: -19px;top: -19px;z-index: 1; overflow: hidden;border-radius: 20rem 0 20rem 20rem;border: 1.2rem solid #ED7767;">
     <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${
       values?.speakerImage?.url
-    }" style="height:11rem; width: 11rem; object-fit:cover" />
+    }" alt="image" style="height:11rem; width: 11rem; object-fit:cover" />
     </div>
     <h3 id="${
       values?.speakerLibrary?.selected?.id
     }-speakerName" style="padding: 32px 10px 0;margin-bottom:10px; font-size:15px; color: ${
       values.speakerTitleColor
     };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
-      values?.speakerTitle
+      values?.speakerTitle ? values?.speakerTitle : ''
     }</h3>
     <h4 id="${
       values?.speakerLibrary?.selected?.id
     }-speakerDesAndCom" style="margin:5px 10px 0;font-size:13px; color: ${
       values.speakerDesignationCompanyColor
     }; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
-    ${values?.speakerEmail}, ${values?.speakerAbout}</h4>
+    ${values?.speakerEmail ? values?.speakerEmail : ''} ${values.speakerEmail && values.speakerAbout ? ',' : ''} ${values?.speakerAbout ? values?.speakerAbout : ''}</h4>
     </div>
     ${isViewer ? modalTemplate({ speakers: values.data.speakers }) : ''}`;
   } else {
@@ -256,3 +257,4 @@ unlayer.registerTool({
     },
   },
 });
+})();
