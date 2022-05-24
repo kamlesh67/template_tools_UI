@@ -128,7 +128,7 @@
         </div>
         <div class="modal-body">
           <div class="search-box">
-            <input type="text" class="form-control" placeholder="Search by session name" id="search-bar" style="width: 78%" />
+            <input type="text" class="form-control" placeholder="Search by session name or track name" id="search-bar" style="width: 78%" />
             ${searchButton}
           </div>
           <div class="sessions-list">
@@ -280,7 +280,7 @@
                   sessionListHtml = sessionItemsTemplate({ sessions: data.sessions });
                 } else {
                   filteredItem = data.sessions.filter((item) =>
-                    item.name.toLowerCase().includes(searchBar.value.toLowerCase())
+                    item?.name?.toLowerCase().includes(searchBar.value.toLowerCase()) || item?.trackName?.toLowerCase().includes(searchBar.value.toLowerCase())
                   );
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
