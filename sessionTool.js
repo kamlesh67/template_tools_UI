@@ -110,7 +110,7 @@
 
   const sessionItemsTemplate = _.template(`
 <% _.forEach(sessions, function(item) { %>
-  <div class="session-item" id="session-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-date-time="<%= item.dateAndTime %>" >
+  <div style="width: 78%; height: auto;" class="session-item" id="session-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-date-time="<%= item.dateAndTime %>" >
     <p style="color: ${theme.primaryFontColor};"> <%= item.dateAndTime %> </p>
     <h4 style="margin: 8px 0; text-align: left; color: ${theme.primaryColor};"><%= item.name %></h4>
   </div>
