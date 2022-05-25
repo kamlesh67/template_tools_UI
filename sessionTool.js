@@ -120,7 +120,7 @@
      <%= item.dateAndTime %> 
      </p>
     <h4 style="margin: 8px 0; text-align: left; color: ${theme.primaryColor};"><%= item.name %></h4>
-    <div class="session-modal-desc" style="margin: 0px; text-align: left; color: ${theme.primaryColor};"><%= item.description.replace(/<(.|\n)*?>/g, ''); %></div>
+    <div class="session-modal-desc" style="margin: 0px; text-align: left; color: ${theme.primaryColor};"><%= item.description %></div>
   </div>
 <% }); %>
 `);

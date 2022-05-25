@@ -382,22 +382,10 @@
   margin-top:10px;
 }
 .session-modal-desc{
-  position:relative;
-  white-space: nowrap;
-  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-}
-.session-modal-desc:after {
-  content: "....";
-  white-space: nowrap;
-  width:20px;
-  height:20px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  position: relative;
-  right: 0;
-  display:inline;
 }
 
 
