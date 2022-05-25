@@ -120,6 +120,7 @@
      <%= item.dateAndTime %> 
      </p>
     <h4 style="margin: 8px 0; text-align: left; color: ${theme.primaryColor};"><%= item.name %></h4>
+    <p style="margin: 0px; text-align: left; color: ${theme.primaryColor};"><%= item.description %></p>
   </div>
 <% }); %>
 `);
