@@ -391,11 +391,13 @@
 .session-modal-desc:after {
   content: "....";
   white-space: nowrap;
-  width: 100%;
+  width:20px;
+  height:20px;
   overflow: hidden;
   text-overflow: ellipsis;
   position: relative;
   right: 0;
+  display:inline;
 }
 
 
