@@ -120,10 +120,7 @@
      <%= item.dateAndTime %> 
      </p>
     <h4 style="margin: 8px 0; text-align: left; color: ${theme.primaryColor};"><%= item.name %></h4>
-    <div class="session-modal-desc">
-      <div style="margin: 0px; text-align: left; color: ${theme.primaryColor};"><%= item.description %></div>
-      <span>.....</span>
-    </div>
+    <div class="session-modal-desc" style="margin: 0px; text-align: left; color: ${theme.primaryColor};"><%= item.description %></div>
   </div>
 <% }); %>
 `);
