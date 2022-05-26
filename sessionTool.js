@@ -297,7 +297,7 @@
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
                 if(sessionListHtml) console.log('sessionListHtml', sessionListHtml)  
-                list.innerHTML = !sessionListHtml ? sessionNoItemsTemplate : sessionListHtml;
+                list.innerHTML = searchBar.value && !sessionListHtml.trim() ? sessionNoItemsTemplate : sessionListHtml;
               }
             };
             
@@ -317,7 +317,7 @@
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
                if(sessionListHtml) console.log('sessionListHtml', sessionListHtml)  
-               list.innerHTML = !sessionListHtml ? sessionNoItemsTemplate : sessionListHtml;
+               list.innerHTML = searchBar.value && !sessionListHtml.trim() ? sessionNoItemsTemplate : sessionListHtml;
               }
             };
             closeBtn.onclick = function (e) {
