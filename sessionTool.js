@@ -297,7 +297,7 @@
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
                 console.log('sessionListHtml', sessionListHtml)
-                list.innerHTML = searchBar?.value && !sessionListHtml ? sessionNoItemsTemplate : sessionListHtml;
+                list.innerHTML = searchBar?.value && !sessionListHtml ? sessionNoItemsTemplate : sessionNoItemsTemplate;
               }
             };
             
@@ -316,7 +316,7 @@
                   );
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
-               list.innerHTML = searchBar?.value && !sessionListHtml ? sessionNoItemsTemplate : sessionListHtml;
+               list.innerHTML = searchBar?.value && !sessionListHtml ? sessionNoItemsTemplate : sessionNoItemsTemplate;
               }
             };
             closeBtn.onclick = function (e) {
