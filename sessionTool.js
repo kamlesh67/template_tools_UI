@@ -125,11 +125,11 @@
 <% }); %>
 `);
 
-  const sessionNoItemsTemplate = _.template(`
+  const sessionNoItemsTemplate = `
   <div>
     <h4>No session found</h4>
   </div>
-`);
+`;
 
   const modalTemplate = function (data) {
     return `
