@@ -277,6 +277,9 @@
             };
             /* Register event listeners for search */
             const searchBar = document.querySelector('#search-bar');
+            searchBar.onchange = function (e) {
+              console.log('onChange', e)
+            }
             const searchButton = document.querySelector('#search-btn');
             const closeBtn = document.querySelector('#modalCloseBtnSession');
             searchButton.onclick = function (e) {
