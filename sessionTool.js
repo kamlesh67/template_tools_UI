@@ -315,7 +315,7 @@
             closeBtn.onclick = function (e) {
               console.log('searchBar',searchBar , searchBar.value)
               searchBar.value = '';
-              sessionListHtml = sessionItemsTemplate({ sessions: data.sessions });
+              searchButton.click();
               hideModal();
             }
           }, 200);
