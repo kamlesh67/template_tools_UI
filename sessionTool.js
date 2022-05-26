@@ -310,7 +310,7 @@
                   );
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
-                list.innerHTML = sessionListHtml;
+               list.innerHTML = searchBar?.value && !sessionListHtml ? '<div>no session found</div>' : sessionListHtml;
               }
             };
             closeBtn.onclick = function (e) {
