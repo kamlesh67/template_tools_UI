@@ -127,7 +127,7 @@
 
   const sessionNoItemsTemplate = _.template(`
   <div>
-    <h4 style="margin: 8px 0; text-align: center; color: ${theme.primaryColor};">No session found</h4>
+    <h4>No session found</h4>
   </div>
 `);
 
