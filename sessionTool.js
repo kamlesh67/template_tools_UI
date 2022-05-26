@@ -296,8 +296,8 @@
                   );
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
-                console.log('sessionListHtml', sessionListHtml)
-                list.innerHTML = searchBar?.value && !sessionListHtml ? sessionNoItemsTemplate : sessionNoItemsTemplate;
+                if(sessionListHtml) console.log('true sessionListHtml', searchBar.value)  
+                list.innerHTML = !sessionListHtml ? sessionNoItemsTemplate : sessionListHtml;
               }
             };
             
@@ -316,7 +316,8 @@
                   );
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
-               list.innerHTML = searchBar?.value && !sessionListHtml ? sessionNoItemsTemplate : sessionNoItemsTemplate;
+               if(sessionListHtml) console.log('true sessionListHtml', searchBar.value)  
+               list.innerHTML = !sessionListHtml ? sessionNoItemsTemplate : sessionListHtml;
               }
             };
             closeBtn.onclick = function (e) {
