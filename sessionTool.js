@@ -314,7 +314,7 @@
             };
             closeBtn.onclick = function (e) {
               sessionListHtml = sessionItemsTemplate({ sessions: data.sessions });
-              hideModal;
+              hideModal();
             }
           }, 200);
         };
