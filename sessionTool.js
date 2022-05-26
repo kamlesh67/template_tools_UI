@@ -291,7 +291,7 @@
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
                 console.log('sessionListHtml', sessionListHtml)
-                list.innerHTML = sessionListHtml;
+                list.innerHTML = searchBar?.value && !sessionListHtml ? 'no session found' : sessionListHtml;
               }
             };
             
