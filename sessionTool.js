@@ -126,8 +126,9 @@
 `);
 
   const sessionNoItemsTemplate = `
-  <div>
-    <h4>No session found</h4>
+  <div style="vertical-align: center;">
+    <h5>No Sessions Found</h5>
+    <p>Try searching with a different keyword</p>
   </div>
 `;
 
