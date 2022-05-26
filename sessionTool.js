@@ -313,8 +313,8 @@
               }
             };
             closeBtn.onclick = function (e) {
-              console.log('searchBar',searchBar )
-              searchBar.target.value = ''
+              console.log('searchBar',searchBar , searchBar.value)
+              searchBar.value = '';
               sessionListHtml = sessionItemsTemplate({ sessions: data.sessions });
               hideModal();
             }
