@@ -296,7 +296,7 @@
                   );
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
-                if(sessionListHtml) console.log('true sessionListHtml', searchBar.value)  
+                if(sessionListHtml) console.log('sessionListHtml', sessionListHtml)  
                 list.innerHTML = !sessionListHtml ? sessionNoItemsTemplate : sessionListHtml;
               }
             };
@@ -316,7 +316,7 @@
                   );
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
-               if(sessionListHtml) console.log('true sessionListHtml', searchBar.value)  
+               if(sessionListHtml) console.log('sessionListHtml', sessionListHtml)  
                list.innerHTML = !sessionListHtml ? sessionNoItemsTemplate : sessionListHtml;
               }
             };
