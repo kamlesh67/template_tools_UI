@@ -312,7 +312,10 @@
                 list.innerHTML = sessionListHtml;
               }
             };
-            closeBtn.onclick = hideModal;
+            closeBtn.onclick = function (e) {
+              sessionListHtml = sessionItemsTemplate({ sessions: data.sessions });
+              hideModal;
+            }
           }, 200);
         };
       },
