@@ -167,9 +167,9 @@
       <h3 class="session-title" style="margin: 10px 0 5px 0; color: ${values.sessionNameColor};">${
         values.sessionName ? values.sessionName : ''
       }</h3>
-      <p class="session-description" style="color:${values.sessionDescriptionColor};display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+      <div class="session-description" style="color:${values.sessionDescriptionColor};display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
         ${values.description ? values.description : ''}
-      </p>
+      </div>
       <div class="booth-speaker-data">
         ${values?.isShowSpeakerAndBooth ? speakerAndBoothList(values) : ''}  
       </div>
@@ -212,11 +212,11 @@
     };font-size: 14px;font-weight: bold;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;">${
         values?.sessionName ? values.sessionName : ''
       }</h3>
-    <p style="color:${
+    <div style="color:${
       values.sessionDescriptionColor
     };font-size: 12px;font-weight: 400;display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
       ${values?.description ? values.description : ''}
-    </p>
+    </div>
     <div style="display:flex;justify-content: space-between;margin-top:10px;">
       ${values.isShowSpeakerAndBooth ? speakerAndBoothList(values) : ''}  
     </div>
