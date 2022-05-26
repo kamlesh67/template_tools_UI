@@ -125,6 +125,12 @@
 <% }); %>
 `);
 
+  const sessionNoItemsTemplate = _.template(`
+  <div>
+    <h4 style="margin: 8px 0; text-align: center; color: ${theme.primaryColor};">No session found</h4>
+  </div>
+`);
+
   const modalTemplate = function (data) {
     return `
   <div class="modal" id="session_library_modal">
@@ -291,7 +297,7 @@
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
                 console.log('sessionListHtml', sessionListHtml)
-                list.innerHTML = searchBar?.value && !sessionListHtml ? '<div>no session found</div>' : sessionListHtml;
+                list.innerHTML = searchBar?.value && !sessionListHtml ? sessionNoItemsTemplate : sessionListHtml;
               }
             };
             
@@ -310,7 +316,7 @@
                   );
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
-               list.innerHTML = searchBar?.value && !sessionListHtml ? '<div>no session found</div>' : sessionListHtml;
+               list.innerHTML = searchBar?.value && !sessionListHtml ? sessionNoItemsTemplate : sessionListHtml;
               }
             };
             closeBtn.onclick = function (e) {
