@@ -290,6 +290,7 @@
                   );
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
+                console.log('sessionListHtml', sessionListHtml)
                 list.innerHTML = sessionListHtml;
               }
             };
