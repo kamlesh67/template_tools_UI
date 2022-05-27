@@ -110,15 +110,18 @@ unlayer.registerPropertyEditor({
           const selectButton = document.querySelector('.booths-list');
           if (!selectButton) return;
           selectButton.onclick = function (e) {
+            console.log('item clicked')
             if (e.target.id === 'booth-item') {
               // If user clicks on product item
               // Find selected item from booths list
+              console.log('item clicked on product item ')
               const selectedProduct = data.booths.find(
                 (item) => item.id === parseInt(e.target.dataset.uuid)
               );
               updateValue({ selected: selectedProduct });
             } else {
               // If user click on child of product item (e.g. title, price, image or desctiption)
+              console.log('item clicked on child of product item ')
               const parent = e.target.parentElement;
               if (parent && parent.id !== 'booth-item') return;
               const selectedProduct = data.booths.find(
