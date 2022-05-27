@@ -1,8 +1,9 @@
+(function(){
 const editorTemplate = `<button id="booth" class="button">Add Booth</button>`;
 const searchButton = `<button id="search-btn" class="button">Search</button>`;
 const boothItemsTemplate = _.template(`<% _.forEach(booths, function(item) { %>
   <div class="booth-item" id="booth-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" style="background-color: ${theme.primaryColor};">
-  <div class="booth-media"> <img src="<%= item.profile_img %>" style="max-height: 90px;width: 100%; object-fit: contain;border-radius:8px" /> </div>
+  <div class="booth-media"> <img src="<%= item.profile_img %>" alt="image" style="max-height: 90px;width: 100%; object-fit: contain;border-radius:8px" /> </div>
   <h4 style="margin: 8px 0; text-align: center; color: ${theme.primaryFontColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item.name %> </h4>
   </div>
 <% }); %>`);
@@ -14,7 +15,7 @@ const modalTemplate = function (data) {
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title">Booth List</h3>
-          <button class="close" id="modalCloseBtn">&times;</button>
+          <button class="close" id="modalCloseBtnBooth">&times;</button>
         </div>
         <div class="modal-body">
           <div class="search-box">
@@ -37,7 +38,7 @@ const toolTemplate = function (values, isViewer = false) {
   if(values.boothLibrary)
   {
   return `<div class="booth-card card" style="position:relative;background-color:${values.boothBGColor}">
-    <div class="booth-img"> <img src="${values?.boothImage?.url}" style="width: 100%; object-fit: contain; border-radius:8px" />
+    <div class="booth-img"> <img src="${values?.boothImage?.url}" alt="image" style="width: 100%; object-fit: contain; border-radius:8px" />
     </div>
     <div class="booth-card-body" style="text-align: center;">
     <h3 style="margin:10px 10px 0; font-size:13px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values?.boothName}</h3>
@@ -63,7 +64,7 @@ const toolEmailTemplate = function (values, isViewer = false) {
   {
   return `
   <div boothId="${values?.boothLibrary?.selected?.id}" style="position:relative;background-color:${values.boothBGColor};margin-bottom: 15px;padding:18px 10px;border-radius: 8px;">
-    <div style="border-radius: .8rem; border: 1px solid #f1f1f1;height: 85px;width: 85px;margin: auto; display: flex;background-color: #fff;"> <img id="${values?.boothLibrary?.selected?.id}-boothImg" src="${values?.boothImage?.url}" style="width: 100%; object-fit: contain;border-radius:8px" />
+    <div style="border-radius: .8rem; border: 1px solid #f1f1f1;height: 85px;width: 85px;margin: auto; display: flex;background-color: #fff;"> <img id="${values?.boothLibrary?.selected?.id}-boothImg" src="${values?.boothImage?.url}" alt="image" style="width: 100%; object-fit: contain;border-radius:8px" />
     </div>
     <div style="text-align: center;">
     <h3 id="${values?.boothLibrary?.selected?.id}-boothName" style="margin:10px 10px 0; font-size:13px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values?.boothName}</h3>
@@ -126,7 +127,7 @@ unlayer.registerPropertyEditor({
           /* Register event listeners for search */
           const searchBar = document.querySelector('#search-bar');
           const searchButton = document.querySelector('#search-btn');
-          const closeBtn = document.querySelector('#modalCloseBtn');
+          const closeBtn = document.querySelector('#modalCloseBtnBooth');
           searchButton.onclick = function (e) {
             const list = document.querySelector('#booth_library_modal .booths-list');
             let filteredItem;
@@ -219,3 +220,4 @@ unlayer.registerTool({
     },
   },
 });
+})();
