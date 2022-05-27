@@ -1,4 +1,5 @@
-const editorTemplate = `<button id="addLogo" class="button" >Add Logo</button>`;
+(function(){
+  const editorTemplate = `<button id="addLogo" class="button" >Add Logo</button>`;
 const logoItemsTemplate = _.template(`
 <% _.forEach(logos, function(item) { %>
   <div class="logo-item" id="logo-item" data-uuid='<%= item.id %>' data-image="<%= item.img %>" >
@@ -14,7 +15,7 @@ const modalTemplate = function (data) {
       <div class="modal-content">
         <div class="modal-header">
           <h3 class="modal-title">Logo List</h3>
-          <button class="close" id="modalCloseBtn">&times;</button>
+          <button class="close" id="modalCloseBtnLogo">&times;</button>
         </div>
         <div class="modal-body">
         <div>
@@ -117,7 +118,7 @@ unlayer.registerPropertyEditor({
             outerBody.click();
           };
           /* Register event listeners for search */
-          const closeBtn = document.querySelector('#modalCloseBtn');
+          const closeBtn = document.querySelector('#modalCloseBtnLogo');
           closeBtn.onclick = hideModal;
         }, 200);
       };
@@ -128,7 +129,7 @@ unlayer.registerPropertyEditor({
 unlayer.registerTool({
   name: 'logo_tool',
   label: 'Logos',
-  icon: 'fa-hexagon-image', 
+  icon: 'fa-image', 
   supportedDisplayModes: ['web', 'email'],
   options: {
     logoContent: {
@@ -184,3 +185,4 @@ unlayer.registerTool({
     },
   },
 });
+})();
