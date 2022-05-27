@@ -8,6 +8,13 @@ const boothItemsTemplate = _.template(`<% _.forEach(booths, function(item) { %>
   </div>
 <% }); %>`);
 
+const boothNoItemsTemplate = `
+  <div>
+    <h4>No Booths Found</h4>
+    <p>Try searching with a different keyword</p>
+  </div>
+`;
+  
 const modalTemplate = function (data) {
   return `
   <div class="modal" id="booth_library_modal">
@@ -126,6 +133,23 @@ unlayer.registerPropertyEditor({
           };
           /* Register event listeners for search */
           const searchBar = document.querySelector('#search-bar');
+          searchBar.onchange = function (e) {
+            const list = document.querySelector('#booth_library_modal .booths-list');
+            let filteredItem;
+            let boothListHtml;
+            if (list && data && data.booths) {
+              if (searchBar.value === '') {
+                boothListHtml = boothItemsTemplate({ booths: data.booths });
+              } else {
+                filteredItem = data.booths.filter((item) =>
+                  item.name.toLowerCase().includes(searchBar.value.toLowerCase())
+                );
+                boothListHtml = boothItemsTemplate({ booths: filteredItem });
+              }
+              list.innerHTML = searchBar.value && !boothListHtml.trim() ? boothNoItemsTemplate : boothListHtml;
+            }
+          };
+
           const searchButton = document.querySelector('#search-btn');
           const closeBtn = document.querySelector('#modalCloseBtnBooth');
           searchButton.onclick = function (e) {
@@ -141,10 +165,14 @@ unlayer.registerPropertyEditor({
                 );
                 boothListHtml = boothItemsTemplate({ booths: filteredItem });
               }
-              list.innerHTML = boothListHtml;
+               list.innerHTML = searchBar.value && !boothListHtml.trim() ? boothNoItemsTemplate : boothListHtml;
             }
           };
-          closeBtn.onclick = hideModal;
+          closeBtn.onclick = function (e) {
+              searchBar.value = '';
+              searchButton.click();
+              hideModal();
+          }
         }, 200);
       };
     },
