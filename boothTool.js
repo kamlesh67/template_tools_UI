@@ -123,6 +123,7 @@ unlayer.registerPropertyEditor({
               // If user click on child of product item (e.g. title, price, image or desctiption)
               console.log('item clicked on child of product item ')
               const parent = e.target.parentElement;
+              console.log('parent', parent)
               if (parent && parent.id !== 'booth-item') return;
               const selectedProduct = data.booths.find(
                 (item) => item.id === parseInt(parent.dataset.uuid)
