@@ -297,7 +297,6 @@
                   );
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
-                if(sessionListHtml) console.log('sessionListHtml', sessionListHtml)  
                 list.innerHTML = searchBar.value && !sessionListHtml.trim() ? sessionNoItemsTemplate : sessionListHtml;
               }
             };
@@ -317,12 +316,10 @@
                   );
                   sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
                 }
-               if(sessionListHtml) console.log('sessionListHtml', sessionListHtml)  
                list.innerHTML = searchBar.value && !sessionListHtml.trim() ? sessionNoItemsTemplate : sessionListHtml;
               }
             };
             closeBtn.onclick = function (e) {
-              console.log('searchBar',searchBar , searchBar.value)
               searchBar.value = '';
               searchButton.click();
               hideModal();
