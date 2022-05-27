@@ -11,6 +11,13 @@ const productItemsTemplate = _.template(`
   <% }); %>
 `);
 
+const productNoItemsTemplate = `
+  <div>
+    <h4>No Speakers Found</h4>
+    <p>Try searching with a different keyword</p>
+  </div>
+`;
+
 const modalTemplate = function (data) {
   return `
   <div class="modal" id="speaker_library_modal">
@@ -162,6 +169,23 @@ unlayer.registerPropertyEditor({
           };
           /* Register event listeners for search */
           const searchBar = document.querySelector('#search-bar');
+          searchBar.onchange = function (e) {
+            const list = document.querySelector('#speaker_library_modal .speakers-list');
+            let filteredItem;
+            let speakersListHtml;
+            if (list && data && data.speakers) {
+              if (searchBar.value === '') {
+                speakersListHtml = productItemsTemplate({ speakers: data.speakers });
+              } else {
+                filteredItem = data.speakers.filter((item) =>
+                  item.name.toLowerCase().includes(searchBar.value.toLowerCase())
+                );
+                speakersListHtml = productItemsTemplate({ speakers: filteredItem });
+              }
+              list.innerHTML = searchBar.value && !speakersListHtml.trim() ? productNoItemsTemplate : speakersListHtml;
+            }
+          };
+
           const searchButton = document.querySelector('#search-btn');
           const closeBtn = document.querySelector('#modalCloseBtnSpeaker');
           searchButton.onclick = function (e) {
@@ -177,10 +201,14 @@ unlayer.registerPropertyEditor({
                 );
                 speakersListHtml = productItemsTemplate({ speakers: filteredItem });
               }
-              list.innerHTML = speakersListHtml;
+              list.innerHTML = searchBar.value && !speakersListHtml.trim() ? productNoItemsTemplate : speakersListHtml;
             }
           };
-          closeBtn.onclick = hideModal;
+         closeBtn.onclick = function (e) {
+              searchBar.value = '';
+              searchButton.click();
+              hideModal();
+         }
         }, 200);
       };
     },
