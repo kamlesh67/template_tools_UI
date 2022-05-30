@@ -120,7 +120,7 @@ unlayer.registerPropertyEditor({
             } else {
               // If user click on child of product item (e.g. title, price, image or desctiption)
               console.log('e?.target?.parentElement', e?.target?.parentElement)
-              const parent = e?.target?.parentElement?.parentElement;
+              const parent = e?.target?.parentElement?.id === 'booth-item' ? e?.target?.parentElement : e?.target?.parentElement?.parentElement;
               if (parent && parent.id !== 'booth-item') return;
               const selectedProduct = data.booths.find(
                 (item) => item.id === parseInt(parent.dataset.uuid)
