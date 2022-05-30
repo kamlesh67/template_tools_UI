@@ -1,7 +1,7 @@
-(function(){
-const editorTemplate = `<button id="addSpeaker" class="button">Add Speaker</button>`;
-const searchButton = `<button id="search-btn" class="button">Search</button>`;
-const productItemsTemplate = _.template(`
+(function () {
+  const editorTemplate = `<button id="addSpeaker" class="button">Add Speaker</button>`;
+  const searchButton = `<button id="search-btn" class="button">Search</button>`;
+  const productItemsTemplate = _.template(`
   <% _.forEach(speakers, function(item) { %>
     <div class="speakers-item card" id="speakers-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
     <div class="speakers-media"> <img src="<%= item.profile_img %>" alt="image" style="height:11rem; width: 11rem;object-fit:cover" /> </div>
@@ -11,15 +11,15 @@ const productItemsTemplate = _.template(`
   <% }); %>
 `);
 
-const productNoItemsTemplate = `
+  const productNoItemsTemplate = `
   <div>
     <h4>No Speakers Found</h4>
     <p>Try searching with a different keyword</p>
   </div>
 `;
 
-const modalTemplate = function (data) {
-  return `
+  const modalTemplate = function (data) {
+    return `
   <div class="modal" id="speaker_library_modal">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -40,28 +40,32 @@ const modalTemplate = function (data) {
     </div>
   </div>
 `;
-};
+  };
 
-const toolTemplate = function (values, isViewer = false) {
-  if (values.speakerLibrary) {
-    return `
+  const toolTemplate = function (values, isViewer = false) {
+    if (values.speakerLibrary) {
+      return `
     <div class="speaker-card card"> 
     <div class="speaker-img">
-    <img src="${values?.speakerImage?.url}" alt="image" style="height:11rem; width: 11rem; object-fit:cover" />
+    <img src="${
+      values?.speakerImage?.url
+    }" alt="image" style="height:11rem; width: 11rem; object-fit:cover" />
     </div>
     <h3 style="margin:5px 10px 0; font-size:15px; color: ${
       values.speakerTitleColor
     };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
-      values?.speakerTitle ? values?.speakerTitle : ''
-    }</h3>
+        values?.speakerTitle ? values?.speakerTitle : ''
+      }</h3>
     <h4 style="margin:5px 10px 0;font-size:13px; color: ${
       values.speakerDesignationCompanyColor
     }; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
-    ${values.speakerEmail? values.speakerEmail : ''} ${values.speakerEmail && values.speakerAbout ? ',' : ''} ${values.speakerAbout? values.speakerAbout : ''}</h4>
+    ${values.speakerDesignation ? values.speakerDesignation : ''} ${
+        values.speakerDesignation && values.speakerCompany ? ',' : ''
+      } ${values.speakerCompany ? values.speakerCompany : ''}</h4>
     </div>
     ${isViewer ? modalTemplate({ speakers: values.data.speakers }) : ''}`;
-  } else {
-    return `
+    } else {
+      return `
   <div style="position:relative;background-color:#F6F8F8;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center; padding:18px 10px;">
   <svg xmlns="http://www.w3.org/2000/svg" width="49" height="48" viewBox="0 0 49 48" fill="none">
   <path d="M16.75 46H32.75" stroke="#C0C0C0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -72,12 +76,12 @@ const toolTemplate = function (values, isViewer = false) {
   <p style="font-size:13px;color:#808080;">Click here to select a speaker from the list</p>
   </div>
   ${isViewer ? modalTemplate({ speakers: values.data.speakers }) : ''}`;
-  }
-};
+    }
+  };
 
-const toolEmailTemplate = function (values, isViewer = false) {
-  if (values.speakerLibrary) {
-    return `
+  const toolEmailTemplate = function (values, isViewer = false) {
+    if (values.speakerLibrary) {
+      return `
     <style type="text/css">
     .speaker-img:before {
       content: "";
@@ -97,193 +101,201 @@ const toolEmailTemplate = function (values, isViewer = false) {
     }" style="max-width: 145px; position:relative; margin-bottom: 15px;height: 210px;padding-top: 100px;overflow: hidden;border-radius: 8px;background-color:#ffffff;box-sizing: border-box;"> 
     <div class="speaker-img" style=" position: absolute;right: -19px;top: -19px;z-index: 1; overflow: hidden;border-radius: 20rem 0 20rem 20rem;border: 1rem solid #ED7767;">
     <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${
-      values?.speakerImage?.url
-    }" alt="image" style="height:110px; width: 110px; object-fit:cover" />
+        values?.speakerImage?.url
+      }" alt="image" style="height:110px; width: 110px; object-fit:cover" />
     </div>
     <h3 id="${
       values?.speakerLibrary?.selected?.id
     }-speakerName" style="padding: 32px 10px 0;margin-bottom:10px; font-size:15px; color: ${
-      values.speakerTitleColor
-    };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
-      values?.speakerTitle ? values?.speakerTitle : ''
-    }</h3>
+        values.speakerTitleColor
+      };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
+        values?.speakerTitle ? values?.speakerTitle : ''
+      }</h3>
     <h4 id="${
       values?.speakerLibrary?.selected?.id
     }-speakerDesAndCom" style="margin:5px 10px 0;font-size:13px; color: ${
-      values.speakerDesignationCompanyColor
-    }; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
-    ${values?.speakerEmail ? values?.speakerEmail : ''} ${values.speakerEmail && values.speakerAbout ? ',' : ''} ${values?.speakerAbout ? values?.speakerAbout : ''}</h4>
+        values.speakerDesignationCompanyColor
+      }; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
+    ${values?.speakerDesignation ? values?.speakerDesignation : ''} ${
+        values.speakerDesignation && values.speakerCompany ? ',' : ''
+      } ${values?.speakerCompany ? values?.speakerCompany : ''}</h4>
     </div>
     ${isViewer ? modalTemplate({ speakers: values.data.speakers }) : ''}`;
-  } else {
-    return ``;
-  }
-};
+    } else {
+      return ``;
+    }
+  };
 
-const showModal = function () {
-  const modal = document.getElementById('speaker_library_modal');
-  modal.classList.add('show');
-};
+  const showModal = function () {
+    const modal = document.getElementById('speaker_library_modal');
+    modal.classList.add('show');
+  };
 
-const hideModal = function () {
-  const modal = document.getElementById('speaker_library_modal');
-  modal.classList.remove('show');
-};
+  const hideModal = function () {
+    const modal = document.getElementById('speaker_library_modal');
+    modal.classList.remove('show');
+  };
 
-unlayer.registerPropertyEditor({
-  name: 'speaker_library',
-  layout: 'bottom',
-  Widget: unlayer.createWidget({
-    render(value, updateValue, data) {
-      return editorTemplate;
-    },
-    mount(node, value, updateValue, data) {
-      const addButton = node.querySelector('#addSpeaker');
-      addButton.onclick = function () {
-        showModal();
-        setTimeout(() => {
-          // We are using event bubling to capture clicked item instead of registering click event on all product items.
-          const selectButton = document.querySelector('.speakers-list');
-          if (!selectButton) return;
-          selectButton.onclick = function (e) {
-            if (e.target.id === 'speakers-item') {
-              // If user clicks on product item
-              // Find selected item from speakers list
-              const selectedProduct = data.speakers.find(
-                (item) => item.id === parseInt(e.target.dataset.uuid)
-              );
-              updateValue({ selected: selectedProduct });
-            } else {
-              // If user click on child of product item (e.g. title, price, image or desctiption)
-              const parent = e.target.parentElement;
-              if (parent && parent.id !== 'speakers-item') return;
-              const selectedProduct = data.speakers.find(
-                (item) => item.id === parseInt(parent.dataset.uuid)
-              );
-              updateValue({ selected: selectedProduct });
-            }
-            hideModal();
-            // This is a hack to close property editor right bar on selecting an item from speakers list.
-            const outerBody = document.querySelector('#u_body');
-            outerBody.click();
-          };
-          /* Register event listeners for search */
-          const searchBar = document.querySelector('#search-bar');
-          searchBar.onchange = function (e) {
-            const list = document.querySelector('#speaker_library_modal .speakers-list');
-            let filteredItem;
-            let speakersListHtml;
-            if (list && data && data.speakers) {
-              if (searchBar.value === '') {
-                speakersListHtml = productItemsTemplate({ speakers: data.speakers });
-              } else {
-                filteredItem = data.speakers.filter((item) =>
-                  item.name.toLowerCase().includes(searchBar.value.toLowerCase())
+  unlayer.registerPropertyEditor({
+    name: 'speaker_library',
+    layout: 'bottom',
+    Widget: unlayer.createWidget({
+      render(value, updateValue, data) {
+        return editorTemplate;
+      },
+      mount(node, value, updateValue, data) {
+        const addButton = node.querySelector('#addSpeaker');
+        addButton.onclick = function () {
+          showModal();
+          setTimeout(() => {
+            // We are using event bubling to capture clicked item instead of registering click event on all product items.
+            const selectButton = document.querySelector('.speakers-list');
+            if (!selectButton) return;
+            selectButton.onclick = function (e) {
+              if (e.target.id === 'speakers-item') {
+                // If user clicks on product item
+                // Find selected item from speakers list
+                const selectedProduct = data.speakers.find(
+                  (item) => item.id === parseInt(e.target.dataset.uuid)
                 );
-                speakersListHtml = productItemsTemplate({ speakers: filteredItem });
-              }
-              list.innerHTML = searchBar.value && !speakersListHtml.trim() ? productNoItemsTemplate : speakersListHtml;
-            }
-          };
-
-          const searchButton = document.querySelector('#search-btn');
-          const closeBtn = document.querySelector('#modalCloseBtnSpeaker');
-          searchButton.onclick = function (e) {
-            const list = document.querySelector('#speaker_library_modal .speakers-list');
-            let filteredItem;
-            let speakersListHtml;
-            if (list && data && data.speakers) {
-              if (searchBar.value === '') {
-                speakersListHtml = productItemsTemplate({ speakers: data.speakers });
+                updateValue({ selected: selectedProduct });
               } else {
-                filteredItem = data.speakers.filter((item) =>
-                  item.name.toLowerCase().includes(searchBar.value.toLowerCase())
+                // If user click on child of product item (e.g. title, price, image or desctiption)
+                const parent = e.target.parentElement;
+                if (parent && parent.id !== 'speakers-item') return;
+                const selectedProduct = data.speakers.find(
+                  (item) => item.id === parseInt(parent.dataset.uuid)
                 );
-                speakersListHtml = productItemsTemplate({ speakers: filteredItem });
+                updateValue({ selected: selectedProduct });
               }
-              list.innerHTML = searchBar.value && !speakersListHtml.trim() ? productNoItemsTemplate : speakersListHtml;
-            }
-          };
-         closeBtn.onclick = function (e) {
+              hideModal();
+              // This is a hack to close property editor right bar on selecting an item from speakers list.
+              const outerBody = document.querySelector('#u_body');
+              outerBody.click();
+            };
+            /* Register event listeners for search */
+            const searchBar = document.querySelector('#search-bar');
+            searchBar.onchange = function (e) {
+              const list = document.querySelector('#speaker_library_modal .speakers-list');
+              let filteredItem;
+              let speakersListHtml;
+              if (list && data && data.speakers) {
+                if (searchBar.value === '') {
+                  speakersListHtml = productItemsTemplate({ speakers: data.speakers });
+                } else {
+                  filteredItem = data.speakers.filter((item) =>
+                    item.name.toLowerCase().includes(searchBar.value.toLowerCase())
+                  );
+                  speakersListHtml = productItemsTemplate({ speakers: filteredItem });
+                }
+                list.innerHTML =
+                  searchBar.value && !speakersListHtml.trim()
+                    ? productNoItemsTemplate
+                    : speakersListHtml;
+              }
+            };
+
+            const searchButton = document.querySelector('#search-btn');
+            const closeBtn = document.querySelector('#modalCloseBtnSpeaker');
+            searchButton.onclick = function (e) {
+              const list = document.querySelector('#speaker_library_modal .speakers-list');
+              let filteredItem;
+              let speakersListHtml;
+              if (list && data && data.speakers) {
+                if (searchBar.value === '') {
+                  speakersListHtml = productItemsTemplate({ speakers: data.speakers });
+                } else {
+                  filteredItem = data.speakers.filter((item) =>
+                    item.name.toLowerCase().includes(searchBar.value.toLowerCase())
+                  );
+                  speakersListHtml = productItemsTemplate({ speakers: filteredItem });
+                }
+                list.innerHTML =
+                  searchBar.value && !speakersListHtml.trim()
+                    ? productNoItemsTemplate
+                    : speakersListHtml;
+              }
+            };
+            closeBtn.onclick = function (e) {
               searchBar.value = '';
               searchButton.click();
               hideModal();
-         }
-        }, 200);
-      };
-    },
-  }),
-});
-
-unlayer.registerTool({
-  name: 'speaker_tool',
-  label: 'Speaker',
-  icon: 'fa-microphone',
-  supportedDisplayModes: ['web', 'email'],
-  options: {
-    speakerContent: {
-      title: 'Speaker Content',
-      position: 1,
-      options: {
-        speakerLibrary: {
-          label: 'Add Speaker from store',
-          defaultValue: '',
-          widget: 'speaker_library',
-        },
-        speakerTitleColor: {
-          label: 'Speaker Name Color',
-          defaultValue: theme?.primaryFontColor,
-          widget: 'color_picker',
-        },
-        speakerDesignationCompanyColor: {
-          label: 'Speaker Designation & Company Color',
-          defaultValue: theme?.accentColor,
-          widget: 'color_picker',
-        },
-      },
-    },
-  },
-  transformer: (values, source) => {
-    const { name, value, data } = source;
-    // Transform the values here
-    // We will update selected values in property editor here
-    const newValues =
-      name === 'speakerLibrary'
-        ? {
-            ...values,
-            speakerTitle: value?.selected?.name,
-            speakerEmail: value?.selected?.designation,
-            speakerAbout: value?.selected?.company,
-            speakerImage: {
-              url: value?.selected?.profile_img,
-            },
-          }
-        : {
-            ...values,
-          };
-
-    // Return updated values
-    return newValues;
-  },
-  values: {},
-  renderer: {
-    Viewer: unlayer.createViewer({
-      render(values) {
-        return toolTemplate(values, true);
+            };
+          }, 200);
+        };
       },
     }),
-    exporters: {
-      web(values) {
-        return toolTemplate(values);
-      },
-      email(values) {
-        return toolEmailTemplate(values);
+  });
+
+  unlayer.registerTool({
+    name: 'speaker_tool',
+    label: 'Speaker',
+    icon: 'fa-microphone',
+    supportedDisplayModes: ['web', 'email'],
+    options: {
+      speakerContent: {
+        title: 'Speaker Content',
+        position: 1,
+        options: {
+          speakerLibrary: {
+            label: 'Add Speaker from store',
+            defaultValue: '',
+            widget: 'speaker_library',
+          },
+          speakerTitleColor: {
+            label: 'Speaker Name Color',
+            defaultValue: theme?.primaryFontColor,
+            widget: 'color_picker',
+          },
+          speakerDesignationCompanyColor: {
+            label: 'Speaker Designation & Company Color',
+            defaultValue: theme?.accentColor,
+            widget: 'color_picker',
+          },
+        },
       },
     },
-    head: {
-      css(values) {},
-      js(values) {},
+    transformer: (values, source) => {
+      const { name, value, data } = source;
+      // Transform the values here
+      // We will update selected values in property editor here
+      const newValues =
+        name === 'speakerLibrary'
+          ? {
+              ...values,
+              speakerTitle: value?.selected?.name,
+              speakerDesignation: value?.selected?.designation,
+              speakerCompany: value?.selected?.company,
+              speakerImage: {
+                url: value?.selected?.profile_img,
+              },
+            }
+          : {
+              ...values,
+            };
+
+      // Return updated values
+      return newValues;
     },
-  },
-});
+    values: {},
+    renderer: {
+      Viewer: unlayer.createViewer({
+        render(values) {
+          return toolTemplate(values, true);
+        },
+      }),
+      exporters: {
+        web(values) {
+          return toolTemplate(values);
+        },
+        email(values) {
+          return toolEmailTemplate(values);
+        },
+      },
+      head: {
+        css(values) {},
+        js(values) {},
+      },
+    },
+  });
 })();
