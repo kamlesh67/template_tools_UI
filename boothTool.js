@@ -48,7 +48,7 @@ const toolTemplate = function (values, isViewer = false) {
     <div class="booth-img"> <img src="${values?.boothImage?.url}" alt="image" style="width: 100%; object-fit: contain; border-radius:8px" />
     </div>
     <div class="booth-card-body" style="text-align: center;">
-    <h3 style="margin:10px 10px 0; font-size:13px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values?.boothName}</h3>
+    <h3 style="margin:20px 20px 0; font-size:13px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values?.boothName}</h3>
     </div>
   </div>
   ${isViewer ? modalTemplate({ booths: values.data.booths }) : ''}`;
