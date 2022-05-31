@@ -235,7 +235,7 @@
 
 /* Speaker card css */
 .speaker-card{     
-  width: 145px; 
+  width: 115px; 
   margin-bottom: 15px;
   height: 210px;
   padding-top: 10rem;
@@ -245,8 +245,8 @@
  
 .speaker-card .speaker-img{ 
   position: absolute;
-  right: -1.8rem;
-  top: -1.8rem;
+  right: -1.2rem;
+  top: -1.2rem;
   z-index: 1; 
   overflow: hidden;
   border-radius: 20rem 0 20rem 20rem; 
