@@ -239,7 +239,7 @@
       }</h3>
     <div style="color:${
       values.sessionDescriptionColor
-    };font-size: 12px;font-weight: 400;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;">
+    };font-size: 12px;font-weight: 400; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
       ${values?.description ? values.description : ''}
     </div>
     <div style="margin-top:10px;">
