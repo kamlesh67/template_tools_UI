@@ -82,15 +82,15 @@
         return ` 
         <table width="100%">
         <tr>
-          <td align="left" valign="center">
-            <div style="display: flex;justify-content: start;align-items: center;" id="${
+          <td align="left">
+            <div align="left" style="display: flex; justify-content: start; align-items: center;" id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSpeakers">
             ${!values?.sessionLibrary?.selected?.id ? defaultSpeaker : speakerList(values?.speakers)} 
             </div>
           </td>
-          <td align="right" valign="center">
-            <div style="display: flex;justify-content: end;align-items: center;"  id="${
+          <td align="right">
+            <div align="right" style="display: flex;justify-content: end;align-items: center;"  id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSponsors">
             ${!values?.sessionLibrary?.selected?.id ? defaultBooth : boothList(values?.sponsors)}
@@ -104,14 +104,14 @@
         <table width="100%">
         <tr>
           <td align="left" valign="center">
-            <div style="display: flex; justify-content: start; align-items: center;" id="${
+            <div align="left" style="display: flex; justify-content:start; align-items: center;" id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSpeakers">
             ${!values?.sessionLibrary?.selected?.id ? defaultSpeaker : speakerList(values?.speakers)} 
             </div>
           </td>
           <td align="right" valign="center">
-            <div style="display: flex;justify-content: end;align-items: center;"  id="${
+            <div align="right" style="display: flex; justify-content:end; align-items: center;"  id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSponsors">
             ${!values?.sessionLibrary?.selected?.id ? defaultBooth : boothList(values?.sponsors)}
