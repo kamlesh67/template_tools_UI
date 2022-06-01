@@ -177,7 +177,7 @@
       <div class="session-description" style="color:${values.sessionDescriptionColor};display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
         ${values.description ? values.description : ''}
       </div>
-      <div class="booth-speaker-data">
+      <div class="booth-speaker-data" style="justify-content: space-between;">
         ${values?.isShowSpeakerAndBooth ? speakerAndBoothList(values) : ''}  
       </div>
     </div>
