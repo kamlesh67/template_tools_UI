@@ -102,7 +102,7 @@
     <div class="speaker-img" style=" position: absolute;right: -19px;top: -21px;z-index: 1; overflow: hidden;border-radius: 20rem 0 20rem 20rem;border: 1rem solid #ED7767;">
     <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${
         values?.speakerImage?.url
-      }" alt="image" style="height:110px; width: 110px; object-fit:cover; position: relative; top: 5px;" />
+      }" alt="image" style="height:85px; width: 85px; object-fit:cover; position: relative; top: 5px;" />
     </div>
     <h3 id="${
       values?.speakerLibrary?.selected?.id
