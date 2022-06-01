@@ -90,7 +90,7 @@
             </div>
           </td>
           <td align="right">
-            <div align="right" style="display: flex;justify-content: end;align-items: center;"  id="${
+            <div align="right" style="display: inline-flex;justify-content: end;align-items: center;"  id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSponsors">
             ${!values?.sessionLibrary?.selected?.id ? defaultBooth : boothList(values?.sponsors)}
@@ -111,7 +111,7 @@
             </div>
           </td>
           <td align="right" valign="center">
-            <div align="right" style="display: flex; justify-content:end; align-items: center;"  id="${
+            <div align="right" style="display: inline-flex; justify-content:end; align-items: center;"  id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSponsors">
             ${!values?.sessionLibrary?.selected?.id ? defaultBooth : boothList(values?.sponsors)}
