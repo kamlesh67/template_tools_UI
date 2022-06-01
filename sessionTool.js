@@ -224,7 +224,7 @@
     };font-size: 12px;font-weight: 400;display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
       ${values?.description ? values.description : ''}
     </div>
-    <div style="display:flex;justify-content: space-between;margin-top:50px;">
+    <div style="display:flex; justify-content:space-between; margin-top:50px;">
       ${values.isShowSpeakerAndBooth ? speakerAndBoothList(values) : ''}  
     </div>
   </div>
