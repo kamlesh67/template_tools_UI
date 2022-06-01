@@ -99,10 +99,10 @@
     <div  speakerId="${
       values?.speakerLibrary?.selected?.id
     }" style="max-width: 145px; position:relative; margin-bottom: 15px;height: 210px;padding-top: 100px;overflow: hidden;border-radius: 8px;background-color:#ffffff;box-sizing: border-box;"> 
-    <div class="speaker-img" style=" position: absolute;right: -19px;top: -19px;z-index: 1; overflow: hidden;border-radius: 20rem 0 20rem 20rem;border: 1rem solid #ED7767;">
+    <div class="speaker-img" style=" position: absolute;right: -19px;top: -21px;z-index: 1; overflow: hidden;border-radius: 20rem 0 20rem 20rem;border: 1rem solid #ED7767;">
     <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${
         values?.speakerImage?.url
-      }" alt="image" style="height:110px; width: 110px; object-fit:cover" />
+      }" alt="image" style="height:110px; width: 110px; object-fit:cover; position: relative; top: 5px;" />
     </div>
     <h3 id="${
       values?.speakerLibrary?.selected?.id
