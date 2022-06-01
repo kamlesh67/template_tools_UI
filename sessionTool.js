@@ -80,7 +80,7 @@
     ) {
       if (isPreview) {
         return ` 
-        <table>
+        <table width="100%">
         <tr>
           <td align="left" valign="center">
             <div style="display: flex;justify-content: start;align-items: center;" id="${
@@ -101,10 +101,10 @@
       `;
       } else {
         return ` 
-        <table>
+        <table width="100%">
         <tr>
           <td align="left" valign="center">
-            <div style="display: flex;justify-content: end;align-items: center;" id="${
+            <div style="display: flex; justify-content: start; align-items: center;" id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSpeakers">
             ${!values?.sessionLibrary?.selected?.id ? defaultSpeaker : speakerList(values?.speakers)} 
