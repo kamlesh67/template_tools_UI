@@ -445,7 +445,7 @@
   width: 100%;
   margin-right: 15px;
   margin-bottom: 15px;
-  height: 150px; 
+  height: 210px; 
   border: 1px solid #d3d3d3;
   border-radius: .75rem; 
   cursor: pointer;
@@ -459,10 +459,12 @@
   margin-bottom: 15px;
   height: auto; 
   background-color: #fff;
-  border-radius: 8px;
+  overflow: hidden;
+  line-height:0;
 }      
 .banner-card img{     
   width: 100%; 
   height: auto;
   max-height: 100%;
+  object-fit: cover;
 }      
