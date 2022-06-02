@@ -4,7 +4,7 @@
 const logoItemsTemplate = _.template(`
 <% _.forEach(banners, function(item) { %>
   <div class="banner-item" id="banner-item" data-uuid='<%= item.id %>' data-image="<%= item.img %>" >
-  <img src="<%= item.img %>" style="max-height: 150px;min-height: 100px;width: 100%;" />
+  <img src="<%= item.img %>" style="max-height: 100%;min-height: 100px;width: 100%;" />
   </div>
 <% }); %>
 `);

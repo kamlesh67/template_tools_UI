@@ -464,5 +464,5 @@
 .banner-card img{     
   width: 100%; 
   height: auto;
-  max-height: 150px;
+  max-height: 100%;
 }      
