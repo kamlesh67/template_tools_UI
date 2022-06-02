@@ -445,10 +445,11 @@
   width: 100%;
   margin-right: 15px;
   margin-bottom: 15px;
-  height: 165px; 
+  height: 150px; 
   border: 1px solid #d3d3d3;
   border-radius: .75rem; 
   cursor: pointer;
+  overflow: hidden;
 }
 .banner-item:nth-child(4n){
   margin-right: 0;
@@ -463,5 +464,5 @@
 .banner-card img{     
   width: 100%; 
   height: auto;
-  max-height: 165px;
+  max-height: 150px;
 }      
