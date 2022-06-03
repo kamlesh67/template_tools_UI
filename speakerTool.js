@@ -1,6 +1,6 @@
 (function () {
   const editorTemplate = `<button id="addSpeaker" class="button">Add Speaker</button>`;
-  const searchButton = `<button id="search-btn" class="button">Search</button>`;
+  const searchButton = `<button id="search-btn-speaker" class="button">Search</button>`;
   const productItemsTemplate = _.template(`
   <% _.forEach(speakers, function(item) { %>
     <div class="speakers-item card" id="speakers-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
@@ -195,7 +195,7 @@
               }
             };
 
-            const searchButton = document.querySelector('#search-btn');
+            const searchButton = document.querySelector('#search-btn-speaker');
             const closeBtn = document.querySelector('#modalCloseBtnSpeaker');
             searchButton.onclick = function (e) {
               const list = document.querySelector('#speaker_library_modal .speakers-list');
