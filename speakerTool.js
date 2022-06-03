@@ -176,7 +176,7 @@
             /* Register event listeners for search */
             const searchBar = document.querySelector('#search-bar-speaker');
             searchBar.onkeydown = function (e) {
-console.log('e?.which', e?.which)
+console.log('e?.which', e?.which, e)
               if(e?.which === 13 || e?.which === 8){ 
                 const list = document.querySelector('#speaker_library_modal .speakers-list');
                 let filteredItem;
