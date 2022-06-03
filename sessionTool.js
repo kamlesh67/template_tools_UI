@@ -1,6 +1,6 @@
 (function () {
   const editorTemplate = `<button id="session" class="button">Add Session</button>`;
-  const searchButton = `<button id="search-btn" class="button">Search</button>`;
+  const searchButton = `<button id="search-btn-session" class="button">Search</button>`;
   const defaultSpeaker = `
             <div style="height: 30px;width: 30px;overflow: hidden;border-radius: 30px; display: flex;margin-right:6px;">
               <img src="https://cdn.hubilo.com/comm_v2/images/profile/default_hash.png" alt="pic" />
@@ -143,7 +143,7 @@
         </div>
         <div class="modal-body">
           <div class="search-box">
-            <input type="text" class="form-control" placeholder="Search by session name or track name" id="search-bar" style="width: 78%" />
+            <input type="text" class="form-control" placeholder="Search by session name or track name" id="search-bar-session" style="width: 78%" />
             ${searchButton}
           </div>
           <div class="sessions-list">
@@ -283,7 +283,7 @@
               outerBody.click();
             };
             /* Register event listeners for search */
-            const searchBar = document.querySelector('#search-bar');
+            const searchBar = document.querySelector('#search-bar-session');
             searchBar.onchange = function (e) {
               const list = document.querySelector('#session_library_modal .sessions-list');
               let filteredItem;
@@ -301,7 +301,7 @@
               }
             };
             
-            const searchButton = document.querySelector('#search-btn');
+            const searchButton = document.querySelector('#search-btn-session');
             const closeBtn = document.querySelector('#modalCloseBtnSession');
             searchButton.onclick = function (e) {
               const list = document.querySelector('#session_library_modal .sessions-list');
