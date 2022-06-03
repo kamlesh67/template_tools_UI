@@ -1,6 +1,6 @@
 (function(){
 const editorTemplate = `<button id="booth" class="button">Add Booth</button>`;
-const searchButton = `<button id="search-btn" class="button">Search</button>`;
+const searchButton = `<button id="search-btn-booth" class="button">Search</button>`;
 const boothItemsTemplate = _.template(`<% _.forEach(booths, function(item) { %>
   <div class="booth-item" id="booth-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" style="background-color: ${theme.primaryColor};">
   <div class="booth-media"> <img src="<%= item.profile_img %>" alt="image" style="max-height: 90px;width: 100%; object-fit: contain;border-radius:8px" /> </div>
@@ -26,7 +26,7 @@ const modalTemplate = function (data) {
         </div>
         <div class="modal-body">
           <div class="search-box">
-            <input type="text" class="form-control" placeholder="Search by booth name" id="search-bar" style="width: 100%" />
+            <input type="text" class="form-control" placeholder="Search by booth name" id="search-bar-booth" style="width: 100%" />
             ${searchButton}
           </div>
           <div class="booths-list">
@@ -132,25 +132,27 @@ unlayer.registerPropertyEditor({
             outerBody.click();
           };
           /* Register event listeners for search */
-          const searchBar = document.querySelector('#search-bar');
-          searchBar.onchange = function (e) {
-            const list = document.querySelector('#booth_library_modal .booths-list');
-            let filteredItem;
-            let boothListHtml;
-            if (list && data && data.booths) {
-              if (searchBar.value === '') {
-                boothListHtml = boothItemsTemplate({ booths: data.booths });
-              } else {
-                filteredItem = data.booths.filter((item) =>
-                  item.name.toLowerCase().includes(searchBar.value.toLowerCase())
-                );
-                boothListHtml = boothItemsTemplate({ booths: filteredItem });
+          const searchBar = document.querySelector('#search-bar-booth');
+          searchBar.onkeydown = function (e) {
+            if(e?.which === 13 || !e.target.value || (e.target.value.length === 1 && e?.which === 8)){
+              const list = document.querySelector('#booth_library_modal .booths-list');
+              let filteredItem;
+              let boothListHtml;
+              if (list && data && data.booths) {
+                if (searchBar.value === '' || (e.target.value.length === 1 && e?.which === 8)) {
+                  boothListHtml = boothItemsTemplate({ booths: data.booths });
+                } else {
+                  filteredItem = data.booths.filter((item) =>
+                    item.name.toLowerCase().includes(searchBar.value.toLowerCase())
+                  );
+                  boothListHtml = boothItemsTemplate({ booths: filteredItem });
+                }
+                list.innerHTML = searchBar.value && !boothListHtml.trim() ? boothNoItemsTemplate : boothListHtml;
               }
-              list.innerHTML = searchBar.value && !boothListHtml.trim() ? boothNoItemsTemplate : boothListHtml;
             }
           };
 
-          const searchButton = document.querySelector('#search-btn');
+          const searchButton = document.querySelector('#search-btn-booth');
           const closeBtn = document.querySelector('#modalCloseBtnBooth');
           searchButton.onclick = function (e) {
             const list = document.querySelector('#booth_library_modal .booths-list');

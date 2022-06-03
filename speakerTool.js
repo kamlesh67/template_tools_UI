@@ -1,6 +1,6 @@
 (function () {
   const editorTemplate = `<button id="addSpeaker" class="button">Add Speaker</button>`;
-  const searchButton = `<button id="search-btn" class="button">Search</button>`;
+  const searchButton = `<button id="search-btn-speaker" class="button">Search</button>`;
   const productItemsTemplate = _.template(`
   <% _.forEach(speakers, function(item) { %>
     <div class="speakers-item card" id="speakers-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
@@ -29,7 +29,7 @@
         </div>
         <div class="modal-body">
           <div class="search-box">
-            <input type="text" class="form-control" placeholder="Search by speaker name" id="search-bar" style="width:100%" />
+            <input type="text" class="form-control" placeholder="Search by speaker name" id="search-bar-speaker" style="width:100%" />
             ${searchButton}
           </div>
           <div class="speakers-list">
@@ -174,28 +174,30 @@
               outerBody.click();
             };
             /* Register event listeners for search */
-            const searchBar = document.querySelector('#search-bar');
-            searchBar.onchange = function (e) {
-              const list = document.querySelector('#speaker_library_modal .speakers-list');
-              let filteredItem;
-              let speakersListHtml;
-              if (list && data && data.speakers) {
-                if (searchBar.value === '') {
-                  speakersListHtml = productItemsTemplate({ speakers: data.speakers });
-                } else {
-                  filteredItem = data.speakers.filter((item) =>
-                    item.name.toLowerCase().includes(searchBar.value.toLowerCase())
-                  );
-                  speakersListHtml = productItemsTemplate({ speakers: filteredItem });
+            const searchBar = document.querySelector('#search-bar-speaker');
+            searchBar.onkeydown = function (e) {
+              if(e?.which === 13 || !e.target.value || (e.target.value.length === 1 && e?.which === 8)){ 
+                const list = document.querySelector('#speaker_library_modal .speakers-list');
+                let filteredItem;
+                let speakersListHtml;
+                if (list && data && data.speakers) {
+                  if (searchBar.value === '' || (e.target.value.length === 1 && e?.which === 8)) {
+                    speakersListHtml = productItemsTemplate({ speakers: data.speakers });
+                  } else {
+                    filteredItem = data.speakers.filter((item) =>
+                      item.name.toLowerCase().includes(searchBar.value.toLowerCase())
+                    );
+                    speakersListHtml = productItemsTemplate({ speakers: filteredItem });
+                  }
+                  list.innerHTML =
+                    searchBar.value && !speakersListHtml.trim()
+                      ? productNoItemsTemplate
+                      : speakersListHtml;
                 }
-                list.innerHTML =
-                  searchBar.value && !speakersListHtml.trim()
-                    ? productNoItemsTemplate
-                    : speakersListHtml;
               }
             };
 
-            const searchButton = document.querySelector('#search-btn');
+            const searchButton = document.querySelector('#search-btn-speaker');
             const closeBtn = document.querySelector('#modalCloseBtnSpeaker');
             searchButton.onclick = function (e) {
               const list = document.querySelector('#speaker_library_modal .speakers-list');
