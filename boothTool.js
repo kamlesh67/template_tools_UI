@@ -1,6 +1,6 @@
 (function(){
 const editorTemplate = `<button id="booth" class="button">Add Booth</button>`;
-const searchButton = `<button id="search-btn" class="button">Search</button>`;
+const searchButton = `<button id="search-btn-booth" class="button">Search</button>`;
 const boothItemsTemplate = _.template(`<% _.forEach(booths, function(item) { %>
   <div class="booth-item" id="booth-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-image="<%= item.profile_img %>" style="background-color: ${theme.primaryColor};">
   <div class="booth-media"> <img src="<%= item.profile_img %>" alt="image" style="max-height: 90px;width: 100%; object-fit: contain;border-radius:8px" /> </div>
@@ -150,7 +150,7 @@ unlayer.registerPropertyEditor({
             }
           };
 
-          const searchButton = document.querySelector('#search-btn');
+          const searchButton = document.querySelector('#search-btn-booth');
           const closeBtn = document.querySelector('#modalCloseBtnBooth');
           searchButton.onclick = function (e) {
             const list = document.querySelector('#booth_library_modal .booths-list');
