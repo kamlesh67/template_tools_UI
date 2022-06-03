@@ -284,12 +284,13 @@
             };
             /* Register event listeners for search */
             const searchBar = document.querySelector('#search-bar-session');
-            searchBar.onchange = function (e) {
+            searchBar.onkeydown = function (e) {
+              if(e?.which === 13 || !e.target.value || (e.target.value.length === 1 && e?.which === 8)){
               const list = document.querySelector('#session_library_modal .sessions-list');
               let filteredItem;
               let sessionListHtml;
               if (list && data && data.sessions) {
-                if (searchBar.value === '') {
+                if (searchBar.value === '' || (e.target.value.length === 1 && e?.which === 8)) {
                   sessionListHtml = sessionItemsTemplate({ sessions: data.sessions });
                 } else {
                   filteredItem = data.sessions.filter((item) =>
@@ -299,17 +300,17 @@
                 }
                 list.innerHTML = searchBar.value && !sessionListHtml.trim() ? sessionNoItemsTemplate : sessionListHtml;
               }
+              }
             };
             
             const searchButton = document.querySelector('#search-btn-session');
             const closeBtn = document.querySelector('#modalCloseBtnSession');
-            searchButton.onkeydown = function (e) {
-              if(e?.which === 13 || !e.target.value || (e.target.value.length === 1 && e?.which === 8)){
+            searchButton.onclick = function (e) {
                 const list = document.querySelector('#session_library_modal .sessions-list');
                 let filteredItem;
                 let sessionListHtml;
                 if (list && data && data.sessions) {
-                  if (searchBar.value === '' || (e.target.value.length === 1 && e?.which === 8)) {
+                  if (searchBar.value === '') {
                     sessionListHtml = sessionItemsTemplate({ sessions: data.sessions });
                   } else {
                     filteredItem = data.sessions.filter((item) =>
@@ -319,7 +320,6 @@
                   }
                  list.innerHTML = searchBar.value && !sessionListHtml.trim() ? sessionNoItemsTemplate : sessionListHtml;
                 }
-              }
             };
             closeBtn.onclick = function (e) {
               searchBar.value = '';
