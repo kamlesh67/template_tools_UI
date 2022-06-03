@@ -175,8 +175,8 @@
             };
             /* Register event listeners for search */
             const searchBar = document.querySelector('#search-bar-speaker');
-            searchBar.onchange = function (e) {
-              console.log('EEE', e) 
+            searchBar.onkeydown = function (e) {
+              console.log('EEE', e, e.which) 
               const list = document.querySelector('#speaker_library_modal .speakers-list');
               let filteredItem;
               let speakersListHtml;
