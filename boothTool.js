@@ -26,7 +26,7 @@ const modalTemplate = function (data) {
         </div>
         <div class="modal-body">
           <div class="search-box">
-            <input type="text" class="form-control" placeholder="Search by booth name" id="search-bar" style="width: 100%" />
+            <input type="text" class="form-control" placeholder="Search by booth name" id="search-bar-booth" style="width: 100%" />
             ${searchButton}
           </div>
           <div class="booths-list">
@@ -132,21 +132,23 @@ unlayer.registerPropertyEditor({
             outerBody.click();
           };
           /* Register event listeners for search */
-          const searchBar = document.querySelector('#search-bar');
-          searchBar.onchange = function (e) {
-            const list = document.querySelector('#booth_library_modal .booths-list');
-            let filteredItem;
-            let boothListHtml;
-            if (list && data && data.booths) {
-              if (searchBar.value === '') {
-                boothListHtml = boothItemsTemplate({ booths: data.booths });
-              } else {
-                filteredItem = data.booths.filter((item) =>
-                  item.name.toLowerCase().includes(searchBar.value.toLowerCase())
-                );
-                boothListHtml = boothItemsTemplate({ booths: filteredItem });
+          const searchBar = document.querySelector('#search-bar-booth');
+          searchBar.onkeydown = function (e) {
+            if(e?.which === 13 || !e.target.value || (e.target.value.length === 1 && e?.which === 8)){
+              const list = document.querySelector('#booth_library_modal .booths-list');
+              let filteredItem;
+              let boothListHtml;
+              if (list && data && data.booths) {
+                if (searchBar.value === '' || (e.target.value.length === 1 && e?.which === 8)) {
+                  boothListHtml = boothItemsTemplate({ booths: data.booths });
+                } else {
+                  filteredItem = data.booths.filter((item) =>
+                    item.name.toLowerCase().includes(searchBar.value.toLowerCase())
+                  );
+                  boothListHtml = boothItemsTemplate({ booths: filteredItem });
+                }
+                list.innerHTML = searchBar.value && !boothListHtml.trim() ? boothNoItemsTemplate : boothListHtml;
               }
-              list.innerHTML = searchBar.value && !boothListHtml.trim() ? boothNoItemsTemplate : boothListHtml;
             }
           };
 
