@@ -176,23 +176,24 @@
             /* Register event listeners for search */
             const searchBar = document.querySelector('#search-bar-speaker');
             searchBar.onkeydown = function (e) {
-              console.log('EEE', e, e.which) 
-              const list = document.querySelector('#speaker_library_modal .speakers-list');
-              let filteredItem;
-              let speakersListHtml;
-              if (list && data && data.speakers) {
-                if (searchBar.value === '') {
-                  speakersListHtml = productItemsTemplate({ speakers: data.speakers });
-                } else {
-                  filteredItem = data.speakers.filter((item) =>
-                    item.name.toLowerCase().includes(searchBar.value.toLowerCase())
-                  );
-                  speakersListHtml = productItemsTemplate({ speakers: filteredItem });
+              if(e?.which === 13 || e?.which === 8){ 
+                const list = document.querySelector('#speaker_library_modal .speakers-list');
+                let filteredItem;
+                let speakersListHtml;
+                if (list && data && data.speakers) {
+                  if (searchBar.value === '') {
+                    speakersListHtml = productItemsTemplate({ speakers: data.speakers });
+                  } else {
+                    filteredItem = data.speakers.filter((item) =>
+                      item.name.toLowerCase().includes(searchBar.value.toLowerCase())
+                    );
+                    speakersListHtml = productItemsTemplate({ speakers: filteredItem });
+                  }
+                  list.innerHTML =
+                    searchBar.value && !speakersListHtml.trim()
+                      ? productNoItemsTemplate
+                      : speakersListHtml;
                 }
-                list.innerHTML =
-                  searchBar.value && !speakersListHtml.trim()
-                    ? productNoItemsTemplate
-                    : speakersListHtml;
               }
             };
 
