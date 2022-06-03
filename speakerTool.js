@@ -29,7 +29,7 @@
         </div>
         <div class="modal-body">
           <div class="search-box">
-            <input type="text" class="form-control" placeholder="Search by speaker name" id="search-bar" style="width:100%" />
+            <input type="text" class="form-control" placeholder="Search by speaker name" id="search-bar-speaker" style="width:100%" />
             ${searchButton}
           </div>
           <div class="speakers-list">
@@ -174,7 +174,7 @@
               outerBody.click();
             };
             /* Register event listeners for search */
-            const searchBar = document.querySelector('#search-bar');
+            const searchBar = document.querySelector('#search-bar-speaker');
             searchBar.onchange = function (e) {
               const list = document.querySelector('#speaker_library_modal .speakers-list');
               let filteredItem;
