@@ -182,7 +182,7 @@ console.log('e?.which', searchBar.value.toLowerCase(), e.target.value)
                 let filteredItem;
                 let speakersListHtml;
                 if (list && data && data.speakers) {
-                  if (searchBar.value === '') {
+                  if (searchBar.value === '' || (e.target.value.length === 1 && e?.which === 8)) {
                     speakersListHtml = productItemsTemplate({ speakers: data.speakers });
                   } else {
                     filteredItem = data.speakers.filter((item) =>
