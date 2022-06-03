@@ -303,20 +303,22 @@
             
             const searchButton = document.querySelector('#search-btn-session');
             const closeBtn = document.querySelector('#modalCloseBtnSession');
-            searchButton.onclick = function (e) {
-              const list = document.querySelector('#session_library_modal .sessions-list');
-              let filteredItem;
-              let sessionListHtml;
-              if (list && data && data.sessions) {
-                if (searchBar.value === '') {
-                  sessionListHtml = sessionItemsTemplate({ sessions: data.sessions });
-                } else {
-                  filteredItem = data.sessions.filter((item) =>
-                    item?.name?.toLowerCase().includes(searchBar.value.toLowerCase()) || item?.trackName?.toLowerCase().includes(searchBar.value.toLowerCase())
-                  );
-                  sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
+            searchButton.onkeydown = function (e) {
+              if(e?.which === 13 || !e.target.value || (e.target.value.length === 1 && e?.which === 8)){
+                const list = document.querySelector('#session_library_modal .sessions-list');
+                let filteredItem;
+                let sessionListHtml;
+                if (list && data && data.sessions) {
+                  if (searchBar.value === '' || (e.target.value.length === 1 && e?.which === 8)) {
+                    sessionListHtml = sessionItemsTemplate({ sessions: data.sessions });
+                  } else {
+                    filteredItem = data.sessions.filter((item) =>
+                      item?.name?.toLowerCase().includes(searchBar.value.toLowerCase()) || item?.trackName?.toLowerCase().includes(searchBar.value.toLowerCase())
+                    );
+                    sessionListHtml = sessionItemsTemplate({ sessions: filteredItem });
+                  }
+                 list.innerHTML = searchBar.value && !sessionListHtml.trim() ? sessionNoItemsTemplate : sessionListHtml;
                 }
-               list.innerHTML = searchBar.value && !sessionListHtml.trim() ? sessionNoItemsTemplate : sessionListHtml;
               }
             };
             closeBtn.onclick = function (e) {
