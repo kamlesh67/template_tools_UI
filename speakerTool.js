@@ -245,7 +245,7 @@
             widget: 'speaker_library',
           },
            speakerBGColor: {
-           label: 'Speaker BG Color',
+           label: 'Speaker Background Color',
            defaultValue: theme?.primaryColor,
            widget: 'color_picker',
          },
