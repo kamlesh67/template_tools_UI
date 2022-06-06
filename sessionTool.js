@@ -348,7 +348,7 @@
             widget: 'session_library',
           },
           sessionCardBGColor: {
-            label: 'Session Card BG color',
+            label: 'Session Background Color',
             defaultValue: theme?.primaryColor,
             widget: 'color_picker',
           },
