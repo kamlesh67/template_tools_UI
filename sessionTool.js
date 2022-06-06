@@ -161,7 +161,7 @@
   const toolTemplate = function (values, isViewer = false) {
     if (values.sessionLibrary) {
       return `<div class="session-card" style="position:relative;background-color:${
-        values.sessionCardBGColor
+        theme?.primaryColor
       }" >
     <div class="session-card-body">
       <p class="session-date" style="color:${values.sessionDateAndTimeColor};">
@@ -202,7 +202,7 @@
     if (values.sessionLibrary) {
       return `
   <div sessionId="${values?.sessionLibrary?.selected?.id}" style="position:relative;background-color:${
-    values.sessionCardBGColor
+    theme?.primaryColor
   };margin-bottom: 15px;height: auto;padding: 14px;border-radius: 8px; max-width:540px;" >
   <div class="session-card-body">
     <p style="color:${
@@ -347,11 +347,11 @@
             defaultValue: '',
             widget: 'session_library',
           },
-          sessionCardBGColor: {
-            label: 'Session Card BG color',
-            defaultValue: theme?.primaryColor,
-            widget: 'color_picker',
-          },
+//           sessionCardBGColor: {
+//             label: 'Session Card BG color',
+//             defaultValue: theme?.primaryColor,
+//             widget: 'color_picker',
+//           },
           sessionNameColor: {
             label: 'Session Name Color',
             defaultValue: theme?.primaryFontColor,
