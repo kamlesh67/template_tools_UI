@@ -197,7 +197,7 @@ unlayer.registerTool({
           widget: 'booth_library',
         },
         boothBGColor: {
-          label: 'Booth BG Color',
+          label: 'Booth Background Color',
           defaultValue: theme?.primaryColor,
           widget: 'color_picker',
         },
