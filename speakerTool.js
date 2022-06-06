@@ -45,7 +45,7 @@
   const toolTemplate = function (values, isViewer = false) {
     if (values.speakerLibrary) {
       return `
-    <div class="speaker-card card"> 
+    <div class="speaker-card card" style="background-color:${values?.speakerBGColor}"> 
     <div class="speaker-img">
     <img src="${
       values?.speakerImage?.url
@@ -98,7 +98,7 @@
     </style>
     <div  speakerId="${
       values?.speakerLibrary?.selected?.id
-    }" style="max-width: 145px; position:relative; margin-bottom: 15px;height: 210px;padding-top: 100px;overflow: hidden;border-radius: 8px;background-color:#ffffff;box-sizing: border-box;"> 
+    }" style="max-width: 145px; position:relative; margin-bottom: 15px;height: 210px;padding-top: 100px;overflow: hidden;border-radius: 8px;background-color:${values?.speakerBGColor};box-sizing: border-box;"> 
     <div class="speaker-img" style=" position: absolute;right: -19px;top: -19px;z-index: 1; overflow: hidden;border-radius: 20rem 0 20rem 20rem;border: 1rem solid #ED7767;">
     <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${
         values?.speakerImage?.url
@@ -244,6 +244,11 @@
             defaultValue: '',
             widget: 'speaker_library',
           },
+           speakerBGColor: {
+           label: 'Speaker BG Color',
+           defaultValue: theme?.primaryColor,
+           widget: 'color_picker',
+         },
           speakerTitleColor: {
             label: 'Speaker Name Color',
             defaultValue: theme?.primaryFontColor,
