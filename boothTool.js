@@ -44,7 +44,7 @@ const modalTemplate = function (data) {
 const toolTemplate = function (values, isViewer = false) {
   if(values.boothLibrary)
   {
-  return `<div class="booth-card card" style="position:relative;background-color:${values.boothBGColor}">
+  return `<div class="booth-card card" style="position:relative;background-color:${theme?.primaryColor}">
     <div class="booth-img"> <img src="${values?.boothImage?.url}" alt="image" style="width: 100%; object-fit: contain; border-radius:8px" />
     </div>
     <div class="booth-card-body" style="text-align: center;">
@@ -70,7 +70,7 @@ const toolEmailTemplate = function (values, isViewer = false) {
   if(values.boothLibrary)
   {
   return `
-  <div boothId="${values?.boothLibrary?.selected?.id}" style="position:relative;background-color:${values.boothBGColor};margin-bottom: 15px;padding:18px 10px;border-radius: 8px;">
+  <div boothId="${values?.boothLibrary?.selected?.id}" style="position:relative;background-color:${theme?.primaryColor};margin-bottom: 15px;padding:18px 10px;border-radius: 8px;">
     <div style="border-radius: .8rem; border: 1px solid #f1f1f1;height: 85px;width: 85px;margin: auto; display: flex;background-color: #fff;"> <img id="${values?.boothLibrary?.selected?.id}-boothImg" src="${values?.boothImage?.url}" alt="image" style="width: 100%; object-fit: contain;border-radius:8px" />
     </div>
     <div style="text-align: center;">
@@ -196,11 +196,11 @@ unlayer.registerTool({
           defaultValue: '',
           widget: 'booth_library',
         },
-        boothBGColor: {
-          label: 'Booth BG Color',
-          defaultValue: theme?.primaryColor,
-          widget: 'color_picker',
-        },
+//         boothBGColor: {
+//           label: 'Booth BG Color',
+//           defaultValue: theme?.primaryColor,
+//           widget: 'color_picker',
+//         },
         boothNameColor: {
           label: 'Booth Name Color',
           defaultValue: theme?.primaryFontColor,
