@@ -256,21 +256,6 @@
       input.onchange = function(event) {
         updateValue(event.target.value)
       }
-
-      var redButton = node.getElementsByClassName('red')[0]
-      redButton.onclick = function() {
-        updateValue('#f00')
-      }
-
-      var greenButton = node.getElementsByClassName('green')[0]
-      greenButton.onclick = function() {
-        updateValue('#0f0')
-      }
-
-      var blueButton = node.getElementsByClassName('blue')[0]
-      blueButton.onclick = function() {
-        updateValue('#00f')
-      }
     }
   })
 });
