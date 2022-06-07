@@ -337,7 +337,23 @@
     label: 'Session',
     icon: 'fa-calendar',
     supportedDisplayModes: ['web', 'email'],
-    options: {
+    options: { 
+colors: { // Property Group
+      title: "Colors", // Title for Property Group
+      position: 1, // Position of Property Group
+      options: {
+        "textColor": { // Property: textColor
+          "label": "Text Color", // Label for Property
+          "defaultValue": "#FF0000",
+          "widget": "color_picker" // Property Editor Widget: color_picker
+        },
+        "backgroundColor": { // Property: backgroundColor
+          "label": "Background Color", // Label for Property
+          "defaultValue": "#FF0000",
+          "widget": "color_picker" // Property Editor Widget: color_picker
+        }
+      }
+    },
       boothContent: {
         enabled: false,
         title: 'Session Content',
@@ -349,7 +365,6 @@
             widget: 'session_library',
           },
           sessionCardBGColor: {
-            enabled: false,
             label: 'Session Background Color',
             defaultValue: theme?.primaryColor,
             widget: 'color_picker',
