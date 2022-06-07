@@ -249,12 +249,7 @@
   name: 'my_color_picker',
   Widget: unlayer.createWidget({
     render(value, updateValue, data) {
-      return `
-        <input class="color-value" value=${value} />
-        <button class="red">Red</button>
-        <button class="green">Green</button>
-        <button class="blue">Blue</button>
-      `
+      return `<input class="color-value" value=${value} disabled/>`
     },
     mount(node, value, updateValue, data) {
       var input = node.getElementsByClassName('color-value')[0]
