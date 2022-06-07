@@ -99,7 +99,7 @@
     <div  speakerId="${
       values?.speakerLibrary?.selected?.id
     }" style="max-width: 115px; position:relative; margin-bottom: 15px;height: 210px;padding-top:0px;overflow: hidden;border-radius: 8px;background-color:${values?.speakerBGColor};box-sizing: border-box;"> 
-    <div class="speaker-img" style="position: absolute; z-index: 1; overflow: hidden; border-radius: 20rem 0 20rem 20rem; border: 1rem solid #ED7767; margin: -18px 0 0 15px;">
+    <div class="speaker-img" style="position: absolute; z-index: 1; overflow: hidden; border-radius: 20rem 0 20rem 20rem; border: 1rem solid #ED7767; margin-top:-18px; margin-left:15px;">
     <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${
         values?.speakerImage?.url
       }" alt="image" style="height:85px; width: 85px; object-fit:cover; position: relative; top: 5px;" />
