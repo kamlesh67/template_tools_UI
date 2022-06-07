@@ -339,7 +339,7 @@
     supportedDisplayModes: ['web', 'email'],
     options: { 
       enabled: false,
-      responsive_design: { // Property Group
+      responsive: { // Property Group
       title: "Responsive Design", // Title for Property Group
     },
       boothContent: {
