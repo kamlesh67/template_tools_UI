@@ -338,9 +338,8 @@
     icon: 'fa-calendar',
     supportedDisplayModes: ['web', 'email'],
     options: { 
-colors: { // Property Group
-      title: "Colorsssss", // Title for Property Group
-      position: 1, // Position of Property Group
+      responsive_design: { // Property Group
+      title: "Responsive Design", // Title for Property Group
       options: {
         "textColor": { // Property: textColor
           "label": "Text Color", // Label for Property
