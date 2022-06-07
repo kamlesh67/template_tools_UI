@@ -49,7 +49,7 @@
     <div class="speaker-img">
     <img src="${
       values?.speakerImage?.url
-    }" alt="image" style="height:11rem; width: 11rem; object-fit:cover" />
+    }" alt="image" style="height:8.5rem; width: 8.5rem; object-fit:cover" />
     </div>
     <h3 style="margin:5px 10px 0; font-size:15px; color: ${
       values.speakerTitleColor
