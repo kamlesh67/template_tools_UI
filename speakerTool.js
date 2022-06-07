@@ -100,7 +100,7 @@
       values?.speakerLibrary?.selected?.id
     }" style="max-width: 115px; position:relative; margin-bottom: 15px;height: 210px;padding-top:0px;overflow: hidden;border-radius: 8px;background-color:#ffffff;box-sizing: border-box;"> 
     <div class="speaker-img" style="position: relative; z-index: 1; overflow: hidden; border-radius: 20rem 0 20rem 20rem; border: 1rem solid #ED7767; top: -21px; right: -16px; line-height:0">
-    <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="https://immo-virtualevent-cdn.s3.ap-south-1.amazonaws.com/email-builder/images/attendee_avatar.png" alt="image" style="height:85px; width: 85px; object-fit:cover; position: relative; top: 5px;" />
+    <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${values?.speakerBGColor}" alt="image" style="height:85px; width: 85px; object-fit:cover; position: relative; top: 5px;" />
     </div>
     <h3 id="${
       values?.speakerLibrary?.selected?.id
