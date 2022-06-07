@@ -339,6 +339,7 @@
     supportedDisplayModes: ['web', 'email'],
     options: {
       boothContent: {
+        enabled: false,
         title: 'Session Content',
         position: 1,
         options: {
@@ -348,6 +349,7 @@
             widget: 'session_library',
           },
           sessionCardBGColor: {
+            enabled: false,
             label: 'Session Background Color',
             defaultValue: theme?.primaryColor,
             widget: 'color_picker',
