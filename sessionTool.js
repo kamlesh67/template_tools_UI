@@ -338,7 +338,7 @@
     icon: 'fa-calendar',
     supportedDisplayModes: ['web', 'email'],
     options: { 
-      responsive_design: { // Property Group
+      responsive: { // Property Group
       enabled: false,
       title: "Responsive Design", // Title for Property Group
     },
