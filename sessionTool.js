@@ -358,16 +358,19 @@
             widget: 'color_picker',
           },
           sessionNameColor: {
+            enabled: false,
             label: 'Session Name Color',
             defaultValue: theme?.primaryFontColor,
             widget: 'color_picker',
           },
           sessionDateAndTimeColor: {
+            enabled: false,
             label: 'Session Date And Time Color',
             defaultValue: theme?.accentColor,
             widget: 'color_picker',
           },
           sessionDescriptionColor: {
+            enabled: false,
             label: 'Session Description Color',
             defaultValue: theme?.primaryFontColor,
             widget: 'color_picker',
