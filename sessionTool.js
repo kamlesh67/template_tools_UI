@@ -339,7 +339,7 @@
     supportedDisplayModes: ['web', 'email'],
     options: { 
 colors: { // Property Group
-      title: "Colors", // Title for Property Group
+      title: "Colorsssss", // Title for Property Group
       position: 1, // Position of Property Group
       options: {
         "textColor": { // Property: textColor
