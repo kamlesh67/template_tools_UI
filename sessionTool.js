@@ -338,8 +338,8 @@
     icon: 'fa-calendar',
     supportedDisplayModes: ['web', 'email'],
     options: { 
+      responsive_design: { // Property Group
       enabled: false,
-      responsive: { // Property Group
       title: "Responsive Design", // Title for Property Group
     },
       boothContent: {
