@@ -338,23 +338,11 @@
     icon: 'fa-calendar',
     supportedDisplayModes: ['web', 'email'],
     options: { 
+      enabled: false,
       responsive_design: { // Property Group
       title: "Responsive Design", // Title for Property Group
-      options: {
-        "textColor": { // Property: textColor
-          "label": "Text Color", // Label for Property
-          "defaultValue": "#FF0000",
-          "widget": "color_picker" // Property Editor Widget: color_picker
-        },
-        "backgroundColor": { // Property: backgroundColor
-          "label": "Background Color", // Label for Property
-          "defaultValue": "#FF0000",
-          "widget": "color_picker" // Property Editor Widget: color_picker
-        }
-      }
     },
       boothContent: {
-        enabled: false,
         title: 'Session Content',
         position: 1,
         options: {
