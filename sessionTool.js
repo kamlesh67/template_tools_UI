@@ -352,6 +352,7 @@
             widget: 'session_library',
           },
           sessionCardBGColor: {
+            enabled: false,
             label: 'Session Background Color',
             defaultValue: theme?.primaryColor,
             widget: 'color_picker',
