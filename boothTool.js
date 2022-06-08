@@ -187,6 +187,10 @@ unlayer.registerTool({
   icon: 'fa-suitcase', 
   supportedDisplayModes: ['web', 'email'],
   options: {
+    responsive: {// remove responsive design 
+      enabled: false,
+      title: "Responsive Design",
+    },
     boothContent: {
       title: 'Booth Content',
       position: 1,
