@@ -49,14 +49,14 @@
     <div class="speaker-img">
     <img src="${
       values?.speakerImage?.url
-    }" alt="image" style="height:8.5rem; width: 8.5rem; object-fit:cover" />
+    }" alt="image" style="height:auto; width: 100%; object-fit:cover" />
     </div>
-    <h3 style="margin:5px 10px 0; font-size:15px; color: ${
+    <h3 style="margin:5px 5px 0; font-size:13px; color: ${
       values.speakerTitleColor
     };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
         values?.speakerTitle ? values?.speakerTitle : ''
       }</h3>
-    <h4 style="margin:5px 10px 0;font-size:13px; color: ${
+    <h4 style="margin:5px 5px 0;font-size:12px; color: ${
       values.speakerDesignationCompanyColor
     };">
     ${values.speakerDesignation ? values.speakerDesignation : ''} ${
@@ -99,19 +99,19 @@
     <div  speakerId="${
       values?.speakerLibrary?.selected?.id
     }" style="max-width: 115px; position:relative; margin-bottom: 15px;height: 210px;padding-top:0px;overflow: hidden;border-radius: 8px;background-color:${values?.speakerBGColor}; box-sizing: border-box;"> 
-    <div class="speaker-img" style="position: relative; z-index: 1; overflow: hidden; border-radius: 20rem 0 20rem 20rem; border: 1rem solid #E67E23; top: -21px; right: -16px; line-height:0;">
+    <div class="speaker-img">
     <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${values?.speakerImage?.url}" alt="image" style="height:85px; width: 85px; object-fit:cover; position: relative; top: 5px;" />
     </div>
     <h3 id="${
       values?.speakerLibrary?.selected?.id
-    }-speakerName" style="padding: 20px 10px 0;margin-bottom:10px; font-size:15px; color: ${
+    }-speakerName" style="margin:5px 5px 0; font-size:13px; color: ${
         values.speakerTitleColor
       };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
         values?.speakerTitle ? values?.speakerTitle : ''
       }</h3>
     <h4 id="${
       values?.speakerLibrary?.selected?.id
-    }-speakerDesAndCom" style="margin:5px 10px 0;font-size:13px; color: ${
+    }-speakerDesAndCom" style="margin:5px 5px 0;font-size:12px; color: ${
         values.speakerDesignationCompanyColor
       };">
     ${values?.speakerDesignation ? values?.speakerDesignation : ''} ${
