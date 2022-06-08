@@ -281,10 +281,9 @@
 
   unlayer.registerPropertyEditor({
   name: 'custom_color_picker',
-  label: 'xxxxxx',
   Widget: unlayer.createWidget({
-      render(value, updateValue, data) {
-        console.log('>>',value, updateValue, data )
+      render(value, updateValue, data, label, a, b, c) {
+        console.log('>>', label,a, b, c )
         return `<input class="color-value" value=${value} disabled/>`
       },
     })
