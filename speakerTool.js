@@ -233,6 +233,10 @@
     icon: 'fa-microphone',
     supportedDisplayModes: ['web', 'email'],
     options: {
+      responsive: {// remove responsive design 
+        enabled: false,
+        title: "Responsive Design",
+      },
       speakerContent: {
         title: 'Speaker Content',
         position: 1,
