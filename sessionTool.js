@@ -281,6 +281,7 @@
 
   unlayer.registerPropertyEditor({
   name: 'custom_color_picker',
+  label: 'xxxxxx',
   Widget: unlayer.createWidget({
       render(value, updateValue, data) {
         console.log('>>',value, updateValue, data )
