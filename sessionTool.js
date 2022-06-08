@@ -376,7 +376,7 @@ return ``
         enabled: false,
         title: "Responsive Design",
       },
-      boothContent: {
+      sessionContent: {
         title: 'Session Content',
         position: 1,
         options: {
