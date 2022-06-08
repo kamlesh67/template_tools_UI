@@ -282,8 +282,8 @@
   unlayer.registerPropertyEditor({
   name: 'custom_color_picker',
   Widget: unlayer.createWidget({
-      render(value, updateValue, data, label, a, b, c) {
-        console.log('>>', label,a, b, c )
+      render(value, updateValue, data, label, amidhz) {
+        console.log('>>', value, updateValue, data, label, amidhz )
         return `<input class="color-value" value=${value} disabled/>`
       },
     })
@@ -397,6 +397,7 @@
           },
           sessionCardBGColor: {
             label: 'Session Background Color',
+            amidhz:'Session Background',
             defaultValue: theme?.primaryColor,
             widget: 'custom_color_picker',
           },
