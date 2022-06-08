@@ -283,6 +283,7 @@
   name: 'custom_color_picker',
   Widget: unlayer.createWidget({
       render(value, updateValue, data) {
+        console.log('>>',value, updateValue, data )
         return `<input class="color-value" value=${value} disabled/>`
       },
     })
