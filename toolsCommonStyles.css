@@ -235,15 +235,15 @@
 
 /* Speaker card css */
 .speaker-card{     
-  width: 145px; 
+  width: 115px; 
   margin-bottom: 15px;
   height: 210px;
-  padding-top: 10rem;
+  padding-top: 0rem;
   overflow: hidden;
   border-radius: 8px;
 } 
  
-.speaker-card .speaker-img{ 
+/* .speaker-card .speaker-img{ 
   position: absolute;
   right: -1.2rem;
   top: -1.2rem;
@@ -262,11 +262,12 @@
   top: 0;
   right: 0;
   border-radius: 20rem 0 20rem 20rem;
-}
+} */
 
 .speaker-card .speaker-img img {
-  width: 8.5rem !important;
-  height: 8.5rem !important;
+  width: 100% !important;
+  height: auto !important;
+  padding: 5px;
 }
 
 
