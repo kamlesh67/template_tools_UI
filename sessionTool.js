@@ -263,28 +263,11 @@
     modal.classList.remove('show');
   };
 
-//   unlayer.registerPropertyEditor({
-//   name: 'custom_color_picker',
-//   Widget: unlayer.createWidget({
-//       render(value, updateValue, data) {
-//         return `<input class="color-value" value=${value} disabled/>`
-//   return ``
-//       },
-//       mount(node, value, updateValue, data) {
-//         var input = node.getElementsByClassName('color-value')[0]
-//         input.onchange = function(event) {
-//           updateValue(event.target.value)
-//         }
-//       }
-//     })
-//   });
-
   unlayer.registerPropertyEditor({
-  name: 'custom_color_picker',
+  name: 'session_background_color',
   Widget: unlayer.createWidget({
       render(value, updateValue, data, label, amidhz) {
-        console.log('>>', value, updateValue, data, label, amidhz )
-        return `<input class="color-value" value=${value} disabled/>`
+        return `<input class="color-value" value=${value} disabled/> <span>Session Background Color</span>`
       },
     })
   });
@@ -396,10 +379,8 @@
             widget: 'session_library',
           },
           sessionCardBGColor: {
-            label: 'Session Background Color',
-            amidhz:'Session Background',
             defaultValue: theme?.primaryColor,
-            widget: 'custom_color_picker',
+            widget: 'session_background_color',
           },
           sessionNameColor: {
             label: 'Session Name Color',
