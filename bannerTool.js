@@ -130,6 +130,10 @@ unlayer.registerTool({
     icon: 'fa-image', 
     supportedDisplayModes: ['web', 'email'],
     options: {
+         responsive: {// remove responsive design 
+          enabled: false,
+          title: "Responsive Design",
+        },
         bannerContent: {
             title: 'Community Banner Content',
             position: 1,
