@@ -264,6 +264,22 @@
   };
 
   unlayer.registerPropertyEditor({
+  name: 'my_color_picker',
+  Widget: unlayer.createWidget({
+    render(value, updateValue, data) {
+//       return `<input class="color-value" value=${value} disabled/>`
+return ``
+    },
+    mount(node, value, updateValue, data) {
+//       var input = node.getElementsByClassName('color-value')[0]
+//       input.onchange = function(event) {
+//         updateValue(event.target.value)
+//       }
+    }
+  })
+});
+
+  unlayer.registerPropertyEditor({
     name: 'session_library',
     layout: 'bottom',
     Widget: unlayer.createWidget({
@@ -355,7 +371,11 @@
     label: 'Session',
     icon: 'fa-calendar',
     supportedDisplayModes: ['web', 'email'],
-    options: {
+    options: { 
+      responsive: { // Property Group
+      enabled: false,
+      title: "Responsive Design", // Title for Property Group
+    },
       boothContent: {
         title: 'Session Content',
         position: 1,
@@ -366,21 +386,25 @@
             widget: 'session_library',
           },
           sessionCardBGColor: {
+ position: 0,
             label: 'Session Background Color',
             defaultValue: theme?.primaryColor,
-            widget: 'color_picker',
+            widget: 'my_color_picker',
           },
           sessionNameColor: {
+            enabled: false,
             label: 'Session Name Color',
             defaultValue: theme?.primaryFontColor,
             widget: 'color_picker',
           },
           sessionDateAndTimeColor: {
+            enabled: false,
             label: 'Session Date And Time Color',
             defaultValue: theme?.accentColor,
             widget: 'color_picker',
           },
           sessionDescriptionColor: {
+            enabled: false,
             label: 'Session Description Color',
             defaultValue: theme?.primaryFontColor,
             widget: 'color_picker',
