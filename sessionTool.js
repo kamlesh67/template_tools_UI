@@ -80,28 +80,46 @@
     ) {
       if (isPreview) {
         return ` 
-      <div style="display: flex;justify-content: start;align-items: center;" id="${
-        values?.sessionLibrary?.selected?.id
-      }-sessionSpeakers">
-      ${!values?.sessionLibrary?.selected?.id ? defaultSpeaker : speakerList(values?.speakers)} 
-      </div>
-      <div style="display: flex;justify-content: end;align-items: center;"  id="${
-        values?.sessionLibrary?.selected?.id
-      }-sessionSponsors">
-      ${!values?.sessionLibrary?.selected?.id ? defaultBooth : boothList(values?.sponsors)}
-      </div>`;
+        <table width="100%">
+        <tr>
+          <td align="left">
+            <div align="left" style="display: flex; justify-content: start; align-items: center;" id="${
+              values?.sessionLibrary?.selected?.id
+            }-sessionSpeakers">
+            ${!values?.sessionLibrary?.selected?.id ? defaultSpeaker : speakerList(values?.speakers)} 
+            </div>
+          </td>
+          <td align="right">
+            <div align="right" style="display: inline-flex;justify-content: end;align-items: center;"  id="${
+              values?.sessionLibrary?.selected?.id
+            }-sessionSponsors">
+            ${!values?.sessionLibrary?.selected?.id ? defaultBooth : boothList(values?.sponsors)}
+            </div>
+          </td>
+        </tr>
+        </table>
+      `;
       } else {
         return ` 
-      <div style="display: flex;justify-content: end;align-items: center;" id="${
-        values?.sessionLibrary?.selected?.id
-      }-sessionSpeakers">
-      ${!values?.sessionLibrary?.selected?.id ? defaultSpeaker : speakerList(values?.speakers)} 
-      </div>
-      <div style="display: flex;justify-content: end;align-items: center;"  id="${
-        values?.sessionLibrary?.selected?.id
-      }-sessionSponsors">
-      ${!values?.sessionLibrary?.selected?.id ? defaultBooth : boothList(values?.sponsors)}
-      </div>`;
+        <table width="100%">
+        <tr>
+          <td align="left" valign="center">
+            <div align="left" style="display: flex; justify-content:start; align-items: center;" id="${
+              values?.sessionLibrary?.selected?.id
+            }-sessionSpeakers">
+            ${!values?.sessionLibrary?.selected?.id ? defaultSpeaker : speakerList(values?.speakers)} 
+            </div>
+          </td>
+          <td align="right" valign="center">
+            <div align="right" style="display: inline-flex; justify-content:end; align-items: center;"  id="${
+              values?.sessionLibrary?.selected?.id
+            }-sessionSponsors">
+            ${!values?.sessionLibrary?.selected?.id ? defaultBooth : boothList(values?.sponsors)}
+            </div>
+          </td>
+        </tr>
+        </table>  
+      `;
       }
     } else {
       return ``;
@@ -174,10 +192,10 @@
       <h3 class="session-title" style="margin: 10px 0 5px 0; color: ${values.sessionNameColor};">${
         values.sessionName ? values.sessionName : ''
       }</h3>
-      <div class="session-description" style="color:${values.sessionDescriptionColor};display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+      <div class="session-description" style="color:${values.sessionDescriptionColor}; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
         ${values.description ? values.description : ''}
       </div>
-      <div class="booth-speaker-data">
+      <div class="booth-speaker-data" style="margin-top:10px;">
         ${values?.isShowSpeakerAndBooth ? speakerAndBoothList(values) : ''}  
       </div>
     </div>
@@ -221,10 +239,10 @@
       }</h3>
     <div id="${values?.sessionLibrary?.selected?.id}-sessionDescription" style="color:${
       values.sessionDescriptionColor
-    };font-size: 12px;font-weight: 400;display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+    };font-size: 12px;font-weight: 400; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
       ${values?.description ? values.description : ''}
     </div>
-    <div style="display:flex;justify-content: space-between;margin-top:10px;">
+    <div style="margin-top:10px;">
       ${values.isShowSpeakerAndBooth ? speakerAndBoothList(values) : ''}  
     </div>
   </div>
