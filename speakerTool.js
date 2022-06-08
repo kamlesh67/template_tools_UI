@@ -5,8 +5,8 @@
   <% _.forEach(speakers, function(item) { %>
     <div class="speakers-item card" id="speakers-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
     <div class="speakers-media"> <img src="<%= item.profile_img %>" alt="image" style="height:11rem; width: 11rem;object-fit:cover" /> </div>
-      <h4 style="margin:5px 10px 0; text-align: left; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item?.name %> </h4>
-      <h5 style="margin:5px 10px 0; text-align: left;color: ${theme.secondary};"><%= item?.designation %> <%= item?.designation && item?.company ? ',' : '' %> <%= item?.company %> </h5>
+      <h3 style="margin:8px 8px 0; font-size:13px; text-align: left; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item?.name %> </h4>
+      <h4 style="margin:5px 8px 0; font-size:12px; height: 35px; overflow:hidden; text-align: left;color: ${theme.secondary};"><%= item?.designation %> <%= item?.designation && item?.company ? ',' : '' %> <%= item?.company %> </h5>
     </div>
   <% }); %>
 `);
@@ -111,7 +111,7 @@
       }</h3>
     <h4 id="${
       values?.speakerLibrary?.selected?.id
-    }-speakerDesAndCom" style="margin:8px 8px 0;font-size:12px; color: ${
+    }-speakerDesAndCom" style="margin:5px 8px 0; font-size:12px; height: 35px; overflow:hidden; color: ${
         values.speakerDesignationCompanyColor
       };">
     ${values?.speakerDesignation ? values?.speakerDesignation : ''} ${

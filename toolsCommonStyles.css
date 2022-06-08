@@ -237,8 +237,8 @@
 .speaker-card{     
   width: 115px; 
   margin-bottom: 15px;
-  height: 210px;
-  padding-top: 0rem;
+  height: 200px;
+  padding-bottom: 15rem;
   overflow: hidden;
   border-radius: 8px;
 } 
