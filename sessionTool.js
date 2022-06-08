@@ -264,6 +264,22 @@
   };
 
   unlayer.registerPropertyEditor({
+  name: 'custom_color_picker',
+  Widget: unlayer.createWidget({
+      render(value, updateValue, data) {
+        return `<input class="color-value" value=${value} disabled/>`
+  return ``
+      },
+      mount(node, value, updateValue, data) {
+        var input = node.getElementsByClassName('color-value')[0]
+        input.onchange = function(event) {
+          updateValue(event.target.value)
+        }
+      }
+    })
+  });
+
+  unlayer.registerPropertyEditor({
     name: 'session_library',
     layout: 'bottom',
     Widget: unlayer.createWidget({
@@ -372,7 +388,7 @@
           sessionCardBGColor: {
             label: 'Session Background Color',
             defaultValue: theme?.primaryColor,
-            widget: 'color_picker',
+            widget: 'custom_color_picker',
           },
           sessionNameColor: {
             label: 'Session Name Color',
