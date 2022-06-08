@@ -266,8 +266,35 @@
   unlayer.registerPropertyEditor({
   name: 'session_background_color',
   Widget: unlayer.createWidget({
-      render(value, updateValue, data, label, amidhz) {
-        return `<input class="color-value" value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Session Background Color</span>`
+      render(value, updateValue, data) {
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Session Background Color</span>`
+      },
+    })
+  });
+
+ unlayer.registerPropertyEditor({
+  name: 'session_name_color',
+  Widget: unlayer.createWidget({
+      render(value, updateValue, data) {
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Session Name Color</span>`
+      },
+    })
+  });
+
+ unlayer.registerPropertyEditor({
+  name: 'session_date_and_time_color',
+  Widget: unlayer.createWidget({
+      render(value, updateValue, data) {
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Session Date And Time Color</span>`
+      },
+    })
+  });
+
+ unlayer.registerPropertyEditor({
+  name: 'session_description_color',
+  Widget: unlayer.createWidget({
+      render(value, updateValue, data) {
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Session Description Color</span>`
       },
     })
   });
@@ -383,19 +410,16 @@
             widget: 'session_background_color',
           },
           sessionNameColor: {
-            label: 'Session Name Color',
             defaultValue: theme?.primaryFontColor,
-            widget: 'color_picker',
+            widget: 'session_name_color',
           },
           sessionDateAndTimeColor: {
-            label: 'Session Date And Time Color',
             defaultValue: theme?.accentColor,
-            widget: 'color_picker',
+            widget: 'session_date_and_time_color',
           },
           sessionDescriptionColor: {
-            label: 'Session Description Color',
             defaultValue: theme?.primaryFontColor,
-            widget: 'color_picker',
+            widget: 'session_description_color',
           },
           isShowSpeakerAndBooth: {
             label: 'Show Speaker And Booth',
