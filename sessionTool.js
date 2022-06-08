@@ -388,7 +388,7 @@ return ``
           sessionCardBGColor: {
             label: 'Session Background Color',
             defaultValue: theme?.primaryColor,
-            widget: 'my_color_picker',
+            widget: 'color_picker',
           },
           sessionNameColor: {
             label: 'Session Name Color',
