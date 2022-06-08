@@ -132,6 +132,10 @@ unlayer.registerTool({
   icon: 'fa-image', 
   supportedDisplayModes: ['web', 'email'],
   options: {
+    responsive: {// remove responsive design 
+      enabled: false,
+      title: "Responsive Design",
+    },
     logoContent: {
       title: 'Logo Content',
       position: 1,
