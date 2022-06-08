@@ -372,10 +372,10 @@ return ``
     icon: 'fa-calendar',
     supportedDisplayModes: ['web', 'email'],
     options: { 
-      responsive: { // Property Group
-      enabled: false,
-      title: "Responsive Design", // Title for Property Group
-    },
+      responsive: {// remove responsive design 
+        enabled: false,
+        title: "Responsive Design",
+      },
       boothContent: {
         title: 'Session Content',
         position: 1,
@@ -386,25 +386,21 @@ return ``
             widget: 'session_library',
           },
           sessionCardBGColor: {
- position: 0,
             label: 'Session Background Color',
             defaultValue: theme?.primaryColor,
             widget: 'my_color_picker',
           },
           sessionNameColor: {
-            enabled: false,
             label: 'Session Name Color',
             defaultValue: theme?.primaryFontColor,
             widget: 'color_picker',
           },
           sessionDateAndTimeColor: {
-            enabled: false,
             label: 'Session Date And Time Color',
             defaultValue: theme?.accentColor,
             widget: 'color_picker',
           },
           sessionDescriptionColor: {
-            enabled: false,
             label: 'Session Description Color',
             defaultValue: theme?.primaryFontColor,
             widget: 'color_picker',
