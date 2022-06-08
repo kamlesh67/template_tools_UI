@@ -267,7 +267,7 @@
   name: 'session_background_color',
   Widget: unlayer.createWidget({
       render(value, updateValue, data, label, amidhz) {
-        return `<input class="color-value" value=${value} disabled/> <span>Session Background Color</span>`
+        return `<input class="color-value" value=${value} disabled/> <b style="float:right">Session Background Color</b>`
       },
     })
   });
