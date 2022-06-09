@@ -95,6 +95,24 @@ const hideModal = function () {
 };
 
 unlayer.registerPropertyEditor({
+  name: 'booth_background_color',
+  Widget: unlayer.createWidget({
+      render(value, updateValue, data) {
+      return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Booth Background Color</span>`
+    },
+  })
+});
+
+unlayer.registerPropertyEditor({
+  name: 'booth_name_color',
+  Widget: unlayer.createWidget({
+      render(value, updateValue, data) {
+      return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Booth Name Color</span>`
+    },
+  })
+});
+
+unlayer.registerPropertyEditor({
   name: 'booth_library',
   layout: 'bottom',
   Widget: unlayer.createWidget({
@@ -181,38 +199,42 @@ unlayer.registerPropertyEditor({
   }),
 });
 
-unlayer.registerTool({
-  name: 'booth_tool',
-  label: 'Booth',
-  icon: 'fa-suitcase', 
-  supportedDisplayModes: ['web', 'email'],
-  options: {
-    responsive: {// remove responsive design 
-      enabled: false,
-      title: "Responsive Design",
-    },
-    boothContent: {
-      title: 'Booth Content',
-      position: 1,
-      options: {
-        boothLibrary: {
-          label: 'Add Booth from store',
-          defaultValue: '',
-          widget: 'booth_library',
-        },
-        boothBGColor: {
-          label: 'Booth Background Color',
-          defaultValue: theme?.primaryColor,
-          widget: 'color_picker',
-        },
-        boothNameColor: {
-          label: 'Booth Name Color',
-          defaultValue: theme?.primaryFontColor,
-          widget: 'color_picker',
+  unlayer.registerTool({
+    name: 'booth_tool',
+    label: 'Booth',
+    icon: 'fa-suitcase', 
+    supportedDisplayModes: ['web', 'email'],
+    options: {
+      responsive: {// remove responsive design 
+        enabled: false,
+        title: "Responsive Design",
+      },
+      boothContent: {
+        title: 'Booth Content',
+        position: 1,
+        options: {
+          boothLibrary: {
+            label: 'Add Booth from store',
+            defaultValue: '',
+            widget: 'booth_library',
+          },
         },
       },
-    },
+      colorContent: {
+        title: 'Color options for the booth have been disabled. Make changes to the booth colors via the Theme option in Brand Your Event.',
+        options: {
+         boothBGColor: {
+          defaultValue: theme?.primaryColor,
+          widget: 'booth_background_color',
+        },
+        boothNameColor: {
+          defaultValue: theme?.primaryFontColor,
+          widget: 'booth_name_color',
+        },
+      },
+    },    
   },
+
   transformer: (values, source) => {
     const { name, value, data } = source;
     // Transform the values here
