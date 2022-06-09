@@ -405,22 +405,6 @@
             defaultValue: '',
             widget: 'session_library',
           },
-          sessionCardBGColor: {
-            defaultValue: theme?.primaryColor,
-            widget: 'session_background_color',
-          },
-          sessionNameColor: {
-            defaultValue: theme?.primaryFontColor,
-            widget: 'session_name_color',
-          },
-          sessionDateAndTimeColor: {
-            defaultValue: theme?.accentColor,
-            widget: 'session_date_and_time_color',
-          },
-          sessionDescriptionColor: {
-            defaultValue: theme?.primaryFontColor,
-            widget: 'session_description_color',
-          },
           isShowSpeakerAndBooth: {
             label: 'Show Speaker And Booth',
             defaultValue: true,
