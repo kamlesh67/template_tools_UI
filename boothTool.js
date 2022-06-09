@@ -73,7 +73,7 @@ const toolEmailTemplate = function (values, isViewer = false) {
   <div boothId="${values?.boothLibrary?.selected?.id}" style="position:relative;background-color:${values.boothBGColor};margin-bottom: 15px;padding:18px 10px;border-radius: 8px;">
     <div style="border-radius: .8rem; border: 1px solid #f1f1f1;height: 85px;width: 85px;margin: auto; display: flex;background-color: #fff;"> <img id="${values?.boothLibrary?.selected?.id}-boothImg" src="${values?.boothImage?.url}" alt="image" style="width: 100%; object-fit: contain;border-radius:8px" />
     </div>
-    <div style="text-align: center;">
+    <div style="text-align: center; max-width: 135px;">
     <h3 id="${values?.boothLibrary?.selected?.id}-boothName" style="margin:10px 10px 0; font-size:13px; color: ${values.boothNameColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${values?.boothName}</h3>
     </div>
   </div>`;
