@@ -133,6 +133,33 @@
     const modal = document.getElementById('speaker_library_modal');
     modal.classList.remove('show');
   };
+  
+  unlayer.registerPropertyEditor({
+    name: 'speaker_background_color',
+    Widget: unlayer.createWidget({
+        render(value, updateValue, data) {
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Speaker Background Color</span>`
+      },
+    })
+  });
+
+  unlayer.registerPropertyEditor({
+    name: 'speaker_name_color',
+    Widget: unlayer.createWidget({
+        render(value, updateValue, data) {
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Speaker Name Color</span>`
+      },
+    })
+  });
+
+  unlayer.registerPropertyEditor({
+    name: 'speaker_designation_and_company_color',
+    Widget: unlayer.createWidget({
+        render(value, updateValue, data) {
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Speaker Designation and Company Color</span>`
+      },
+    })
+  });
 
   unlayer.registerPropertyEditor({
     name: 'speaker_library',
@@ -246,24 +273,27 @@
             defaultValue: '',
             widget: 'speaker_library',
           },
-           speakerBGColor: {
-           label: 'Speaker Background Color',
+        },
+      },
+      colorContent: {
+        title: 'Color options for the speaker have been disabled. Make changes to the speaker colors via the Theme option in Brand Your Event.',
+        options: {
+          speakerBGColor: {
            defaultValue: theme?.primaryColor,
-           widget: 'color_picker',
+           widget: 'speaker_background_color',
          },
           speakerTitleColor: {
-            label: 'Speaker Name Color',
             defaultValue: theme?.primaryFontColor,
-            widget: 'color_picker',
+            widget: 'speaker_name_color',
           },
           speakerDesignationCompanyColor: {
-            label: 'Speaker Designation & Company Color',
             defaultValue: theme?.accentColor,
-            widget: 'color_picker',
+            widget: 'speaker_designation_and_company_color',
           },
         },
       },
     },
+
     transformer: (values, source) => {
       const { name, value, data } = source;
       // Transform the values here
