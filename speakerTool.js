@@ -98,7 +98,7 @@
     </style>
     <div  speakerId="${
       values?.speakerLibrary?.selected?.id
-    }" style="max-width: 115px; position:relative; margin-bottom: 15px;height: 210px;padding-top:0px;overflow: hidden;border-radius: 8px;background-color:${values?.speakerBGColor}; box-sizing: border-box;"> 
+    }" style="width: 115px; margin-bottom: 15px; height: 195px; padding-bottom: 10rem; overflow: hidden; border-radius: 8px; display: block; background-color:${values?.speakerBGColor}; box-sizing: border-box; border: 1px solid #d3d3d3;"> 
     <div class="speaker-img">
     <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${values?.speakerImage?.url}" alt="image" style="height:auto; width: 100%; object-fit:cover; position: relative;" />
     </div>
