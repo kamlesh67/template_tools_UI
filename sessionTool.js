@@ -239,7 +239,7 @@
       }</h3>
     <div id="${values?.sessionLibrary?.selected?.id}-sessionDescription" style="color:${
       values.sessionDescriptionColor
-    };font-size: 12px;font-weight: 400; display: block; overflow: hidden; max-height: 34px; line-height:16px;">
+    };font-size: 12px;font-weight: 400; display: block; overflow: hidden; max-height: 34px; line-height:18px;">
       ${values?.description ? values.description : ''}
     </div>
     <div style="margin-top:10px;">
