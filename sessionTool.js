@@ -285,7 +285,7 @@
   name: 'session_date_and_time_color',
   Widget: unlayer.createWidget({
       render(value, updateValue, data) {
-        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Session Date And Time Color</span>`
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Session Date and Time Color</span>`
       },
     })
   });
@@ -405,6 +405,16 @@
             defaultValue: '',
             widget: 'session_library',
           },
+          isShowSpeakerAndBooth: {
+            label: 'Show Speaker and Booth',
+            defaultValue: true,
+            widget: 'toggle',
+          },
+        },
+      },
+      colorContent: {
+        title: 'Color options for the session have been disabled. Make changes to the session colors via the Theme option in Brand Your Event.',
+        options: {
           sessionCardBGColor: {
             defaultValue: theme?.primaryColor,
             widget: 'session_background_color',
@@ -420,11 +430,6 @@
           sessionDescriptionColor: {
             defaultValue: theme?.primaryFontColor,
             widget: 'session_description_color',
-          },
-          isShowSpeakerAndBooth: {
-            label: 'Show Speaker And Booth',
-            defaultValue: true,
-            widget: 'toggle',
           },
         },
       },
