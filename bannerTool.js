@@ -39,8 +39,8 @@ const modalTemplate = function (data) {
 
 const toolTemplate = function (values, isViewer = false) {
     if(values.bannerLibrary){
-    return `<div class="banner-card" style="position:relative;display:block;background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
-    <img src="${values?.logo_image?.url}" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
+    return `<div class="banner-card" style="position:relative;display:block;background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;line-height: 0;">
+    <img src="${values?.logo_image?.url}" style="width: 100%; object-fit: contain; border-radius: 4px;" />
   </div>
   ${isViewer ? modalTemplate({ banners: values.data.banners }) : ''}`;
   }
@@ -58,8 +58,8 @@ const toolTemplate = function (values, isViewer = false) {
 
 const toolEmailTemplate = function (values, isViewer = false) {
     if(values.bannerLibrary){
-        return `<div  bannerId="${values?.bannerLibrary?.selected?.id}" style="position:relative;display:block; background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
-    <img id="${values?.bannerLibrary?.selected?.id}-banner" src="${values?.logo_image?.url}" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
+        return `<div  bannerId="${values?.bannerLibrary?.selected?.id}" style="position:relative;display:block; background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;line-height: 0;">
+    <img id="${values?.bannerLibrary?.selected?.id}-banner" src="${values?.logo_image?.url}" style="width: 100%; object-fit: contain; border-radius: 4px;" />
   </div>
   `;}
     else

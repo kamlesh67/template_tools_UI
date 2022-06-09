@@ -4,9 +4,9 @@
   const productItemsTemplate = _.template(`
   <% _.forEach(speakers, function(item) { %>
     <div class="speakers-item card" id="speakers-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
-    <div class="speakers-media"> <img src="<%= item.profile_img %>" alt="image" style="height:11rem; width: 11rem;object-fit:cover" /> </div>
-      <h4 style="margin:5px 10px 0; text-align: left; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item?.name %> </h4>
-      <h5 style="margin:5px 10px 0; text-align: left;color: ${theme.secondary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item?.designation %> <%= item?.designation && item?.company ? ',' : '' %> <%= item?.company %> </h5>
+    <div class="speakers-media" style="padding:5px;"> <img src="<%= item.profile_img %>" alt="image" style="height:auto; width: 100%; object-fit:cover; border-radius: 8px;" /> </div>
+      <h3 style="margin:5px 8px 0; font-size:13px; text-align: left; color: ${theme.primary};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item?.name %> </h4>
+      <h4 style="margin:5px 8px 0; font-size:12px; text-align: left; overflow: hidden; height: 32px; line-height: 15px; color: ${theme.secondary};"><%= item?.designation %> <%= item?.designation && item?.company ? ',' : '' %> <%= item?.company %> </h5>
     </div>
   <% }); %>
 `);
@@ -49,16 +49,16 @@
     <div class="speaker-img">
     <img src="${
       values?.speakerImage?.url
-    }" alt="image" style="height:8.5rem; width: 8.5rem; object-fit:cover" />
+    }" alt="image" style="height:auto; width: 100%; object-fit:cover" />
     </div>
-    <h3 style="margin:5px 10px 0; font-size:15px; color: ${
+    <h3 style="margin:5px 8px 0; font-size:13px; color: ${
       values.speakerTitleColor
     };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
         values?.speakerTitle ? values?.speakerTitle : ''
       }</h3>
-    <h4 style="margin:5px 10px 0;font-size:13px; color: ${
+    <h4 style="margin:5px 8px 0; font-size:12px; height: 35px; overflow:hidden; color: ${
       values.speakerDesignationCompanyColor
-    }; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
+    };">
     ${values.speakerDesignation ? values.speakerDesignation : ''} ${
         values.speakerDesignation && values.speakerCompany ? ',' : ''
       } ${values.speakerCompany ? values.speakerCompany : ''}</h4>
@@ -98,22 +98,22 @@
     </style>
     <div  speakerId="${
       values?.speakerLibrary?.selected?.id
-    }" style="max-width: 115px; position:relative; margin-bottom: 15px;height: 210px;padding-top:0px;overflow: hidden;border-radius: 8px;background-color:${values?.speakerBGColor}; box-sizing: border-box;"> 
-    <div class="speaker-img" style="position: relative; z-index: 1; overflow: hidden; border-radius: 20rem 0 20rem 20rem; border: 1rem solid #E67E23; top: -21px; right: -16px; line-height:0;">
-    <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${values?.speakerImage?.url}" alt="image" style="height:85px; width: 85px; object-fit:cover; position: relative; top: 5px;" />
+    }" style="width: 115px; margin-bottom: 15px; height: 190px; padding-bottom: 10rem; overflow: hidden; border-radius: 8px; display: block; background-color:${values?.speakerBGColor}; box-sizing: border-box; border: 1px solid #d3d3d3;"> 
+    <div class="speaker-img" style="padding:5px;">
+    <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${values?.speakerImage?.url}" alt="image" style="height:auto; width: 100%; object-fit:cover; position: relative; border-radius: 8px;" />
     </div>
     <h3 id="${
       values?.speakerLibrary?.selected?.id
-    }-speakerName" style="padding: 20px 10px 0;margin-bottom:10px; font-size:15px; color: ${
+    }-speakerName" style="margin:5px 8px 0; font-size:13px; color: ${
         values.speakerTitleColor
       };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
         values?.speakerTitle ? values?.speakerTitle : ''
       }</h3>
     <h4 id="${
       values?.speakerLibrary?.selected?.id
-    }-speakerDesAndCom" style="margin:5px 10px 0;font-size:13px; color: ${
+    }-speakerDesAndCom" style="margin:5px 8px 0; font-size:12px; height: 30px; overflow:hidden; line-height: 15px; color: ${
         values.speakerDesignationCompanyColor
-      }; overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">
+      };">
     ${values?.speakerDesignation ? values?.speakerDesignation : ''} ${
         values.speakerDesignation && values.speakerCompany ? ',' : ''
       } ${values?.speakerCompany ? values?.speakerCompany : ''}</h4>
