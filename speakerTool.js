@@ -156,7 +156,7 @@
     name: 'speaker_designation_and_company_color',
     Widget: unlayer.createWidget({
         render(value, updateValue, data) {
-        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Speaker Designation and Company Color</span>`
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Speaker Designation & Company Color</span>`
       },
     })
   });
