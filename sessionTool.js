@@ -428,6 +428,27 @@
           },
         },
       },
+      colorContent: {
+        title: 'Session Theme Color',
+        options: {
+          sessionCardBGColor: {
+            defaultValue: theme?.primaryColor,
+            widget: 'session_background_color',
+          },
+          sessionNameColor: {
+            defaultValue: theme?.primaryFontColor,
+            widget: 'session_name_color',
+          },
+          sessionDateAndTimeColor: {
+            defaultValue: theme?.accentColor,
+            widget: 'session_date_and_time_color',
+          },
+          sessionDescriptionColor: {
+            defaultValue: theme?.primaryFontColor,
+            widget: 'session_description_color',
+          },
+        },
+      },
     },
     transformer: (values, source) => {
       const { name, value, data } = source;
