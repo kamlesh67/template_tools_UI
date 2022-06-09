@@ -51,12 +51,12 @@
       values?.speakerImage?.url
     }" alt="image" style="height:auto; width: 100%; object-fit:cover" />
     </div>
-    <h3 style="margin:5px 5px 0; font-size:13px; color: ${
+    <h3 style="margin:5px 8px 0; font-size:13px; color: ${
       values.speakerTitleColor
     };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
         values?.speakerTitle ? values?.speakerTitle : ''
       }</h3>
-    <h4 style="margin:5px 5px 0;font-size:12px; color: ${
+    <h4 style="margin:5px 8px 0; font-size:12px; height: 35px; overflow:hidden; color: ${
       values.speakerDesignationCompanyColor
     };">
     ${values.speakerDesignation ? values.speakerDesignation : ''} ${
@@ -104,14 +104,14 @@
     </div>
     <h3 id="${
       values?.speakerLibrary?.selected?.id
-    }-speakerName" style="margin:5px 5px 0; font-size:13px; color: ${
+    }-speakerName" style="margin:5px 8px 0; font-size:13px; color: ${
         values.speakerTitleColor
       };overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;">${
         values?.speakerTitle ? values?.speakerTitle : ''
       }</h3>
     <h4 id="${
       values?.speakerLibrary?.selected?.id
-    }-speakerDesAndCom" style="margin:5px 5px 0;font-size:12px; color: ${
+    }-speakerDesAndCom" style="margin:5px 8px 0; font-size:12px; height: 35px; overflow:hidden; color: ${
         values.speakerDesignationCompanyColor
       };">
     ${values?.speakerDesignation ? values?.speakerDesignation : ''} ${
