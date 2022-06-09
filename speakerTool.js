@@ -111,7 +111,7 @@
       }</h3>
     <h4 id="${
       values?.speakerLibrary?.selected?.id
-    }-speakerDesAndCom" style="margin:5px 8px 0; font-size:12px; height: 30px; overflow:hidden; color: ${
+    }-speakerDesAndCom" style="margin:5px 8px 0; font-size:12px; height: 30px; overflow:hidden; line-height: 13px; color: ${
         values.speakerDesignationCompanyColor
       };">
     ${values?.speakerDesignation ? values?.speakerDesignation : ''} ${
