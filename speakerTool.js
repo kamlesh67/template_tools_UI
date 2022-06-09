@@ -99,7 +99,7 @@
     <div  speakerId="${
       values?.speakerLibrary?.selected?.id
     }" style="width: 115px; margin-bottom: 15px; height: 195px; padding-bottom: 10rem; overflow: hidden; border-radius: 8px; display: block; background-color:${values?.speakerBGColor}; box-sizing: border-box; border: 1px solid #d3d3d3;"> 
-    <div class="speaker-img">
+    <div class="speaker-img" style="padding:5px;">
     <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${values?.speakerImage?.url}" alt="image" style="height:auto; width: 100%; object-fit:cover; position: relative;" />
     </div>
     <h3 id="${
