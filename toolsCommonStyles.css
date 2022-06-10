@@ -211,10 +211,11 @@
   margin-right: 18px;
   margin-bottom: 18px;
   height: 195px;
-  padding-bottom: 10rem;
+  padding-bottom: 0rem;
   overflow: hidden;
   border-radius: 8px;
   display: block;
+  cursor: pointer;
 }
 .speakers-item:nth-child(5n){
   margin-right: 0;
@@ -274,10 +275,12 @@
   border-radius: 20rem 0 20rem 20rem;
 } */
 
+.speaker-card .speaker-img{
+  padding: 5px;
+}
 .speaker-card .speaker-img img {
   width: 100% !important;
   height: auto !important;
-  padding: 5px;
   border-radius: 8px;
 }
 
