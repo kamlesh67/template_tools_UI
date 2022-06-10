@@ -128,7 +128,7 @@
 
   const sessionItemsTemplate = _.template(`
 <% _.forEach(sessions, function(item) { %>
-  <div style="width: 78%; height: auto;" class="session-item" id="session-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-date-time="<%= item.dateAndTime %>" >
+  <div style="width: 87%; height: auto;" class="session-item" id="session-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-date-time="<%= item.dateAndTime %>" >
     <p style="color: ${theme.accentColor};">
     <span style="padding-right: 4px;vertical-align: middle;color: ${theme.accentColor};">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -161,7 +161,7 @@
         </div>
         <div class="modal-body">
           <div class="search-box">
-            <input type="text" class="form-control" placeholder="Search by session name or track name" id="search-bar-session" style="width: 78%" />
+            <input type="text" class="form-control" placeholder="Search by session name or track name" id="search-bar-session" style="width: 87%" />
             ${searchButton}
           </div>
           <div class="sessions-list">
