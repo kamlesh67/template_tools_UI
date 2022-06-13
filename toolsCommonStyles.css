@@ -426,6 +426,9 @@
   border-radius: .75rem;
   padding: 1rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .logo-item:nth-child(4n){
   margin-right: 0;
