@@ -39,7 +39,7 @@ const modalTemplate = function (data) {
 const toolTemplate = function (values, isViewer = false) {
   if(values.logoLibrary)
   {
-  return `<div class="logo-card" style="position:relative;background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;">
+  return `<div class="logo-card" style="position:relative;background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;display: flex;">
     <img src="${values?.logo_image?.url}" style="width: 100%; object-fit: contain; border-top-left-radius: 4px; border-top-right-radius: 4px;" />
   </div>
   ${isViewer ? modalTemplate({ logos: values.data.logos }) : ''}`;
@@ -60,7 +60,7 @@ else{
 const toolEmailTemplate = function (values, isViewer = false) {
   if(values.logoLibrary)
   {  return `<div logoId="${values?.logoLibrary?.selected?.id}" 
-      style="position:relative;display:block; background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;width:100%;margin-bottom: 15px;height: auto;padding: 14px 10px;">
+      style="position:relative;display:block; background-color:#fff;border:1px solid rgba(0,0,0,.125);border-radius:4px;margin:auto;text-align:center;width:100%;margin-bottom: 15px;height: auto;padding: 14px 10px;display: flex;">
       <img id="${values?.logoLibrary?.selected?.id}-logo" src="${values?.logo_image?.url}" style="width: 100%; object-fit: contain; height: auto;max-height: 80px;" />
     </div>
     `;
