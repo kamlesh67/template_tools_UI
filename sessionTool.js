@@ -215,6 +215,7 @@ console.log('.isPreview?', isPreview)
   };
 
   const toolEmailTemplate = function (values, isViewer = false) {
+console.log('isViewer1', isViewer)
     if (values.sessionLibrary) {
       return `
   <div sessionId="${values?.sessionLibrary?.selected?.id}" style="position:relative;background-color:${
