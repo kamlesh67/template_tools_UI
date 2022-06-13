@@ -74,6 +74,7 @@
 
   const speakerAndBoothList = function (values, isPreview) {
 console.log('.sessionLibrary?', values?.speakers?.length, values?.sessionLibrary)
+console.log('.isPreview?', isPreview)
     if (values?.sessionLibrary?.selected?.id) {
       if (isPreview) {
         return ` 
