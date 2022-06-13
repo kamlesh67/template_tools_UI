@@ -74,11 +74,7 @@
 
   const speakerAndBoothList = function (values, isPreview) {
 console.log('.sessionLibrary?', values?.speakers?.length, values?.sessionLibrary)
-    if (
-      values?.speakers?.length ||
-      values?.sponsors?.length ||
-      !values?.sessionLibrary?.selected?.id
-    ) {
+    if (values?.sessionLibrary?.selected?.id) {
       if (isPreview) {
         return ` 
         <table width="100%">
@@ -87,14 +83,14 @@ console.log('.sessionLibrary?', values?.speakers?.length, values?.sessionLibrary
             <div align="left" style="display: flex; justify-content: start; align-items: center;" id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSpeakers">
-            ${!values?.sessionLibrary?.selected?.id ? defaultSpeaker : speakerList(values?.speakers)} 
+            ${!values?.sessionLibrary?.selected?.id || !values?.speakers?.length  ? '' : speakerList(values?.speakers)} 
             </div>
           </td>
           <td align="right">
             <div align="right" style="display: inline-flex;justify-content: end;align-items: center;"  id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSponsors">
-            ${!values?.sessionLibrary?.selected?.id ? defaultBooth : boothList(values?.sponsors)}
+            ${!values?.sessionLibrary?.selected?.id || !values?.sponsors?.length ? '' : boothList(values?.sponsors)}
             </div>
           </td>
         </tr>
@@ -108,14 +104,14 @@ console.log('.sessionLibrary?', values?.speakers?.length, values?.sessionLibrary
             <div align="left" style="display: flex; justify-content:start; align-items: center;" id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSpeakers">
-            ${!values?.sessionLibrary?.selected?.id ? defaultSpeaker : speakerList(values?.speakers)} 
+            ${!values?.sessionLibrary?.selected?.id || !values?.speakers?.length ? '' : speakerList(values?.speakers)} 
             </div>
           </td>
           <td align="right" valign="center">
             <div align="right" style="display: inline-flex; justify-content:end; align-items: center;"  id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSponsors">
-            ${!values?.sessionLibrary?.selected?.id ? defaultBooth : boothList(values?.sponsors)}
+            ${!values?.sessionLibrary?.selected?.id || !values?.sponsors?.length ? '' : boothList(values?.sponsors)}
             </div>
           </td>
         </tr>
