@@ -73,7 +73,6 @@
             </div>`;
 
   const speakerAndBoothList = function (values, isPreview) {
-console.log('.sessionLibrary?', values?.speakers?.length, values?.sessionLibrary)
 console.log('.isPreview?', isPreview)
     if (values?.sessionLibrary?.selected?.id) {
       if (isPreview) {
@@ -215,7 +214,6 @@ console.log('.isPreview?', isPreview)
   };
 
   const toolEmailTemplate = function (values, isViewer = false) {
-console.log('isViewer1', isViewer)
     if (values.sessionLibrary) {
       return `
   <div sessionId="${values?.sessionLibrary?.selected?.id}" style="position:relative;background-color:${
@@ -241,8 +239,8 @@ console.log('isViewer1', isViewer)
     };font-size: 12px;font-weight: 400; display: block; overflow: hidden; max-height: 34px; line-height:18px;">
       ${values?.description ? values.description : ''}
     </div>
-    <div style="margin-top:10px;">
-      ${values.isShowSpeakerAndBooth ? speakerAndBoothList(values) : ''}  
+    <div id="${values?.sessionLibrary?.selected?.id}-hideSpeakerAndBoothList" style="margin-top:10px;">
+      ${values.isShowSpeakerAndBooth ? speakerAndBoothList(values, true) : ''}  
     </div>
   </div>
 </div>
