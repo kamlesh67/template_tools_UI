@@ -73,6 +73,7 @@
             </div>`;
 
   const speakerAndBoothList = function (values, isPreview) {
+console.log('.sessionLibrary?', values?.speakers?.length, values?.sessionLibrary)
     if (
       values?.speakers?.length ||
       values?.sponsors?.length ||
