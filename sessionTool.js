@@ -73,7 +73,6 @@
             </div>`;
 
   const speakerAndBoothList = function (values, isPreview) {
-console.log('.isPreview?', isPreview)
     if (values?.sessionLibrary?.selected?.id) {
       if (isPreview) {
         return ` 
