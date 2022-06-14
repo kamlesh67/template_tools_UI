@@ -19,12 +19,12 @@
             </div>
          `;
 
-  const speakerList = function (speakers) {
+  const speakerList = function (speakers, sessionId) {
     let sps = ``;
     speakers.map((speaker, i) => {
       if (i <= 3) {
-        sps += ` <div id="${speakers?.id}-sessionSpeaker" style="height: 30px;width: 30px;overflow: hidden;border-radius: 30px; display: flex;margin-right:6px;">
-                  <img src="${speaker?.img}" alt="img" />
+        sps += ` <div id="${sessionId}-${speaker?.id}-sessionSpeaker" style="height: 30px;width: 30px;overflow: hidden;border-radius: 30px; display: flex;margin-right:6px;">
+                  <img id="${sessionId}-${speaker?.id}-sessionSpeakerImg" src="${speaker?.img}" alt="img" />
                 </div>`;
       }
     });
@@ -40,12 +40,12 @@
     return sps;
   };
 
-  const boothList = function (sponsors) {
+  const boothList = function (sponsors, sessionId) {
     let bts = ``;
     sponsors.map((booth, i) => {
       if (i <= 1) {
-        bts += ` <div id="${sponsors?.id}-sessionSponsor" style="height: 30px; width: 50px;overflow: hidden;border-radius: 4px;display: flex;margin-right: 6px;justify-content: center;padding: 2px;border: 1px solid #E0E0E0;background-color: #ffffff;box-sizing:border-box">
-                  <img src="${booth?.img}" alt="img" />
+        bts += ` <div id="${sessionId}-${booth?.id}-sessionSponsor" style="height: 30px; width: 50px;overflow: hidden;border-radius: 4px;display: flex;margin-right: 6px;justify-content: center;padding: 2px;border: 1px solid #E0E0E0;background-color: #ffffff;box-sizing:border-box">
+                  <img id="${sessionId}-${booth?.id}-sessionSponsorImg" src="${booth?.img}" alt="img" />
                 </div>`;
       }
     });
@@ -82,14 +82,14 @@
             <div align="left" style="display: flex; justify-content: start; align-items: center;" id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSpeakers">
-            ${!values?.sessionLibrary?.selected?.id || !values?.speakers?.length  ? '' : speakerList(values?.speakers)} 
+            ${!values?.sessionLibrary?.selected?.id || !values?.speakers?.length  ? '' : speakerList(values?.speakers, values?.sessionLibrary?.selected?.id)} 
             </div>
           </td>
           <td align="right">
             <div align="right" style="display: inline-flex;justify-content: end;align-items: center;"  id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSponsors">
-            ${!values?.sessionLibrary?.selected?.id || !values?.sponsors?.length ? '' : boothList(values?.sponsors)}
+            ${!values?.sessionLibrary?.selected?.id || !values?.sponsors?.length ? '' : boothList(values?.sponsors, values?.sessionLibrary?.selected?.id)}
             </div>
           </td>
         </tr>
@@ -103,14 +103,14 @@
             <div align="left" style="display: flex; justify-content:start; align-items: center;" id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSpeakers">
-            ${!values?.sessionLibrary?.selected?.id || !values?.speakers?.length ? '' : speakerList(values?.speakers)} 
+            ${!values?.sessionLibrary?.selected?.id || !values?.speakers?.length ? '' : speakerList(values?.speakers, values?.sessionLibrary?.selected?.id)} 
             </div>
           </td>
           <td align="right" valign="center">
             <div align="right" style="display: inline-flex; justify-content:end; align-items: center;"  id="${
               values?.sessionLibrary?.selected?.id
             }-sessionSponsors">
-            ${!values?.sessionLibrary?.selected?.id || !values?.sponsors?.length ? '' : boothList(values?.sponsors)}
+            ${!values?.sessionLibrary?.selected?.id || !values?.sponsors?.length ? '' : boothList(values?.sponsors, values?.sessionLibrary?.selected?.id)}
             </div>
           </td>
         </tr>
