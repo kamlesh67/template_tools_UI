@@ -189,7 +189,7 @@ console.log('clicked product')
               } else {
 console.log('clicked product item')
                 // If user click on child of product item (e.g. title, price, image or desctiption)
-                const parent = e.target.parentElement;
+                const parent = e?.target?.parentElement?.id === 'speakers-item' ? e?.target?.parentElement : e?.target?.parentElement?.parentElement;
 console.log('product item', parent, e.target)
                 if (parent && parent.id !== 'speakers-item') return;
                 const selectedProduct = data.speakers.find(
