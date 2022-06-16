@@ -388,10 +388,10 @@
     icon: 'fa-calendar',
     supportedDisplayModes: ['web', 'email'],
     options: { 
-      responsive: {// remove responsive design 
-        enabled: false,
-        title: "Responsive Design",
-      },
+//       responsive: {// remove responsive design 
+//         enabled: false,
+//         title: "Responsive Design",
+//       },
       sessionContent: {
         title: 'Session Content',
         position: 1,
