@@ -5,8 +5,8 @@
   <% _.forEach(speakers, function(item) { %>
     <div class="speakers-item card" id="speakers-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>" data-designation="<%= item.designation %>" data-image="<%= item.profile_img %>" data-company="<%= item.company %>" >
     <div class="speakers-media" style="padding:5px;"> <img src="<%= item.profile_img %>" alt="image" style="height:auto; width: 100%; object-fit:cover; border-radius: 8px;" /> </div>
-      <h3 style="margin:5px 8px 0; font-size:13px; text-align: left; color: ${theme.primaryFontColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item?.name %> </h4>
-      <h4 style="margin:5px 8px 0; font-size:12px; text-align: left; overflow: hidden; height: 32px; line-height: 15px; color: ${theme.accentColor};"><%= item?.designation %> <%= item?.designation && item?.company ? ',' : '' %> <%= item?.company %> </h5>
+      <h3 style="margin:5px 8px 0; font-size:13px; text-align: left; color: ${theme.accentColor};overflow: hidden;  display: block;  text-overflow: ellipsis;  white-space: nowrap;"><%= item?.name %> </h4>
+      <h4 style="margin:5px 8px 0; font-size:12px; text-align: left; overflow: hidden; height: 32px; line-height: 15px; color: ${theme.primaryFontColor};"><%= item?.designation %> <%= item?.designation && item?.company ? ',' : '' %> <%= item?.company %> </h5>
     </div>
   <% }); %>
 `);
@@ -98,9 +98,13 @@
     </style>
     <div  speakerId="${
       values?.speakerLibrary?.selected?.id
-    }" style="width: 115px; margin-bottom: 15px; height: 190px; padding-bottom: 10rem; overflow: hidden; border-radius: 8px; display: block; background-color:${values?.speakerBGColor}; box-sizing: border-box; border: 1px solid #d3d3d3;"> 
+    }" style="width: 115px; margin-bottom: 15px; height: 190px; padding-bottom: 10rem; overflow: hidden; border-radius: 8px; display: block; background-color:${
+        values?.speakerBGColor
+      }; box-sizing: border-box; border: 1px solid #d3d3d3;"> 
     <div class="speaker-img" style="padding:5px;">
-    <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${values?.speakerImage?.url}" alt="image" style="height:auto; width: 100%; object-fit:cover; position: relative; border-radius: 8px;" />
+    <img id="${values?.speakerLibrary?.selected?.id}-speakerImg" src="${
+        values?.speakerImage?.url
+      }" alt="image" style="height:auto; width: 100%; object-fit:cover; position: relative; border-radius: 8px;" />
     </div>
     <h3 id="${
       values?.speakerLibrary?.selected?.id
@@ -133,32 +137,32 @@
     const modal = document.getElementById('speaker_library_modal');
     modal.classList.remove('show');
   };
-  
+
   unlayer.registerPropertyEditor({
     name: 'speaker_background_color',
     Widget: unlayer.createWidget({
-        render(value, updateValue, data) {
-        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Speaker Background Color</span>`
+      render(value, updateValue, data) {
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Speaker Background Color</span>`;
       },
-    })
+    }),
   });
 
   unlayer.registerPropertyEditor({
     name: 'speaker_name_color',
     Widget: unlayer.createWidget({
-        render(value, updateValue, data) {
-        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Speaker Name Color</span>`
+      render(value, updateValue, data) {
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Speaker Name Color</span>`;
       },
-    })
+    }),
   });
 
   unlayer.registerPropertyEditor({
     name: 'speaker_designation_and_company_color',
     Widget: unlayer.createWidget({
-        render(value, updateValue, data) {
-        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Speaker Designation and Company Color</span>`
+      render(value, updateValue, data) {
+        return `<input value=${value} disabled/> <span style="font-size: 12px;color:#8f9699;font-weight:600;float:right">Speaker Designation and Company Color</span>`;
       },
-    })
+    }),
   });
 
   unlayer.registerPropertyEditor({
@@ -186,7 +190,10 @@
                 updateValue({ selected: selectedProduct });
               } else {
                 // If user click on child of product item (e.g. title, price, image or desctiption)
-                const parent = e?.target?.parentElement?.id === 'speakers-item' ? e?.target?.parentElement : e?.target?.parentElement?.parentElement;
+                const parent =
+                  e?.target?.parentElement?.id === 'speakers-item'
+                    ? e?.target?.parentElement
+                    : e?.target?.parentElement?.parentElement;
                 if (parent && parent.id !== 'speakers-item') return;
                 const selectedProduct = data.speakers.find(
                   (item) => item.id === parseInt(parent.dataset.uuid)
@@ -201,7 +208,11 @@
             /* Register event listeners for search */
             const searchBar = document.querySelector('#search-bar-speaker');
             searchBar.onkeydown = function (e) {
-              if(e?.which === 13 || !e.target.value || (e.target.value.length === 1 && e?.which === 8)){ 
+              if (
+                e?.which === 13 ||
+                !e.target.value ||
+                (e.target.value.length === 1 && e?.which === 8)
+              ) {
                 const list = document.querySelector('#speaker_library_modal .speakers-list');
                 let filteredItem;
                 let speakersListHtml;
@@ -260,10 +271,10 @@
     icon: 'fa-microphone',
     supportedDisplayModes: ['web', 'email'],
     options: {
-//       responsive: {// remove responsive design 
-//         enabled: false,
-//         title: "Responsive Design",
-//       },
+      //       responsive: {// remove responsive design
+      //         enabled: false,
+      //         title: "Responsive Design",
+      //       },
       speakerContent: {
         title: 'Speaker Content',
         position: 1,
@@ -276,18 +287,19 @@
         },
       },
       colorContent: {
-        title: 'Color options for the speaker have been disabled. Make changes to the speaker colors via the Theme option in Brand Your Event.',
+        title:
+          'Color options for the speaker have been disabled. Make changes to the speaker colors via the Theme option in Brand Your Event.',
         options: {
           speakerBGColor: {
-           defaultValue: theme?.primaryColor,
-           widget: 'speaker_background_color',
-         },
+            defaultValue: theme?.primaryColor,
+            widget: 'speaker_background_color',
+          },
           speakerTitleColor: {
-            defaultValue: theme?.primaryFontColor,
+            defaultValue: theme?.accentColor,
             widget: 'speaker_name_color',
           },
           speakerDesignationCompanyColor: {
-            defaultValue: theme?.accentColor,
+            defaultValue: theme?.primaryFontColor,
             widget: 'speaker_designation_and_company_color',
           },
         },
