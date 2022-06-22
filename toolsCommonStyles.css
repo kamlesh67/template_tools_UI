@@ -106,7 +106,7 @@
   flex: 1 1 auto;
   padding: 1rem;
   overflow-x: auto;
-  height: 500px;
+  height: 463px;
   padding-bottom: 80px;
 }
 
@@ -123,6 +123,7 @@
   justify-content: flex-end;
   padding: 1rem;
   border-top: 1px solid #e9ecef;
+  display:none;
 }
 
 /* Modal Content */
@@ -293,8 +294,8 @@
 
 .booth-item{     
   width: 150px;
-  margin-right: 15px;
-  margin-bottom: 15px;
+  margin-right: 11px;
+  margin-bottom: 11px;
   height: 150px; 
   border: 1px solid #d3d3d3;
   border-radius: .75rem;
