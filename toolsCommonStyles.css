@@ -106,7 +106,7 @@
   flex: 1 1 auto;
   padding: 1rem;
   overflow-x: auto;
-  height: 500px;
+  height: 463px;
   padding-bottom: 80px;
 }
 
@@ -123,6 +123,7 @@
   justify-content: flex-end;
   padding: 1rem;
   border-top: 1px solid #e9ecef;
+  display:none;
 }
 
 /* Modal Content */
