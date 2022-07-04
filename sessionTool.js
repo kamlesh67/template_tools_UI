@@ -217,7 +217,7 @@
       return `
   <div sessionId="${values?.sessionLibrary?.selected?.id}" style="position:relative;background-color:${
     values.sessionCardBGColor
-  };margin-bottom: 15px;height: auto;padding: 14px;border-radius: 8px; max-width:540px;" >
+  };margin-bottom: 15px;height: auto;padding: 14px;border-radius: 8px; max-width:540px;" sessionUid="sct01">
   <div class="session-card-body">
     <p style="color:${
       values.sessionDateAndTimeColor
