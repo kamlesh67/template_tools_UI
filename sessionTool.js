@@ -143,7 +143,7 @@
   <div style="width: 87%; height: auto;" class="session-item" id="session-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-date-time="<%= item.dateAndTime %>" >
     <p style="color: ${theme.accentColor};">
     <span style="padding-right: 4px;vertical-align: middle;color: ${theme.accentColor};">
-      <img src="https://immo-virtualevent-cdn.s3.ap-south-1.amazonaws.com/icon_png/u_clock-seven.png" style="width: 18px; height: 18px;" />
+      <img src="https://immo-virtualevent-cdn.s3.ap-south-1.amazonaws.com/icon_png/u_clock-seven.png" style="width: 16px; height: 16px; vertical-align: top;" />
     </span>
      <%= item.dateAndTime %> 
      </p>
@@ -193,7 +193,7 @@
       }" >
     <div class="session-card-body">
       <p class="session-date" style="color:${values.sessionDateAndTimeColor};">
-      <img src="https://immo-virtualevent-cdn.s3.ap-south-1.amazonaws.com/icon_png/u_clock-seven.png" style="width: 18px; height: 18px; vertical-align: middle;" /> <span style="margin-left:10px"> ${
+      <img src="https://immo-virtualevent-cdn.s3.ap-south-1.amazonaws.com/icon_png/u_clock-seven.png" style="width: 16px; height: 16px; vertical-align: middle;" /> <span style="margin-left:10px"> ${
         values?.dateAndTime ? values?.dateAndTime : ''
       } </span>
       </p>
@@ -238,7 +238,7 @@
     <p style="color:${
       values.sessionDateAndTimeColor
     };display: flex;align-items: center;font-size: 12px;font-weight: 500;">
-    <img src="https://immo-virtualevent-cdn.s3.ap-south-1.amazonaws.com/icon_png/u_clock-seven.png" style="width: 18px; height: 18px; vertical-align: middle;" /> <span id="${
+    <img src="https://immo-virtualevent-cdn.s3.ap-south-1.amazonaws.com/icon_png/u_clock-seven.png" style="width: 16px; height: 16px; vertical-align: middle;" /> <span id="${
       values?.sessionLibrary?.selected?.id
     }-sessionDateAndTime" style="margin-left:10px"> ${
         values?.dateAndTime ? values.dateAndTime : ''
