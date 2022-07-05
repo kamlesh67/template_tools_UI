@@ -33,7 +33,7 @@
         theme.accentColor
       }; color:${
         theme.secondaryFontColor
-      };height: 30px;width: 30px;overflow: hidden;border-radius: 30px; display: flex; justify-content: center;align-items: center;font-size: 13px;">
+      };height: 30px;width: 30px;overflow: hidden;border-radius: 30px; display: flex; justify-content: center;align-items: center;font-size: 13px; line-height: 30px;">
               +${speakers.length - 4}
             </div>`;
     }
@@ -54,7 +54,7 @@
         theme.accentColor
       };color:${
         theme.secondaryFontColor
-      };height: 30px;width: 30px;overflow: hidden;border-radius: 4px; display: flex; justify-content: center;align-items: center;font-size: 13px;"> 
+      };height: 30px;width: 30px;overflow: hidden;border-radius: 4px; display: flex; justify-content: center;align-items: center;font-size: 13px; line-height: 30px;"> 
                +${sponsors.length - 2}
             </div>`;
     }
