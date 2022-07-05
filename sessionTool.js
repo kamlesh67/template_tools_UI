@@ -143,7 +143,7 @@
   <div style="width: 87%; height: auto;" class="session-item" id="session-item" data-uuid='<%= item.id %>' data-title="<%= item.name %>"  data-date-time="<%= item.dateAndTime %>" >
     <p style="color: ${theme.accentColor};">
     <span style="padding-right: 4px;vertical-align: middle;color: ${theme.accentColor};">
-      <img src="https://immo-virtualevent-cdn.s3.ap-south-1.amazonaws.com/icon_png/u_clock-seven.png" style="width: 18px; height: 18px; vertical-align: middle;" />
+      <img src="https://immo-virtualevent-cdn.s3.ap-south-1.amazonaws.com/icon_png/u_clock-seven.png" style="width: 18px; height: 18px;" />
     </span>
      <%= item.dateAndTime %> 
      </p>
