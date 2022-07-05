@@ -45,7 +45,7 @@
     sponsors.map((booth, i) => {
       if (i <= 1) {
         bts += ` <div id="${sessionId}-${booth?.id}-sessionSponsor" style="height: 30px; width: 50px;overflow: hidden;border-radius: 4px;display: flex;margin-right: 6px;justify-content: center;padding: 2px;border: 1px solid #E0E0E0;background-color: #ffffff;box-sizing:border-box">
-                  <img id="${sessionId}-${booth?.id}-sessionSponsorImg" src="${booth?.img}" alt="img" />
+                  <img id="${sessionId}-${booth?.id}-sessionSponsorImg" src="${booth?.img}" alt="img" style="margin:0 auto;"/>
                 </div>`;
       }
     });
