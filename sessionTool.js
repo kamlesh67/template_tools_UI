@@ -332,6 +332,7 @@
             if (!selectButton) return;
             selectButton.onclick = function (e) {
               if (e.target.id === 'session-item') {
+                console.log('clicks on product item')
                 // If user clicks on product item
                 // Find selected item from sessions list
                 const selectedProduct = data.sessions.find(
@@ -339,6 +340,7 @@
                 );
                 updateValue({ selected: selectedProduct });
               } else {
+                console.log('clicks on child of product item')
                 // If user click on child of product item (e.g. title, price, image or desctiption)
                 const parent = e.target.parentElement;
                 if (parent && parent.id !== 'session-item') return;
