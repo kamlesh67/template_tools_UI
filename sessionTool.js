@@ -342,10 +342,7 @@
               } else {
                 console.log('clicks on child of product item')
                 // If user click on child of product item (e.g. title, price, image or desctiption)
-//                 const parent = e.target.parentElement;
-const parent = e?.target?.parentElement?.id === 'session-item' ? e?.target?.parentElement : e?.target?.parentElement?.parentElement;
-                console.log('parent', e.target.parentElement)
-// console.log('parent2', e.target.parentElement.parentElement)
+                const parent = e?.target?.parentElement?.id === 'session-item' ? e?.target?.parentElement : e?.target?.parentElement?.parentElement;
                 if (parent && parent.id !== 'session-item') return;
                 const selectedProduct = data.sessions.find(
                   (item) => item.id === parseInt(parent.dataset.uuid)
