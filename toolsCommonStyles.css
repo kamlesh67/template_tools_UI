@@ -320,7 +320,7 @@
 /* Booth card css */
 .booth-card{     
   width: 100%; 
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   height: 160px;
   padding: 1rem; 
   background-color: #fff;
@@ -373,7 +373,7 @@
 /* session card css */
 .session-card{     
   width: 100%; 
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   height: auto;
   padding: 14px; 
   background-color: #fff;
