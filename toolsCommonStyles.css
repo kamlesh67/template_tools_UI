@@ -247,7 +247,7 @@
 /* Speaker card css */
 .speaker-card{     
   width: 115px; 
-  margin-bottom: 15px;
+  margin: 0 auto;
   height: 195px;
   padding-bottom: 10rem;
   overflow: hidden;
